@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+   <RelativeLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
+        <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        
+        >
+        <ImageView 
+            android:id="@+id/image_collect"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_launcher"
+            />
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               >
+
+               <TextView
+                   android:id="@+id/title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="20dp"
+                   android:layout_marginRight="15dp"
+                   android:textSize="12dp"
+                   android:textColor="#363636"
+                   android:text="马克华菲长袖衬衫男士韩版时尚修身纯色亚麻 白衬衣潮2016秋装新款"
+                   />
+               <TextView
+                   android:id="@+id/size"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="颜色：白色 尺码：XL"
+                   android:textSize="11dp"
+                   android:textColor="#959595"
+                   android:layout_marginTop="6dp"
+                   />
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_marginTop="6dp"
+                   android:gravity="center_vertical"
+                   >
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="￥"
+
+                       android:textColor="#DD0000"
+                       android:textSize="9dp"
+
+                       />
+                   <TextView
+                       android:id="@+id/price"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="178.00"
+                       android:textColor="#DE0909"
+                       />
+
+               </LinearLayout>
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/quxiao"
+               android:layout_alignParentRight="true"
+
+               android:background="@drawable/sellect__item_textview"
+               android:textColor="#fff"
+               android:layout_marginRight="12dp"
+               android:layout_marginBottom="6dp"
+               android:paddingTop="4dp"
+               android:paddingBottom="4dp"
+               android:paddingLeft="8dp"
+               android:paddingRight="8dp"
+               android:gravity="center"
+               android:layout_alignParentBottom="true"
+               />
+
+
+       </RelativeLayout>
+        
+    </LinearLayout>
+    
+        
+       
+       
+   </RelativeLayout>
+    
+
+</LinearLayout>

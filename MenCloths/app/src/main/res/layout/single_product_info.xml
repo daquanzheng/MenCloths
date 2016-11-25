@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:scrollbars="none"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="#111"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="14dp"
+                    android:layout_height="23dp"
+                    android:src="@mipmap/back"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="12dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品详情"
+                    android:textColor="#fff"
+                    android:textSize="18dp"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+
+            <com.men_cloths.mainContent.ViewFillperForNormal
+                android:id="@+id/normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                >
+
+            </com.men_cloths.mainContent.ViewFillperForNormal>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="3dp"
+                android:background="#111"
+                android:layout_marginTop="31dp"
+                android:layout_marginLeft="78dp"
+                android:layout_marginRight="78dp"
+                >
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="#32B8B3"
+                    android:visibility="invisible"
+                    />
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="#32B8B3"
+                    />
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="#32B8B3"
+                    android:visibility="invisible"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="76dp"
+                android:layout_marginRight="76dp"
+                android:text="WINDERFLIES\t\t暗纹格子衬衫"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textColor="#111"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18dp"
+                android:textColor="#32B8B3"
+                android:text="￥499.00"
+                />
+
+
+           <RelativeLayout
+               android:layout_gravity="center_horizontal"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:padding="10dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="6dp"
+                   android:textSize="13dp"
+                   android:textColor="#959595"
+                   android:text="￥999.00"
+                   android:gravity="center"
+                   android:layout_centerVertical="true"
+                   />
+               <View
+                   android:layout_width="50dp"
+                   android:layout_height="1dp"
+                   android:layout_centerInParent="true"
+                   android:background="#959595"
+                   />
+
+           </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:padding="10dp"
+                android:text="商品描述"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="#111"
+                android:background="#E5E5E5"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="30dp"
+                android:text="ZETA意大利纯手工制作白色休闲鞋"
+                android:textColor="#111"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="34dp"
+                android:text="这款休闲鞋设计时尚独特，金色鞋扣以及鞋后跟标志性可脱卸 流苏配件，使它从细节处脱颖而出。无鞋带款，穿脱便捷，意 大利MARGOM外底，好看耐穿。"
+                android:textColor="#111"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:padding="10dp"
+                android:text="单品相似"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="#111"
+                android:background="#E5E5E5"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_margin="12dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <ImageView
+                        android:id="@+id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/clothes6"
+                        android:scaleType="centerCrop"
+                        />
+                    <LinearLayout
+                        android:layout_alignBottom="@id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#535353"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="产品的出处型号"
+                            android:textColor="#fff"
+                            android:gravity="center"
+                            android:paddingTop="6dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="价格"
+                            android:textColor="#32B8B3"
+                            android:paddingBottom="7dp"
+                            />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/clothes5"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/image2"
+                        />
+                    <LinearLayout
+                        android:layout_alignBottom="@id/image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#535353"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="产品的出处型号"
+                            android:textColor="#fff"
+                            android:gravity="center"
+                            android:paddingTop="6dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="价格"
+                            android:textColor="#32B8B3"
+                            android:paddingBottom="7dp"
+                            />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/clothes4"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/image3"
+                        />
+                    <LinearLayout
+                        android:layout_alignBottom="@id/image3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#535353"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="产品的出处型号"
+                            android:textColor="#fff"
+                            android:gravity="center"
+                            android:paddingTop="6dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="价格"
+                            android:textColor="#32B8B3"
+                            android:paddingBottom="7dp"
+                            />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+
+            <!--****************************************************************-->
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/xingxing"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:paddingLeft="19dp"
+            android:paddingRight="19dp"
+            android:alpha="0.7"
+            android:background="#111"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.01"
+            android:layout_height="match_parent"
+            android:text="加入购物车"
+            android:textColor="#fff"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:alpha="0.7"
+            android:background="#111"
+            />
+
+        <TextView
+            android:textSize="16dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="加入购物车"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="#111"
+            />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

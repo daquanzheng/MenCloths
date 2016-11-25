@@ -1,0 +1,35 @@
+<resources>
+    <string name="trend_item_title1">2016年秋冬运动新品速递</string>
+    <string name="trend_item_title2">2016年时尚秋装推荐展示</string>
+    <string name="hot_seller_item_title1">16 秋冬新款 Abercrombie Fitch 翻领长袖 AF 纯棉修身 POLO衫</string>
+    <string name="hot_seller_item_title2">古老鲨鱼 2016 秋冬新款精致刺绣亮彩条纹柔软舒适时尚长袖 T恤</string>
+    <string name="hot_seller_item_title3">AFS JEEP 秋季韩版收口小脚针织卫裤松紧束脚运动裤男束腿休闲长裤</string>
+    <string name="hot_seller_item_title4">男鞋 2016 新款男士牛皮时尚休闲皮鞋运动休闲板鞋子男 黑色标准 皮鞋码</string>
+    <string name="app_name">极品男装</string>
+    <string name="title_brand">品牌关注</string>
+    <string name="seting">设置</string>
+    <string name="person_info">个人资料</string>
+    <string name="user">账户</string>
+    <string name="oher">通用</string>
+    <string name="message">消息</string>
+    <string name="head">头像</string>
+    <string name="setyourname">还是空的，快来设置个性化名子吧</string>
+    <string name="man">男</string>
+    <string name="address_seting">收获地址</string>
+    <string name="user_name">账户名</string>
+    <string name="interchangedable">通用</string>
+    <string name="shengliuliang">开启省流量模式</string>
+    <string name="ding_wei_server">开启定位服务</string>
+    <string name="collect">收藏</string>
+    <string name="quxiao">取消收藏</string>
+    <string name="cancel">可以取消可以取消可以取消可以取消可以取消可以取消可以取消可以取消可以取消可以取消</string>
+    <string name="navigation_page1_name">「潮流与个性」</string>
+    <string name="navigation_page1_goal">你好色彩穿出我风格</string>
+    <string name="navigation_page2_name">「时尚与装扮」</string>
+    <string name="navigation_page2_goal">只为让你更加出色</string>
+    <string name="navigation_page3_name">「魅力与张扬」</string>
+    <string name="navigation_page3_goal">穿出你的味道</string>
+    <string name="navigation_page4_name">「叛逆与阳光」</string>
+    <string name="navigation_page4_goal">我的时尚我做主</string>
+
+</resources>

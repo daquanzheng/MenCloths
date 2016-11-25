@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    >
+
+    <TextView
+        android:background="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请输入你要绑定的手机号,你会收到一条短信"
+        android:paddingTop="6dp"
+        android:paddingLeft="19dp"
+        android:textColor="#AAAAAA"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_softpassswd"
+       android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="国家和地区"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="17dp"
+            android:textSize="12dp"
+            android:textColor="#111"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="中国大陆+86 >"
+            android:gravity="right"
+            android:paddingRight="16dp"
+            android:textColor="#111"
+            android:textSize="12dp"
+
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/edittext_softpassswd"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="17dp"
+            android:textSize="12dp"
+            android:textColor="#111"
+            />
+
+        <EditText
+            android:id="@+id/tel_number_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="请输入手机号"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            android:paddingRight="16dp"
+            android:textColor="#111"
+            android:textSize="12dp"
+            android:background="#fff"
+
+            />
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下一步"
+        android:textSize="12dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/frament_button"
+        />
+
+
+
+
+
+
+</LinearLayout>
