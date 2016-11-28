@@ -173,7 +173,7 @@ public class HomeActivity extends FragmentActivity{
                     classifyBtn.setButtonDrawable(null);
                     mineBtn.setText(null);
                     mineBtn.setButtonDrawable(R.mipmap.mine);
-                    Intent intent3=new Intent(HomeActivity.this,MainPageActivity.class);
+                    Intent intent3=new Intent(HomeActivity.this,MyMainpageInActivity.class);
                     startActivity(intent3);
                     break;
                 case R.id.home_new_product:

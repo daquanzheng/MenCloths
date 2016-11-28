@@ -13,7 +13,8 @@
         >
          
         
-        <ImageView 
+        <ImageView
+            android:id="@+id/back"
             android:layout_width="11dp"
             android:layout_height="19dp"
             android:src="@mipmap/left"

@@ -11,18 +11,16 @@ import android.widget.TextView;
 import com.men_cloths.R;
 
 /**
- * Created by Administrator on 2016/11/25.
+ * Created by Administrator on 2016/11/28.
  */
-public class MainPageActivity extends Activity{
+public class MyMainpageInActivity extends Activity{
     ViewHolder viewHolder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wode_main);
+        setContentView(R.layout.wode_main_in);
         viewHolder = new ViewHolder();
         viewHolder.set_page = (ImageView) findViewById(R.id.set_page);
-        viewHolder.enter = (Button) findViewById(R.id.denglu);
-        viewHolder.addUser = (Button) findViewById(R.id.zhuce);
         viewHolder.dingdan = (TextView) findViewById(R.id.dingdan);
         viewHolder.youhuijuan = (TextView) findViewById(R.id.youhuijuan);
         viewHolder.address = (TextView) findViewById(R.id.address);
@@ -34,8 +32,6 @@ public class MainPageActivity extends Activity{
         viewHolder.zhanghu = (TextView) findViewById(R.id.zhanghu);
 
         viewHolder.set_page.setOnClickListener(onClickListener);
-        viewHolder.enter.setOnClickListener(onClickListener);
-        viewHolder.addUser.setOnClickListener(onClickListener);
         viewHolder.dingdan.setOnClickListener(onClickListener);
         viewHolder.youhuijuan.setOnClickListener(onClickListener);
         viewHolder.address.setOnClickListener(onClickListener);
@@ -52,49 +48,43 @@ public class MainPageActivity extends Activity{
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.set_page:
-                    intent.setClass(MainPageActivity.this,Seting.class);
-                    startActivity(intent);
-                    break;
-                case R.id.denglu:
-                    intent.setClass(MainPageActivity.this,ActivityLogin.class);
-                    startActivity(intent);
-                    break;
-                case R.id.zhuce:
-                    intent.setClass(MainPageActivity.this,ActivityRegister.class);
+                    intent.setClass(MyMainpageInActivity.this,Seting.class);
                     startActivity(intent);
                     break;
                 case R.id.dingdan:
-                    intent.setClass(MainPageActivity.this,DingDanActivity.class);
+                    intent.setClass(MyMainpageInActivity.this,DingDanActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.youhuijuan:
-                    intent.setClass(MainPageActivity.this,Coupon.class);
+                    intent.setClass(MyMainpageInActivity.this,Coupon.class);
                     startActivity(intent);
                     break;
                 case R.id.address:
-                    intent.setClass(MainPageActivity.this,MyAddressActivity.class);
+                    intent.setClass(MyMainpageInActivity.this,MyAddressActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.message:
-                    intent.setClass(MainPageActivity.this,MessAge.class);
+                    intent.setClass(MyMainpageInActivity.this,MessAge.class);
                     startActivity(intent);
                     break;
                 case R.id.collect:
-                    intent.setClass(MainPageActivity.this,Collection.class);
+                    intent.setClass(MyMainpageInActivity.this,Collection.class);
                     startActivity(intent);
                     break;
                 case R.id.pinpai:
-                    intent.setClass(MainPageActivity.this,Brand.class);
+                    intent.setClass(MyMainpageInActivity.this,Brand.class);
                     startActivity(intent);
                     break;
                 case R.id.zuji:
+                    intent.setClass(MyMainpageInActivity.this,FootprintActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.helper:
-                    intent.setClass(MainPageActivity.this,MyHelperActivity.class);
+                    intent.setClass(MyMainpageInActivity.this,MyHelperActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.zhanghu:
-                    intent.setClass(MainPageActivity.this,Account.class);
+                    intent.setClass(MyMainpageInActivity.this,Account.class);
                     startActivity(intent);
                     break;
             }
