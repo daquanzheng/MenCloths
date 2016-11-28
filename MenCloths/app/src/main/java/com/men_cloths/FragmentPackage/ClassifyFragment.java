@@ -1,7 +1,10 @@
-package com.men_cloths.mainContent;
+package com.men_cloths.FragmentPackage;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.men_cloths.R;
@@ -12,32 +15,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/11/10.
+ * Created by Administrator on 2016/11/28.
  */
-public class ClassifyActvity extends Activity{
-
+public class ClassifyFragment extends Fragment{
     ListView listView;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mencloths_mall);
-        listView= (ListView) findViewById(R.id.listview_mall);
-        ClassifyAdapter classifyAdapter=new ClassifyAdapter(this,getData());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.mencloths_mall,null);
+        listView= (ListView)view.findViewById(R.id.listview_mall);
+        ClassifyAdapter classifyAdapter=new ClassifyAdapter(getActivity(),getData());
         listView.setAdapter(classifyAdapter);
+        return view;
     }
-
     public List<Classify> getData(){
         List<Classify> classifyList=new ArrayList<>();
         for(int i=0;i<12;i++){
             Classify classify=new Classify();
             switch (i%3){
-                    case 0:
-                        classify.setImgId1(R.mipmap.classify_t_shirt);
-                        classify.setText1("T恤");
-                        classify.setImgId2(R.mipmap.classify_shirt);
-                        classify.setText2("衬衫");
-                        break;
+                case 0:
+                    classify.setImgId1(R.mipmap.classify_t_shirt);
+                    classify.setText1("T恤");
+                    classify.setImgId2(R.mipmap.classify_shirt);
+                    classify.setText2("衬衫");
+                    break;
                 case 1:
                     classify.setImgId1(R.mipmap.classify_hoodie);
                     classify.setText1("卫衣");
@@ -51,9 +51,8 @@ public class ClassifyActvity extends Activity{
                     classify.setText2("配饰");
                     break;
             }
-        classifyList.add(classify);
+            classifyList.add(classify);
         }
         return classifyList;
     }
 }
-

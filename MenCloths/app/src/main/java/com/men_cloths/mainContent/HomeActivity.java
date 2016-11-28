@@ -1,213 +1,174 @@
 package com.men_cloths.mainContent;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
-import com.men_cloths.FragmentPackage.HotSellerFragment;
-import com.men_cloths.FragmentPackage.NewProductFragment;
-import com.men_cloths.FragmentPackage.ShowFragment;
-import com.men_cloths.FragmentPackage.TrendFragment;
+import com.men_cloths.FragmentPackage.ClassifyFragment;
+import com.men_cloths.FragmentPackage.CollocateFragment;
+import com.men_cloths.FragmentPackage.HomeFragment;
+import com.men_cloths.FragmentPackage.MallFragment;
+import com.men_cloths.FragmentPackage.MineFragment;
 import com.men_cloths.R;
-import com.men_cloths.adapter.HomeFragmentAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.men_cloths.model.MyButton;
 
 /**
- * Created by Administrator on 2016/11/1.
+ * Created by Administrator on 2016/11/28.
  */
 public class HomeActivity extends FragmentActivity{
-    ViewPager viewPager;
-    List<Fragment> fragmentList;
-    NewProductFragment newProductFragment=new NewProductFragment();
-    HotSellerFragment hotSellerFragment=new HotSellerFragment();
-    TrendFragment trendFragment=new TrendFragment();
-    ShowFragment showFragment=new ShowFragment();
+    MyButton homeMyButton;
+    MyButton mallMyButton;
+    MyButton collocateMyButton;
+    MyButton classifyMyButton;
+    MyButton mineMyButton;
+    Boolean[] myButtonClick={true,false,false,false,false,};
     FragmentManager fragmentManager=getSupportFragmentManager();
-    RadioGroup topRadioGroup;
-    RadioButton newProductBtn;
-    RadioButton hotSellerBtn;
-    RadioButton trendBtn;
-    RadioButton showBtn;
-    RadioGroup homeRadioGroup;
-    RadioButton homeBtn;
-    RadioButton mallBtn;
-    RadioButton collocateBtn;
-    RadioButton classifyBtn;
-    RadioButton mineBtn;
-    boolean style;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mencloths_home);
-        viewPager= (ViewPager) findViewById(R.id.home_viewPager);
-        homeRadioGroup= (RadioGroup) findViewById(R.id.home_radioGroup);
-        homeRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
-        homeBtn= (RadioButton) findViewById(R.id.home);
-        mallBtn=(RadioButton) findViewById(R.id.mall);
-        collocateBtn=(RadioButton) findViewById(R.id.collocate);
-        classifyBtn=(RadioButton) findViewById(R.id.classify);
-        mineBtn=(RadioButton) findViewById(R.id.mine);
-         topRadioGroup= (RadioGroup) findViewById(R.id.home_top_menubar);
-         newProductBtn= (RadioButton) findViewById(R.id.home_new_product);
-        hotSellerBtn= (RadioButton) findViewById(R.id.home_hot_seller);
-         trendBtn= (RadioButton) findViewById(R.id.home_trend);
-         showBtn= (RadioButton) findViewById(R.id.home_showing);
-        topRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
-        HomeFragmentAdapter homeFragmentAdapter=new HomeFragmentAdapter(fragmentManager,getFragmentList());
-        viewPager.setAdapter(homeFragmentAdapter);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                        switch (position){
-                            case 0:
-                                newProductBtn.setChecked(true);
-                                break;
-                            case 1:
-                                hotSellerBtn.setChecked(true);
-                                break;
-                            case 2:
-                                trendBtn.setChecked(true);
-                                break;
-                            case 3:
-                                showBtn.setChecked(true);
-                                break;
-                        }
-
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
+        setContentView(R.layout.root_home_relativelayout);
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        HomeFragment homeFragment=new HomeFragment();
+        fragmentTransaction.add(R.id.root_relativeLayout,homeFragment,"home");
+        fragmentTransaction.commit();
+        homeMyButton= (MyButton) findViewById(R.id.home_button);
+        mallMyButton= (MyButton) findViewById(R.id.mall_button);
+        collocateMyButton= (MyButton) findViewById(R.id.collocate_button);
+        classifyMyButton= (MyButton) findViewById(R.id.classify_button);
+        mineMyButton= (MyButton) findViewById(R.id.mine_button);
+        homeMyButton.setOnClickListener(onClickListener);
+        mallMyButton.setOnClickListener(onClickListener);
+        collocateMyButton.setOnClickListener(onClickListener);
+        classifyMyButton.setOnClickListener(onClickListener);
+        mineMyButton.setOnClickListener(onClickListener);
+        initial();
     }
-    public List<Fragment> getFragmentList(){
-        fragmentList=new ArrayList<>();
-        fragmentList.add(newProductFragment);
-        fragmentList.add(hotSellerFragment);
-        fragmentList.add(trendFragment);
-        fragmentList.add(showFragment);
-        return fragmentList;
+    public void initial(){
+        if (myButtonClick[0]) {
+            homeMyButton.setImgResource(R.mipmap.home);
+            homeMyButton.setText("");
+        }else {
+            homeMyButton.setImgResource(0);
+            homeMyButton.setText("首页");
+            homeMyButton.setTextSize(20);
+            homeMyButton.setTextColor(getResources().getColor(R.color.green_bg));
+        }
+        if (myButtonClick[1]) {
+            mallMyButton.setImgResource(R.mipmap.mall);
+            mallMyButton.setText("");
+        }else {
+            mallMyButton.setImgResource(0);
+            mallMyButton.setText("商城");
+            mallMyButton.setTextSize(20);
+            mallMyButton.setTextColor(getResources().getColor(R.color.green_bg));
+        }
+        if(myButtonClick[2]){
+            collocateMyButton.setText("");
+            collocateMyButton.setImgResource(R.mipmap.collocate);
+        } else {
+            collocateMyButton.setImgResource(0);
+            collocateMyButton.setText("搭配");
+            collocateMyButton.setTextSize(20);
+            collocateMyButton.setTextColor(getResources().getColor(R.color.green_bg));
+        }
+        if(myButtonClick[3]){
+            classifyMyButton.setImgResource(R.mipmap.classify);
+            classifyMyButton.setText("");
+        }else {
+            classifyMyButton.setImgResource(0);
+            classifyMyButton.setText("分类");
+            classifyMyButton.setTextSize(20);
+            classifyMyButton.setTextColor(getResources().getColor(R.color.green_bg));
+        }
+        if(myButtonClick[4]){
+            mineMyButton.setText("");
+            mineMyButton.setImgResource(R.mipmap.mine);
+        }else {
+            mineMyButton.setImgResource(0);
+            mineMyButton.setText("我的");
+            mineMyButton.setTextSize(20);
+            mineMyButton.setTextColor(getResources().getColor(R.color.green_bg));
+        }
     }
-    RadioGroup.OnCheckedChangeListener onCheckedChangeListener=new RadioGroup.OnCheckedChangeListener() {
+    View.OnClickListener onClickListener=new View.OnClickListener() {
         @Override
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
-            switch (checkedId){
-                case R.id.home:
-                    homeBtn.setText(null);
-                    homeBtn.setButtonDrawable(R.mipmap.home);
-                    mallBtn.setText("商城");
-                    mallBtn.setButtonDrawable(null);
-                    collocateBtn.setText("搭配");
-                    collocateBtn.setButtonDrawable(null);
-                    classifyBtn.setText("分类");
-                    classifyBtn.setButtonDrawable(null);
-                    mineBtn.setText("我的");
-                    mineBtn.setButtonDrawable(null);
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.home_button:
+                    for(int i=0;i<myButtonClick.length;i++){
+                        if(i==0){
+                            myButtonClick[i]=true;
+                        }else {
+                            myButtonClick[i]=false;
+                        }
+                    }
+                    initial();
+                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                    HomeFragment homeFragment=new HomeFragment();
+                    fragmentTransaction.replace(R.id.root_relativeLayout,homeFragment,"home");
+                    fragmentTransaction.commit();
                     break;
-                case R.id.mall:
-                    homeBtn.setText("首页");
-                    homeBtn.setButtonDrawable(null);
-                    mallBtn.setText(null);
-                    mallBtn.setButtonDrawable(R.mipmap.mall);
-                    collocateBtn.setText("搭配");
-                    collocateBtn.setButtonDrawable(null);
-                    classifyBtn.setText("分类");
-                    classifyBtn.setButtonDrawable(null);
-                    mineBtn.setText("我的");
-                    mineBtn.setButtonDrawable(null);
-                    Intent intent=new Intent(HomeActivity.this,MallActivity.class);
-                    startActivity(intent);
+                case R.id.mall_button:
+                    for(int i=0;i<myButtonClick.length;i++){
+                        if(i==1){
+                            myButtonClick[i]=true;
+                        }else {
+                            myButtonClick[i]=false;
+                        }
+                    }
+                    initial();
+                    fragmentTransaction=fragmentManager.beginTransaction();
+                    MallFragment mallFragment=new MallFragment();
+                    fragmentTransaction.replace(R.id.root_relativeLayout,mallFragment);
+                    fragmentTransaction.commit();
                     break;
-                case R.id.collocate:
-                    homeBtn.setText("首页");
-                    homeBtn.setButtonDrawable(null);
-                    mallBtn.setText("商城");
-                    mallBtn.setButtonDrawable(null);
-                    collocateBtn.setText(null);
-                    collocateBtn.setButtonDrawable(R.mipmap.collocate);
-                    classifyBtn.setText("分类");
-                    classifyBtn.setButtonDrawable(null);
-                    mineBtn.setText("我的");
-                    mineBtn.setButtonDrawable(null);
-                    Intent intent1=new Intent(HomeActivity.this,CollocateActivity.class);
-                    startActivity(intent1);
+                case R.id.collocate_button:
+                    for(int i=0;i<myButtonClick.length;i++){
+                        if(i==2){
+                            myButtonClick[i]=true;
+                        }else {
+                            myButtonClick[i]=false;
+                        }
+                    }
+                    initial();
+                    fragmentTransaction=fragmentManager.beginTransaction();
+                    CollocateFragment collocateFragment=new CollocateFragment();
+                    fragmentTransaction.replace(R.id.root_relativeLayout,collocateFragment);
+                    fragmentTransaction.commit();
                     break;
-                case R.id.classify:
-                    homeBtn.setText("首页");
-                    homeBtn.setButtonDrawable(null);
-                    mallBtn.setText("商城");
-                    mallBtn.setButtonDrawable(null);
-                    collocateBtn.setText("搭配");
-                    collocateBtn.setButtonDrawable(null);
-                    classifyBtn.setText(null);
-                    classifyBtn.setButtonDrawable(R.mipmap.classify);
-                    mineBtn.setText("我的");
-                    mineBtn.setButtonDrawable(null);
-                    Intent intent2=new Intent(HomeActivity.this,ClassifyActvity.class);
-                    startActivity(intent2);
+                case R.id.classify_button:
+                    for(int i=0;i<myButtonClick.length;i++){
+                        if(i==3){
+                            myButtonClick[i]=true;
+                        }else {
+                            myButtonClick[i]=false;
+                        }
+                    }
+                    initial();
+                    fragmentTransaction=fragmentManager.beginTransaction();
+                    ClassifyFragment classifyFragment=new ClassifyFragment();
+                    fragmentTransaction.replace(R.id.root_relativeLayout,classifyFragment);
+                    fragmentTransaction.commit();
                     break;
-                case R.id.mine:
-                    homeBtn.setText("首页");
-                    homeBtn.setButtonDrawable(null);
-                    mallBtn.setText("商城");
-                    mallBtn.setButtonDrawable(null);
-                    collocateBtn.setText("搭配");
-                    collocateBtn.setButtonDrawable(null);
-                    classifyBtn.setText("分类");
-                    classifyBtn.setButtonDrawable(null);
-                    mineBtn.setText(null);
-                    mineBtn.setButtonDrawable(R.mipmap.mine);
-                    Intent intent3=new Intent(HomeActivity.this,MainPageActivity.class);
-                    startActivity(intent3);
-                    break;
-                case R.id.home_new_product:
-                    viewPager.setCurrentItem(0);
-                    newProductBtn.setTextColor(getResources().getColor(R.color.green_bg));
-                    hotSellerBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    trendBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    showBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    break;
-                case R.id.home_hot_seller:
-                    viewPager.setCurrentItem(1);
-                    newProductBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    hotSellerBtn.setTextColor(getResources().getColor(R.color.green_bg));
-                    trendBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    showBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    break;
-                case R.id.home_trend:
-                    viewPager.setCurrentItem(2);
-                    newProductBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    hotSellerBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    trendBtn.setTextColor(getResources().getColor(R.color.green_bg));
-                    showBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    break;
-                case R.id.home_showing:
-                    viewPager.setCurrentItem(3);
-                    newProductBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    hotSellerBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    trendBtn.setTextColor(getResources().getColor(R.color.black_model));
-                    showBtn.setTextColor(getResources().getColor(R.color.green_bg));
+                case R.id.mine_button:
+                    for(int i=0;i<myButtonClick.length;i++){
+                        if(i==4){
+                            myButtonClick[i]=true;
+                        }else {
+                            myButtonClick[i]=false;
+                        }
+                    }
+                    initial();
+                    fragmentTransaction=fragmentManager.beginTransaction();
+                    MineFragment mineFragment=new MineFragment();
+                    fragmentTransaction.replace(R.id.root_relativeLayout,mineFragment);
+                    fragmentTransaction.commit();
                     break;
             }
         }
     };
-
-
 
 }

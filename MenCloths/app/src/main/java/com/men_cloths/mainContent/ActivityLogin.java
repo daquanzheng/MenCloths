@@ -21,21 +21,21 @@ public class ActivityLogin extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //login();
+        login();
         register();
 
     }
 
-//    public void login(){
-//    login=(TextView) findViewById(R.id.textview_loginpage_login);
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(ActivityLogin.this,下一个页面的类);
-//                startActivity(intent);
-//            }
-//        });
-//    }
+    public void login(){
+    login=(TextView) findViewById(R.id.textview_loginpage_login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ActivityLogin.this,MyMainpageInActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
     public void register(){
         register=(TextView)findViewById(R.id.textview_loginpage_register);
         register.setOnClickListener(new View.OnClickListener() {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Coupon extends Activity{
-
+	ImageView back;
 	private RadioGroup group;
 	private List<Integer> list=new ArrayList<>();
 
@@ -30,6 +31,8 @@ public class Coupon extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.copon);
 		group=(RadioGroup) findViewById(R.id.group);
+
+		back = (ImageView) findViewById(R.id.back);
 		
 		radiao[0]=(RadioButton) findViewById(R.id.already_used);
 		radiao[1]=(RadioButton) findViewById(R.id.can_use);
@@ -49,6 +52,9 @@ public class Coupon extends Activity{
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				// TODO Auto-generated method stub
 				switch(checkedId){
+					case R.id.back:
+						finish();
+						break;
 				case R.id.already_used:
 
 					createDatebase1(3);

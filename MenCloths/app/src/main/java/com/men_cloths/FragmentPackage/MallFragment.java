@@ -1,7 +1,10 @@
-package com.men_cloths.mainContent;
+package com.men_cloths.FragmentPackage;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -12,19 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/11/9.
+ * Created by Administrator on 2016/11/28.
  */
-public class MallActivity extends Activity{
+public class MallFragment extends Fragment{
     ListView listView;
     EditText editText;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mencloths_mall);
-        listView= (ListView) findViewById(R.id.listview_mall);
-        editText= (EditText) findViewById(R.id.edit_mall);
-        MallAdapter mallAdapter=new MallAdapter(this,getData());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.mencloths_mall,null);
+        listView= (ListView) view.findViewById(R.id.listview_mall);
+        editText= (EditText) view.findViewById(R.id.edit_mall);
+        MallAdapter mallAdapter=new MallAdapter(getActivity(),getData());
         listView.setAdapter(mallAdapter);
+
+        return view;
     }
     public List<Integer> getData(){
         List<Integer> list=new ArrayList<>();
@@ -44,6 +48,6 @@ public class MallActivity extends Activity{
                     break;
             }
         }
-    return list;
+        return list;
     }
 }

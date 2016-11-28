@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
         <ImageView
             android:id="@+id/classify_item_img1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/classify_t_shirt"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@mipmap/classify_t_shirt" />
+
         <TextView
             android:id="@+id/classify_item_text1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/black_model2"
+            android:gravity="center"
             android:text="T恤"
             android:textColor="@color/white"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:background="@color/black_model"
-            android:alpha="0.4"
-            />
+            android:textSize="30sp" />
     </FrameLayout>
+
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
         <ImageView
             android:id="@+id/classify_item_img2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/classify_shirt"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@mipmap/classify_shirt" />
+
         <TextView
             android:id="@+id/classify_item_text2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/black_model2"
+            android:gravity="center"
             android:text="衬衫"
             android:textColor="@color/white"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:background="@color/black_model"
-            android:alpha="0.4"
-            />
+            android:textSize="30sp" />
     </FrameLayout>
-</LinearLayout>
 </LinearLayout>

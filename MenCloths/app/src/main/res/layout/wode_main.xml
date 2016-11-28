@@ -18,16 +18,11 @@
                 android:background="@mipmap/logo_bg"
                 android:orientation="vertical">
                 <ImageView
-                    android:id="@+id/set_page"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/shezhi"
-                    android:layout_margin="10dp"/>
-                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/circle_bg"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="45dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
