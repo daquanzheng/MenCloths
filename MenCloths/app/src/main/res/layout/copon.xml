@@ -57,8 +57,8 @@
             android:textSize="15dp"
             android:checked="true"
             />
-        
-        <RadioButton 
+
+        <RadioButton
             android:id="@+id/can_use"
             android:padding="10dp"
             android:layout_width="0dp"
@@ -70,7 +70,7 @@
             android:textSize="15dp"
             android:checked="false"
             />
-        
+
         <RadioButton 
             android:id="@+id/not_used"
             android:padding="10dp"
@@ -117,6 +117,13 @@
             />
         
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
     
     
     

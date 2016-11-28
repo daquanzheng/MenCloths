@@ -13,19 +13,27 @@ import com.men_cloths.R;
  */
 
 public class Seting extends Activity{
-    LinearLayout linearLayout,message,interchanged,personInfo;//账户
+    private LinearLayout linearLayout,message,interchanged,personInfo;//账户
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seting);
+        setOnclit();
+
+
+
+    }
+
+    public void setOnclit(){
         findViewById(R.id.come_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        linearLayout= (LinearLayout) findViewById(R.id.account);
+        linearLayout= (LinearLayout) findViewById(R.id.account);//账户
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +41,7 @@ public class Seting extends Activity{
                 startActivity(intent);
             }
         });
-        message= (LinearLayout) findViewById(R.id.message);
+        message= (LinearLayout) findViewById(R.id.message);//消息
         message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +49,7 @@ public class Seting extends Activity{
                 startActivity(intent);
             }
         });
-        interchanged= (LinearLayout) findViewById(R.id.interchanged);
+        interchanged= (LinearLayout) findViewById(R.id.interchanged);//设置
         interchanged.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +58,7 @@ public class Seting extends Activity{
             }
         });
 
-        personInfo= (LinearLayout) findViewById(R.id.personInfo);
+        personInfo= (LinearLayout) findViewById(R.id.personInfo);//个人资料
         personInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +66,5 @@ public class Seting extends Activity{
                 startActivity(intent);
             }
         });
-
     }
 }
