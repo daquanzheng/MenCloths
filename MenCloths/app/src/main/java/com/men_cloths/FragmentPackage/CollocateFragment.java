@@ -1,7 +1,10 @@
-package com.men_cloths.mainContent;
+package com.men_cloths.FragmentPackage;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.men_cloths.R;
@@ -12,22 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/11/9.
+ * Created by Administrator on 2016/11/28.
  */
-public class CollocateActivity extends Activity{
+public class CollocateFragment extends Fragment{
     ListView listView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mencloths_mall);
-        listView= (ListView) findViewById(R.id.listview_mall);
-        CollocateAdapter collocateAdapter=new CollocateAdapter(this,getData());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.mencloths_mall,null);
+        listView= (ListView)view.findViewById(R.id.listview_mall);
+        CollocateAdapter collocateAdapter=new CollocateAdapter(getActivity(),getData());
         listView.setAdapter(collocateAdapter);
-
+        return view;
     }
-
-
     public List<Collocate> getData(){
         List<Collocate> collocateList=new ArrayList<>();
         for(int i=0;i<10;i++){
@@ -53,7 +53,7 @@ public class CollocateActivity extends Activity{
                 collocate.setPartImg4(R.mipmap.collocate_img02_04);
                 collocate.setPartImg4Title("黑色系带皮鞋");
             }
-        collocateList.add(collocate);
+            collocateList.add(collocate);
         }
         return collocateList;
     }

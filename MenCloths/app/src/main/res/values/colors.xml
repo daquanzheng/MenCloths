@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="black_model">#111111</color>
+    <color name="black_model">#B3111111</color>
+    <color name="black_model2">#33111111</color>
     <color name="green_bg">#32b8b3</color>
     <color name="spacing_simple">#e5e5e5</color>
     <color name="spacing_deep">#959595</color>
@@ -22,7 +23,7 @@
     <color name="set_split_line">#e5e5e5</color>
     <color name="set_open">#969696</color>
     <color name="set_close">#52a321</color>
-    <color name="white">#fff</color>
+    <color name="white">#ffffffff</color>
     <color name="yellow_bg">#fff100</color>
     <color name="spacing">#ccc</color>
     <color name="shangcheng_lianjie">#32b8b3</color>
