@@ -43,6 +43,12 @@ public class Coupon extends Activity{
 		listView= (ListView) findViewById(R.id.list_view);
 		createDatebase1(3);
 		listView.setAdapter(baseAdapter);
+		back.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 
 
 
