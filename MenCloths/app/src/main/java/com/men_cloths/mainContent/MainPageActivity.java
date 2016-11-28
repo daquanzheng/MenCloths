@@ -46,37 +46,56 @@ public class MainPageActivity extends Activity{
         viewHolder.helper.setOnClickListener(onClickListener);
         viewHolder.zhanghu.setOnClickListener(onClickListener);
     }
-    Intent intent;
+    Intent intent = new Intent();
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.set_page:
-                    intent = new Intent();
                     intent.setClass(MainPageActivity.this,Seting.class);
                     startActivity(intent);
                     break;
                 case R.id.denglu:
+                    intent.setClass(MainPageActivity.this,ActivityLogin.class);
+                    startActivity(intent);
                     break;
                 case R.id.zhuce:
+                    intent.setClass(MainPageActivity.this,ActivityRegister.class);
+                    startActivity(intent);
                     break;
                 case R.id.dingdan:
+                    intent.setClass(MainPageActivity.this,DingDanActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.youhuijuan:
+                    intent.setClass(MainPageActivity.this,Coupon.class);
+                    startActivity(intent);
                     break;
                 case R.id.address:
+                    intent.setClass(MainPageActivity.this,MyAddressActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.message:
+                    intent.setClass(MainPageActivity.this,MessAge.class);
+                    startActivity(intent);
                     break;
                 case R.id.collect:
+                    intent.setClass(MainPageActivity.this,Collection.class);
+                    startActivity(intent);
                     break;
                 case R.id.pinpai:
+                    intent.setClass(MainPageActivity.this,Brand.class);
+                    startActivity(intent);
                     break;
                 case R.id.zuji:
                     break;
                 case R.id.helper:
+                    intent.setClass(MainPageActivity.this,MyHelperActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.zhanghu:
+                    intent.setClass(MainPageActivity.this,Account.class);
+                    startActivity(intent);
                     break;
             }
         }

@@ -50,6 +50,10 @@
         <activity android:name=".mainContent.ActivityLogin"/>
         <activity android:name=".mainContent.ActivityLoginSuccess"/>
         <activity android:name=".mainContent.ActivityRegister"/>
+        <activity android:name=".mainContent.DingDanActivity"/>
+        <activity android:name=".mainContent.MyAddressActivity"/>
+        <activity android:name=".mainContent.AddNewAddressActivity"/>
+        <activity android:name=".mainContent.MyHelperActivity"/>
 
     </application>
 
