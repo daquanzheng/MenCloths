@@ -9,10 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.model.Shop;
 
 import java.util.List;
-
-import com.men_cloths.model.Shop;
 
 public class Adapter {
 	
@@ -130,12 +129,24 @@ public class Adapter {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
 			LayoutInflater inflater=LayoutInflater.from(context);
+			TextView textView=null;
 			
 			if(convertView==null)
 			{
-				convertView=inflater.inflate(R.layout.pupuwindow_list_view_iten,null);
+				convertView=inflater.inflate(R.layout.xml_item,null);
+				textView= (TextView) convertView.findViewById(R.id.status);
+				convertView.setTag(textView);
+			}else {
+				textView= (TextView) convertView.getTag();
 			}
-			
+			if(list.get(position)==2) {
+				textView.setText("未使用");
+			}else if(list.get(position)==1){
+				textView.setText("已使用");
+			}else {
+				textView.setText("已过期");
+			}
+
 			
 			return convertView;
 		}

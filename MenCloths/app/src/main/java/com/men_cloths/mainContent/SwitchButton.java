@@ -20,10 +20,7 @@ public class SwitchButton extends View{
     private Paint mpaint,paint;
     private Rect drect,res;
     private Bitmap first,second,ro;
-
-
-
-    Boolean state;
+    private Boolean state;
     private OnSwitchButtonClickListene listener;
     public  interface OnSwitchButtonClickListene{
         public void OnSwitchButtonClick(boolean state);
@@ -37,13 +34,28 @@ public class SwitchButton extends View{
         init();
     }
 
+    public void setState(Boolean state){
+        this.state=state;
+        if(state)
+        {
+            flag=75;
+        }else{
+            flag=25;
+        }
+        this.invalidate();
+    }
+
+    public Boolean getstat(){
+        return state;
+    }
+
     public SwitchButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
         //obtainStyledAttributes(int[]) (in android.content.Context)
         TypedArray typedArray=context.obtainStyledAttributes(attrs, R.styleable.switchButton);
         state=typedArray.getBoolean(R.styleable.switchButton_state,true);
-        if(state==true)
+        if(state)
         {
             flag=75;
         }else{

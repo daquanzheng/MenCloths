@@ -2,29 +2,27 @@ package com.men_cloths.mainContent;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.men_cloths.R;
+import com.men_cloths.adapter.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.men_cloths.adapter.Adapter;
 
 public class Coupon extends Activity{
 
 	private RadioGroup group;
-	private List<Integer> list;
+	private List<Integer> list=new ArrayList<>();
 
 	private	RadioButton radiao[]=new RadioButton[3];
 	private	View views[]=new View[3];
+	private ListView listView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +37,9 @@ public class Coupon extends Activity{
 		views[0]=findViewById(R.id.view1);
 		views[1]=findViewById(R.id.view2);
 		views[2]=findViewById(R.id.view3);
-
+		listView= (ListView) findViewById(R.id.list_view);
+		createDatebase1(3);
+		listView.setAdapter(baseAdapter);
 
 
 
@@ -51,15 +51,8 @@ public class Coupon extends Activity{
 				switch(checkedId){
 				case R.id.already_used:
 
-					if(pop==null)
-					{
-
-						createPopupWindow(radiao[0]);
-
-					}else{
-
-						pop.showAsDropDown(radiao[0]);
-					}
+					createDatebase1(3);
+					baseAdapter.notifyDataSetChanged();
 					for(int i=0;i<3;i++)
 					{
 						if(i==0){
@@ -70,12 +63,8 @@ public class Coupon extends Activity{
 					}
 					break;
                 case R.id.can_use:
-					if(pop==null)
-					{
-						createPopupWindow(radiao[1]);
-					}else{
-						pop.showAsDropDown(radiao[1]);
-					}
+					createDatebase2(3);
+					baseAdapter.notifyDataSetChanged();
                 	for(int i=0;i<3;i++)
 					{
 						if(i==1){
@@ -86,12 +75,8 @@ public class Coupon extends Activity{
 					}
 					break;
                case R.id.not_used:
-				   if(pop==null)
-				   {
-					   createPopupWindow(radiao[2]);
-				   }else{
-					   pop.showAsDropDown(radiao[2]);
-				   }
+				   createDatebase3(3);
+				   baseAdapter.notifyDataSetChanged();
             	   for(int i=0;i<3;i++)
 					{
 						if(i==2){
@@ -101,37 +86,52 @@ public class Coupon extends Activity{
 						views[i].setVisibility(View.INVISIBLE);
 					}
 	               break;
-				
-				
 				}
 				
 			}
 		});
 	}
-	
-	public void createDatebase(){
-		list=new ArrayList<Integer>();
-		list.add(123);
-		
+
+	public void createDatebase1(int len){
+		list.clear();
+		for(int i=0;i<len;i++){
+			list.add(1);
+		}
 		
 	}
-	PopupWindow pop;
-
-	BaseAdapter baseAdapter;
-	public void createPopupWindow(View view){
-		createDatebase();
-		View v=LayoutInflater.from(this).inflate(R.layout.popupwindow_item,null);
-		ListView listview=(ListView) v.findViewById(R.id.list_view_popupwindow);
-		baseAdapter=new Adapter().getPopupWindowAdapter(this, list);
-		baseAdapter.notifyDataSetChanged();
-		listview.setAdapter(baseAdapter);
-
-
-		pop=new PopupWindow(v);
-		pop.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-		pop.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-		pop.showAsDropDown(view);
+	public void createDatebase2(int len){
+		list.clear();
+		for(int i=0;i<len;i++){
+			list.add(2);
+		}
 
 	}
+	public void createDatebase3(int len){
+		list.clear();
+		for(int i=0;i<len;i++){
+			list.add(3);
+		}
+
+	}
+
+	BaseAdapter baseAdapter=new Adapter().getPopupWindowAdapter(this, list);
+//	PopupWindow pop;
+//
+//	BaseAdapter baseAdapter;
+//	public void createPopupWindow(View view){
+//		createDatebase1();
+//		View v=LayoutInflater.from(this).inflate(R.layout.popupwindow_item,null);
+//		ListView listview=(ListView) v.findViewById(R.id.list_view_popupwindow);
+//		baseAdapter=new Adapter().getPopupWindowAdapter(this, list);
+//		baseAdapter.notifyDataSetChanged();
+//		listview.setAdapter(baseAdapter);
+//
+//
+//		pop=new PopupWindow(v);
+//		pop.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+//		pop.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+//		pop.showAsDropDown(view);
+//
+//	}
 
 }

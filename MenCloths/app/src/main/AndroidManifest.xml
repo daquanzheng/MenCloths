@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.men_cloths">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
 
     <application
         android:allowBackup="true"
@@ -10,18 +21,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.men_cloths.mainContent.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".mainContent.MallActivity"></activity>
         <activity android:name=".mainContent.CollocateActivity"></activity>
         <activity android:name=".mainContent.ClassifyActvity"></activity>
         <activity android:name=".mainContent.SearchActivity"></activity>
 
-        <activity android:name=".mainContent.Seting"/>
+        <activity android:name=".mainContent.Seting">
+
+        </activity>
         <activity android:name=".mainContent.Account" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.Interchangeable" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.MessAge" android:launchMode="singleTask"/>
@@ -30,16 +39,20 @@
         <activity android:name=".mainContent.Collection" />
         <activity android:name=".mainContent.Brand"/>
         <activity android:name=".mainContent.BindtoTel" android:launchMode="singleTask"/>
-        <activity android:name=".mainContent.Coupon"/>
+        <activity android:name=".mainContent.Coupon">
+
+        </activity>
         <activity android:name=".mainContent.Passwd" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassword" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassWorldForChange" android:launchMode="singleTask"/>
 
         <activity android:name="com.men_cloths.mainContent.TrendActivity"/>
 
-        <activity android:name=".mainContent.ShopInfo"></activity>
+        <activity android:name=".mainContent.ShopInfo">
 
-        <activity android:name=".mainContent.Test"></activity>
+        </activity>
+
+
         <activity android:name=".mainContent.MainPageActivity"/>
 
         <activity android:name=".mainContent.ActivityViewPager"/>
@@ -50,6 +63,11 @@
         <activity android:name=".mainContent.ActivityLogin"/>
         <activity android:name=".mainContent.ActivityLoginSuccess"/>
         <activity android:name=".mainContent.ActivityRegister"/>
+        <activity android:name=".MainActivity">
+            
+        </activity>
+
+
 
     </application>
 
