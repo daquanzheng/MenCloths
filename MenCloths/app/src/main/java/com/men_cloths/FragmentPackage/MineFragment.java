@@ -37,7 +37,7 @@ public class MineFragment extends Fragment{
         viewHolder.helper = (TextView) view.findViewById(R.id.helper);
         viewHolder.zhanghu = (TextView) view.findViewById(R.id.zhanghu);
 
-        viewHolder.set_page.setOnClickListener(onClickListener);
+//        viewHolder.set_page.setOnClickListener(onClickListener);
         viewHolder.enter.setOnClickListener(onClickListener);
         viewHolder.addUser.setOnClickListener(onClickListener);
         viewHolder.dingdan.setOnClickListener(onClickListener);
@@ -97,7 +97,6 @@ public class MineFragment extends Fragment{
         }
     };
     public class ViewHolder{
-        ImageView set_page;
         Button enter;
         Button addUser;
         TextView dingdan;
