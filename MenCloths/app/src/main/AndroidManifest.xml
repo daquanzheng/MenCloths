@@ -60,6 +60,7 @@
         <activity android:name=".mainContent.AddNewAddressActivity"/>
         <activity android:name=".mainContent.MyHelperActivity"/>
         <activity android:name=".mainContent.FootprintActivity"/>
+        <activity android:name=".mainContent.AddressEditActivity"/>
 
     </application>
 

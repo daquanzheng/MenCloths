@@ -92,8 +92,6 @@ public class MyMainpageInActivity extends Activity{
     };
     public class ViewHolder{
         ImageView set_page;
-        Button enter;
-        Button addUser;
         TextView dingdan;
         TextView youhuijuan;
         TextView address;

@@ -45,9 +45,16 @@
                     android:layout_marginLeft="20dp"
                     android:text="尺码："/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="XL"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="交易成功"
+                    android:textColor="#ea9356"
+                    android:layout_marginRight="15dp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/goods_price"
@@ -67,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/check_dingdan"
-                    android:text="查看订单"
+                    android:text="删除订单"
                     android:textColor="#111"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
@@ -76,7 +83,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="立即付款"
+                    android:text="查看物流"
                     android:textColor="#fff"
                     android:background="@drawable/button_bg"
                     android:paddingTop="3dp"
@@ -88,5 +95,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
