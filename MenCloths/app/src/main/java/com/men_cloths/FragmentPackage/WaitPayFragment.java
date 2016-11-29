@@ -23,7 +23,7 @@ public class WaitPayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_daifukuan,null);
-        listView = (ListView) view.findViewById(R.id.wait_pay_listview);
+        listView = (ListView) view.findViewById(R.id.wait_all_listview);
         WaitpayAdapter waitpayAdapter = new WaitpayAdapter(getActivity(),getLists());
         listView.setAdapter(waitpayAdapter);
         return view;

@@ -97,7 +97,6 @@ public class MineFragment extends Fragment{
         }
     };
     public class ViewHolder{
-        ImageView set_page;
         Button enter;
         Button addUser;
         TextView dingdan;

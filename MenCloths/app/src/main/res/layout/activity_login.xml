@@ -109,21 +109,25 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp">
         <ImageView
+            android:id="@+id/tencent"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:src="@mipmap/tencent"/>
         <ImageView
+            android:id="@+id/wechat"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:src="@mipmap/weixin_gray"/>
         <ImageView
+            android:id="@+id/sina"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:src="@mipmap/weibo"/>
         <ImageView
+            android:id="@+id/taobao"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

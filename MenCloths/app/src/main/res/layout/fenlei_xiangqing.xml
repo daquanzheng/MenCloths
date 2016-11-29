@@ -13,7 +13,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@color/black_model">
+                android:background="@color/brand_font">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="22dp"
