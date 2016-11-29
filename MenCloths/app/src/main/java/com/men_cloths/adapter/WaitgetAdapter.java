@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.men_cloths.R;
-import com.men_cloths.model.Waitget;
+import com.men_cloths.model.WaitGet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,22 +16,22 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitgetAdapter extends BaseAdapter{
-    List<Waitget> waitgetList = new ArrayList<>();
+    List<WaitGet> waitGetList = new ArrayList<>();
     Context context;
     LayoutInflater inflater;
-    public WaitgetAdapter(Context context, List<Waitget> waitgetList){
+    public WaitgetAdapter(Context context, List<WaitGet> waitGetList){
         this.context = context;
-        this.waitgetList = waitgetList;
+        this.waitGetList = waitGetList;
         inflater = LayoutInflater.from(context);
     }
     @Override
     public int getCount() {
-        return waitgetList.size();
+        return waitGetList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return waitgetList.get(position);
+        return waitGetList.get(position);
     }
 
     @Override

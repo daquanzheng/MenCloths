@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.WaitgetAdapter;
-import com.men_cloths.model.Waitget;
+import com.men_cloths.model.WaitGet;
 
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class WaitGetFragment extends Fragment{
     ListView listView;
-    List<Waitget> lists = new ArrayList<>();
+    List<WaitGet> lists = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_daifukuan,null);
@@ -29,10 +29,10 @@ public class WaitGetFragment extends Fragment{
         listView.setAdapter(waitgetAdapter);
         return view;
     }
-    public List<Waitget> getLists(){
+    public List<WaitGet> getLists(){
         for(int i=0;i<5;i++){
-            Waitget waitget = new Waitget();
-            lists.add(waitget);
+            WaitGet waitGet = new WaitGet();
+            lists.add(waitGet);
         }
         return lists;
     }

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,185 +33,17 @@
         android:layout_height="1dp"
         android:background="@color/spacing"
         android:layout_marginTop="5dp"/>
-    <LinearLayout
+    <ListView
+        android:id="@+id/my_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="12dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收货地址"
-            android:textColor="#111"
-            android:textSize="18sp"/>
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="6dp"
-            android:src="@mipmap/xia"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="张先生"
-            android:textColor="#111"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14354193642"
-            android:layout_marginRight="18dp"
-            android:textColor="#111"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="7dp"
-        android:text="重庆市渝中区石油路235号"
-        android:textColor="#111"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="12dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/yuandian"
-            android:layout_gravity="center_vertical"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="默认地址"
-            android:layout_marginLeft="6dp"
-            android:textColor="#f08f04"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="编辑"
-            android:textColor="#7bc2f2"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="删除"
-            android:textColor="#111"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"/>
-    </LinearLayout>
+        android:dividerHeight="5dp"
+        android:divider="#e5e5e5"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="6dp"
         android:background="#e5e5e5"
         android:layout_marginTop="12dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="12dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收货地址"
-            android:textColor="#111"
-            android:textSize="18sp"/>
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="6dp"
-            android:src="@mipmap/xia"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="张先生"
-            android:textColor="#111"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14354193642"
-            android:layout_marginRight="18dp"
-            android:textColor="#111"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="7dp"
-        android:text="重庆市渝中区石油路235号"
-        android:textColor="#111"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="12dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/yuanquan"
-            android:layout_gravity="center_vertical"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="默认地址"
-            android:layout_marginLeft="6dp"
-            android:textColor="#111"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="编辑"
-            android:textColor="#7bc2f2"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="删除"
-            android:textColor="#111"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:background="#e5e5e5"
-        android:layout_marginTop="12dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收货地址"
-            android:textColor="#111"
-            android:textSize="18sp"
-            android:paddingTop="13dp"
-            android:paddingBottom="13dp"
-            android:layout_marginLeft="18dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/you"
-            android:layout_marginLeft="6dp"
-            android:layout_gravity="center_vertical"/>
     </LinearLayout>
     <Button
         android:id="@+id/add_newaddress"
@@ -224,7 +53,5 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#31b8b2"
-        android:layout_marginTop="142dp"/>
-    </LinearLayout>
-</ScrollView>
-    </LinearLayout>
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
