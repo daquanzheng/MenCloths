@@ -1,6 +1,7 @@
 package com.men_cloths.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.NewProduct;
 import com.men_cloths.model.Trend;
 
@@ -59,6 +61,21 @@ public class NewProductAdapter extends BaseAdapter{
         textView2.setText(newProduct.getContent2());
         TextView textPrice2= (TextView) convertView.findViewById(R.id.new_text_price2);
         textPrice2.setText("￥"+newProduct.getPrice2());
+//        imageView1.setOnClickListener(onClickListener);
+//        imageView2.setOnClickListener(onClickListener);
         return convertView;
     }
+//    View.OnClickListener onClickListener=new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()){
+//                case R.id.new_img1:
+//                    Intent intent=new Intent(context, ShopInfo.class);
+//                    context.startActivity(intent);
+//                case R.id.new_img2:
+//                    intent=new Intent(context, ShopInfo.class);
+//                    context.startActivity(intent);
+//            }
+//        }
+//    };
 }
