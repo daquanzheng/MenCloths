@@ -1,14 +1,19 @@
 package com.men_cloths.FragmentPackage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.ClassifyAdapter;
+import com.men_cloths.mainContent.ClassifyInfo;
+import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.Classify;
 
 import java.util.ArrayList;
@@ -25,6 +30,27 @@ public class ClassifyFragment extends Fragment{
         listView= (ListView)view.findViewById(R.id.listview_mall);
         ClassifyAdapter classifyAdapter=new ClassifyAdapter(getActivity(),getData());
         listView.setAdapter(classifyAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ImageView imageView= (ImageView) view.findViewById(R.id.classify_item_img1);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getActivity(), ClassifyInfo.class);
+                        getActivity().startActivity(intent);
+                    }
+                });
+                ImageView imageView1= (ImageView) view.findViewById(R.id.classify_item_img2);
+                imageView1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getActivity(),ClassifyInfo.class);
+                        getActivity().startActivity(intent);
+                    }
+                });
+            }
+        });
         return view;
     }
     public List<Classify> getData(){

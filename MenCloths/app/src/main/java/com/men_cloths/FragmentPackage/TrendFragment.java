@@ -1,14 +1,18 @@
 package com.men_cloths.FragmentPackage;
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ListView;
+
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.TrendAdapter;
+
 import com.men_cloths.model.Trend;
 
 import java.util.ArrayList;

@@ -40,8 +40,11 @@
         <activity android:name="com.men_cloths.mainContent.TrendActivity"/>
 
         <activity android:name=".mainContent.ShopInfo"></activity>
+        <activity android:name=".mainContent.ThreadInfo"></activity>
+        <activity android:name=".mainContent.MallInfo"></activity>
+        <activity android:name=".mainContent.ClassifyInfo"></activity>
 
-        <activity android:name=".mainContent.Test"></activity>
+        <!--<activity android:name=".mainContent.Test"></activity>-->
         <activity android:name=".mainContent.MyMainpageInActivity"/>
 
         <activity android:name=".mainContent.ActivityViewPager"/>
