@@ -83,6 +83,7 @@
             android:textColor="#111"
             android:textSize="12dp"
             android:background="#fff"
+            android:textCursorDrawable="@null"
 
             />
 

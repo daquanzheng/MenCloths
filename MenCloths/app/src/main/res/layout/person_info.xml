@@ -92,6 +92,7 @@
             android:textSize="14sp"
             android:hint="还是空的，快去设置个性化名字吧"
             android:paddingLeft="10dp"
+            android:textCursorDrawable="@null"
 
             />
 

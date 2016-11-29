@@ -56,6 +56,7 @@
         android:gravity="center"
         >
         <EditText
+            android:textCursorDrawable="@null"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -64,6 +65,7 @@
             android:gravity="center"
             />
         <EditText
+            android:textCursorDrawable="@null"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -71,6 +73,7 @@
             android:gravity="center"
             />
         <EditText
+            android:textCursorDrawable="@null"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -81,6 +84,7 @@
 
             />
         <EditText
+            android:textCursorDrawable="@null"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
