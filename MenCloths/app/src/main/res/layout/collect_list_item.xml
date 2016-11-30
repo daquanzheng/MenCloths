@@ -82,11 +82,11 @@
 
            </LinearLayout>
            <TextView
+               android:id="@+id/cancel"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="@string/quxiao"
                android:layout_alignParentRight="true"
-
                android:background="@drawable/sellect__item_textview"
                android:textColor="#fff"
                android:layout_marginRight="12dp"

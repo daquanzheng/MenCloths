@@ -6,6 +6,7 @@
     android:background="@mipmap/login"
    >
     <EditText
+        android:id="@+id/edit_register_phonenumb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="|  我的手机号码"
@@ -18,7 +19,9 @@
         android:layout_marginRight="35dp"
         android:layout_marginTop="50dp"
         android:textSize="12dp"
-        android:background="@null"/>
+        android:background="@null"
+        android:digits="0123456789"
+        android:maxLength="11"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -26,6 +29,7 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"/>
     <EditText
+        android:id="@+id/edit_register_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="|  我的密码"
@@ -49,6 +53,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/edit_register_authcode"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

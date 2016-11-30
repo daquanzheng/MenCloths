@@ -1,14 +1,17 @@
 package com.men_cloths.FragmentPackage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.ShowAdapter;
+import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.Show;
 
 import java.util.ArrayList;
@@ -25,6 +28,13 @@ public class ShowFragment extends Fragment{
         listView= (ListView) view.findViewById(R.id.listview_have_divider);
         ShowAdapter showAdapter=new ShowAdapter(getActivity(),getData());
         listView.setAdapter(showAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), ShopInfo.class);
+                        getActivity().startActivity(intent);
+            }
+        });
         return view;
     }
     public List<Show> getData(){

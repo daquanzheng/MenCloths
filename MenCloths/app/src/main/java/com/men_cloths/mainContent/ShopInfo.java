@@ -3,6 +3,7 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.men_cloths.R;
 
@@ -15,6 +16,7 @@ public class ShopInfo extends Activity {
     public static  float WIDTH;
     private ViewFillperForNormal normal;
     private View v1,v2,v3;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,6 +25,8 @@ public class ShopInfo extends Activity {
         WIDTH=width;
         setContentView(R.layout.single_product_info);
         init();
+        back.setOnClickListener(listener);
+
 
     }
 
@@ -75,7 +79,20 @@ public class ShopInfo extends Activity {
 
             }
         });
+
+        back= (ImageView) findViewById(R.id.back);
     }
+
+    View.OnClickListener listener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.back:
+                    finish();
+                    break;
+            }
+        }
+    };
 
 
 }

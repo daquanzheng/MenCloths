@@ -67,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="深蓝色乐福鞋"
+
                 android:background="@color/white"
                 android:textColor="@color/black_model"
                 android:drawableTop="@mipmap/collocate_img01_04"

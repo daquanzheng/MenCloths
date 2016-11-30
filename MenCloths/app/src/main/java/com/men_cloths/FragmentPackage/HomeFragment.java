@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.HomeFragmentAdapter;
-import com.men_cloths.mainContent.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;

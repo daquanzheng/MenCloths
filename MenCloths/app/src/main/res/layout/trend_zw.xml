@@ -3,48 +3,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
     >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:background="#111"
+        >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/left_brand"
-            android:layout_centerVertical="true"
+            android:layout_width="11dp"
+            android:layout_height="19dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/left_white_zw"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="12dp"
             android:id="@+id/back"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_brand"
-            android:textSize="18dp"
             android:layout_centerInParent="true"
-            android:textColor="@color/brand_font"
+            android:textSize="18dp"
+            android:text="潮流详情"
+            android:textColor="#fff"
             />
 
-
     </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/brand_frame"
-        />
-
     <ListView
-        android:id="@+id/list_view"
+        android:id="@+id/list_view_for_trend"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:divider="#111"
+        >
 
     </ListView>
-
-
-
-
-
-
-
 
 </LinearLayout>

@@ -1,14 +1,18 @@
 package com.men_cloths.FragmentPackage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.CollocateAdapter;
+import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.Collocate;
 
 import java.util.ArrayList;
@@ -26,8 +30,48 @@ public class CollocateFragment extends Fragment{
         listView= (ListView)view.findViewById(R.id.listview_mall);
         CollocateAdapter collocateAdapter=new CollocateAdapter(getActivity(),getData());
         listView.setAdapter(collocateAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textView1= (TextView) view.findViewById(R.id.collocate_img01_text01);
+                TextView textView2= (TextView) view.findViewById(R.id.collocate_img01_text02);
+                TextView textView3= (TextView) view.findViewById(R.id.collocate_img01_text03);
+                TextView textView4= (TextView) view.findViewById(R.id.collocate_img01_text04);
+                textView1.setOnClickListener(onClickListener);
+                textView2.setOnClickListener(onClickListener);
+                textView3.setOnClickListener(onClickListener);
+                textView4.setOnClickListener(onClickListener);
+            }
+        });
         return view;
     }
+    View.OnClickListener onClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.collocate_img01_text01:
+                    Intent intent=new Intent(getActivity(), ShopInfo.class);
+                    startActivity(intent);
+
+                    break;
+                case R.id.collocate_img01_text02:
+                    intent=new Intent(getActivity(), ShopInfo.class);
+                    startActivity(intent);
+
+                    break;
+                case R.id.collocate_img01_text03:
+                    intent=new Intent(getActivity(), ShopInfo.class);
+                    startActivity(intent);
+
+                    break;
+                case R.id.collocate_img01_text04:
+                    intent=new Intent(getActivity(), ShopInfo.class);
+                    startActivity(intent);
+
+                    break;
+            }
+        }
+    };
     public List<Collocate> getData(){
         List<Collocate> collocateList=new ArrayList<>();
         for(int i=0;i<10;i++){

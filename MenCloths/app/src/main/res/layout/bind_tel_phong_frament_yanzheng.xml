@@ -25,6 +25,7 @@
             android:layout_width="88dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
+            android:textCursorDrawable="@null"
             android:id="@+id/editText" />
 
         <TextView

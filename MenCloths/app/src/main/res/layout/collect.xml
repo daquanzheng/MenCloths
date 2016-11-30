@@ -17,7 +17,8 @@
               android:src="@mipmap/left"
               android:layout_margin="13dp"
               android:layout_centerVertical="true"
-               android:scaleType="centerCrop"
+              android:scaleType="centerCrop"
+              android:id="@+id/back"
             />
         <TextView 
             android:layout_width="wrap_content"

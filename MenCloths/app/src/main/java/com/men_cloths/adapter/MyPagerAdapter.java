@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/10/31.
  */
 public class MyPagerAdapter extends PagerAdapter {
-    ArrayList<View>arrayList;
+    ArrayList<View> arrayList;
     @Override
     public int getCount() {//返回数据源的总条数
         return arrayList.size();
