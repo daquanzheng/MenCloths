@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.HomeFragmentAdapter;
+import com.men_cloths.mainContent.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +23,6 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment{
     ViewPager viewPager;
-    List<Fragment> fragmentList;
-    NewProductFragment newProductFragment=new NewProductFragment();
-    HotSellerFragment hotSellerFragment=new HotSellerFragment();
-    TrendFragment trendFragment=new TrendFragment();
-    ShowFragment showFragment=new ShowFragment();
     RadioGroup topRadioGroup;
     RadioButton newProductBtn;
     RadioButton hotSellerBtn;
@@ -35,7 +31,6 @@ public class HomeFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.mencloths_home,null);
-        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
         viewPager= (ViewPager) view.findViewById(R.id.home_viewPager);
         topRadioGroup= (RadioGroup) view.findViewById(R.id.home_top_menubar);
         newProductBtn= (RadioButton) view.findViewById(R.id.home_new_product);
@@ -43,6 +38,8 @@ public class HomeFragment extends Fragment{
         trendBtn= (RadioButton) view.findViewById(R.id.home_trend);
         showBtn= (RadioButton) view.findViewById(R.id.home_showing);
         topRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
+        HomeActivity homeActivity= (HomeActivity) this.getActivity();
+        FragmentManager fragmentManager=homeActivity.getSupportFragmentManager();
         HomeFragmentAdapter homeFragmentAdapter=new HomeFragmentAdapter(fragmentManager,getFragmentList());
         viewPager.setAdapter(homeFragmentAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -67,10 +64,7 @@ public class HomeFragment extends Fragment{
                         showBtn.setChecked(true);
                         break;
                 }
-
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -80,7 +74,11 @@ public class HomeFragment extends Fragment{
 
     }
     public List<Fragment> getFragmentList(){
-        fragmentList=new ArrayList<>();
+        NewProductFragment newProductFragment=new NewProductFragment();
+        HotSellerFragment hotSellerFragment=new HotSellerFragment();
+        TrendFragment trendFragment=new TrendFragment();
+        ShowFragment showFragment=new ShowFragment();
+        List<Fragment> fragmentList=new ArrayList<>();
         fragmentList.add(newProductFragment);
         fragmentList.add(hotSellerFragment);
         fragmentList.add(trendFragment);

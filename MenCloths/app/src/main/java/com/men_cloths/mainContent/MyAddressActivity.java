@@ -38,8 +38,8 @@ public class MyAddressActivity extends Activity{
 
         GettingAddressAdapter gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,getLists());
         listView.setAdapter(gettingAddressAdapter);
-        editAddress = (TextView) findViewById(R.id.edit_address);
-        deleteAddress = (TextView) findViewById(R.id.delete_address);
+//        editAddress = (TextView) findViewById(R.id.edit_address);
+//        deleteAddress = (TextView) findViewById(R.id.delete_address);
         name = (TextView) findViewById(R.id.name);
         phone = (TextView) findViewById(R.id.phone);
 

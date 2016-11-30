@@ -21,10 +21,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".mainContent.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-        <activity android:name=".mainContent.SearchActivity"></activity>
-        <activity android:name=".mainContent.ActivityLogin"/>
+        <activity android:name=".mainContent.SearchActivity">
+
+        </activity>
+
         <activity android:name=".mainContent.Seting"/>
         <activity android:name=".mainContent.Account" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.Interchangeable" android:launchMode="singleTask"/>
@@ -39,7 +47,6 @@
         <activity android:name=".mainContent.SoftPassword" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassWorldForChange" android:launchMode="singleTask"/>
 
-        <activity android:name="com.men_cloths.mainContent.TrendActivity"/>
 
         <activity android:name=".mainContent.ShopInfo"></activity>
         <activity android:name=".mainContent.ThreadInfo"></activity>
@@ -54,7 +61,7 @@
         <activity android:name=".mainContent.Page2"/>
         <activity android:name=".mainContent.Page3"/>
         <!--<activity android:name=".Page4"/>-->
-        <!--<activity android:name=".mainContent.ActivityLogin"/>-->
+        <activity android:name=".mainContent.ActivityLogin"/>
         <activity android:name=".mainContent.ActivityLoginSuccess"/>
         <activity android:name=".mainContent.ActivityRegister"/>
         <activity android:name=".mainContent.DingDanActivity"/>
@@ -63,13 +70,9 @@
         <activity android:name=".mainContent.MyHelperActivity"/>
         <activity android:name=".mainContent.FootprintActivity"/>
         <activity android:name=".mainContent.AddressEditActivity"/>
-        <activity android:name=".mainContent.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".mainContent.MyWuliuActivity"/>
+        <activity android:name=".mainContent.ExtraAppraiseActivity"/>
+        <!--<activity android:name=".MainActivity"/>-->
 
     </application>
 

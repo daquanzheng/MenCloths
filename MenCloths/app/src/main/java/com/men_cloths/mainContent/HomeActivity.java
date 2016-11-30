@@ -32,7 +32,7 @@ public class HomeActivity extends FragmentActivity{
         setContentView(R.layout.root_home_relativelayout);
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         HomeFragment homeFragment=new HomeFragment();
-        fragmentTransaction.add(R.id.root_relativeLayout,homeFragment,"home");
+        fragmentTransaction.add(R.id.root_relativeLayout,homeFragment);
         fragmentTransaction.commit();
         homeMyButton= (MyButton) findViewById(R.id.home_button);
         mallMyButton= (MyButton) findViewById(R.id.mall_button);
@@ -108,7 +108,7 @@ public class HomeActivity extends FragmentActivity{
                     initial();
                     FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
                     HomeFragment homeFragment=new HomeFragment();
-                    fragmentTransaction.replace(R.id.root_relativeLayout,homeFragment,"home");
+                    fragmentTransaction.replace(R.id.root_relativeLayout,homeFragment);
                     fragmentTransaction.commit();
                     break;
                 case R.id.mall_button:

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.men_cloths.R;
 import com.men_cloths.adapter.MallAdapter;
 import com.men_cloths.mainContent.MallInfo;
+import com.men_cloths.mainContent.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,13 @@ public class MallFragment extends Fragment{
         View view=inflater.inflate(R.layout.mencloths_mall,null);
         listView= (ListView) view.findViewById(R.id.listview_mall);
         editText= (EditText) view.findViewById(R.id.edit_mall);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                       getActivity().startActivity(intent);
+            }
+        });
         MallAdapter mallAdapter=new MallAdapter(getActivity(),getData());
         listView.setAdapter(mallAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
