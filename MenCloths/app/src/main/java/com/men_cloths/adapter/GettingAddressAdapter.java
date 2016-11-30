@@ -7,7 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.AddressEditActivity;
@@ -42,28 +47,52 @@ public class GettingAddressAdapter extends BaseAdapter{
     public long getItemId(int position) {
         return position;
     }
-    TextView editAddress;
-    TextView deleteAddress;
+    TextView editAddress,deleteAddress;
+    CheckBox showAddressDetails;
+    String str1,str2;
+    LinearLayout addressAll;
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if(convertView==null){
             convertView = inflater.inflate(R.layout.wode_address_item,null);
             editAddress = (TextView) convertView.findViewById(R.id.edit_address);
+            showAddressDetails = (CheckBox) convertView.findViewById(R.id.show_address_details);
             deleteAddress = (TextView) convertView.findViewById(R.id.delete_address);
-            editAddress.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    Bundle bundle = new Bundle();
-                    intent.putExtras(bundle);
-                    intent.setClass(context, AddressEditActivity.class);
-                    context.startActivity(intent);
-                }
-            });
             deleteAddress.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     addressList.remove(position);
+                    GettingAddressAdapter.this.notifyDataSetChanged();
+                }
+            });
+
+            final View finalConvertView = convertView;
+            showAddressDetails.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(finalConvertView!=null){
+                        addressAll = (LinearLayout) finalConvertView.findViewById(R.id.address_all);
+                        if(isChecked){
+//                        Toast.makeText(context,"3333",Toast.LENGTH_SHORT).show();
+                            addressAll.setVisibility(View.VISIBLE);
+                            GettingAddressAdapter.this.notifyDataSetChanged();
+                        }else {
+//                        Toast.makeText(context,"4444",Toast.LENGTH_SHORT).show();
+                            addressAll.setVisibility(View.GONE);
+                            GettingAddressAdapter.this.notifyDataSetChanged();
+                        }
+                    }
+                }
+            });
+            editAddress.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+//                    intent.putExtra("name",str1);
+//                    intent.putExtra("phone",str2);
+                    intent.setClass(context, AddressEditActivity.class);
+                    context.startActivity(intent);
+//                    context.startActivityForResult(intent,110);
                 }
             });
         }

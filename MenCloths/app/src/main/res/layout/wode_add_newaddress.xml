@@ -25,6 +25,7 @@
             android:textSize="20sp"
             android:gravity="center" />
         <TextView
+            android:id="@+id/save_new_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="14dp"
@@ -37,11 +38,11 @@
         android:layout_height="1dp"
         android:background="@color/spacing"
         android:layout_marginTop="5dp"/>
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#111"
-        android:text="收货人"
+        android:hint="收货人"
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:layout_marginLeft="19dp"/>
@@ -49,11 +50,11 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="@color/spacing"/>
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#111"
-        android:text="联系电话"
+        android:hint="联系电话"
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:layout_marginLeft="19dp"/>
@@ -67,12 +68,12 @@
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:orientation="horizontal">
-        <TextView
+        <EditText
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
-            android:text="地址"
+            android:hint="地址"
             android:textColor="#111"/>
         <TextView
             android:layout_width="wrap_content"
@@ -92,12 +93,12 @@
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:orientation="horizontal">
-        <TextView
+        <EditText
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
-            android:text="街道"
+            android:hint="街道"
             android:textColor="#111"/>
         <TextView
             android:layout_width="wrap_content"
@@ -126,5 +127,4 @@
         android:layout_height="1dp"
         android:layout_marginTop="40dp"
         android:background="@color/spacing"/>
-
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.model.Footprint;
@@ -43,7 +44,7 @@ public class FootprintAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if(convertView==null){
             viewHolder = new ViewHolder();
@@ -54,7 +55,16 @@ public class FootprintAdapter extends BaseAdapter{
             viewHolder.color = (TextView) convertView.findViewById(R.id.footprint_goods_color);
             viewHolder.size = (TextView) convertView.findViewById(R.id.footprint_goods_size);
             viewHolder.price = (TextView) convertView.findViewById(R.id.footprint_goods_price);
+            viewHolder.delete = (Button) convertView.findViewById(R.id.footprint_goods_clear);
+            viewHolder.delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    footprintList.remove(position);
+                    FootprintAdapter.this.notifyDataSetChanged();
+                }
+            });
             convertView.setTag(viewHolder);
+
         }
         viewHolder = (ViewHolder) convertView.getTag();
 //        Footprint footprint = new Footprint();
@@ -73,5 +83,6 @@ public class FootprintAdapter extends BaseAdapter{
         TextView color;
         TextView size;
         TextView price;
+        Button delete;
     }
 }
