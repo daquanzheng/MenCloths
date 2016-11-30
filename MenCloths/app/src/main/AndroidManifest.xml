@@ -37,7 +37,6 @@
         <activity android:name=".mainContent.SoftPassword" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassWorldForChange" android:launchMode="singleTask"/>
 
-        <activity android:name="com.men_cloths.mainContent.TrendActivity"/>
 
         <activity android:name=".mainContent.ShopInfo"></activity>
         <activity android:name=".mainContent.ThreadInfo"></activity>

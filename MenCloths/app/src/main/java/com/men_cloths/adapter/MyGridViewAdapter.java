@@ -43,8 +43,8 @@ public class MyGridViewAdapter extends BaseAdapter{
         TextView textView;
         if (convertView==null){
             textView=new TextView(context);
-            GridView.LayoutParams layoutParams=new GridView.LayoutParams
-                    (GridView.LayoutParams.WRAP_CONTENT, GridView.LayoutParams.WRAP_CONTENT);
+            ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             textView.setLayoutParams(layoutParams);
             textView.setPadding(20,5,20,5);
             textView.setTextColor(context.getResources().getColor(R.color.black_model));
