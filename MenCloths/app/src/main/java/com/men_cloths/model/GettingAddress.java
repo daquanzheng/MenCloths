@@ -7,7 +7,7 @@ public class GettingAddress {
     String getGoodsAddress;
     int iconShow;
     String name;
-    long phone;
+    String phone;
     String addressDetails;
     String isDefault;
 
@@ -35,11 +35,11 @@ public class GettingAddress {
         this.name = name;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

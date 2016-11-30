@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#111"
+        >
+        <ImageView
+            android:layout_width="11dp"
+            android:layout_height="19dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/left_white_zw"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="18dp"
+            android:text="潮流详情"
+            android:textColor="#fff"
+            />
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/list_view_for_trend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:divider="#111"
+        >
+
+    </ListView>
+
+</LinearLayout>

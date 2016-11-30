@@ -137,7 +137,7 @@ public class DingDanActivity extends FragmentActivity{
         });
 
     }
-    public class MyViewPagerFragment extends FragmentPagerAdapter {
+    public class MyViewPagerFragment extends FragmentStatePagerAdapter {
 
         public MyViewPagerFragment(FragmentManager fm) {
             super(fm);

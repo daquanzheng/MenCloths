@@ -2,9 +2,13 @@ package com.men_cloths.mainContent;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.FootprintAdapter;

@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black_model">#B3111111</color>
+    <color name="enbled_false">#999999</color>
     <color name="black_model2">#33111111</color>
     <color name="green_bg">#32b8b3</color>
     <color name="spacing_simple">#e5e5e5</color>

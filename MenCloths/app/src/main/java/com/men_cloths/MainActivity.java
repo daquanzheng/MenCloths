@@ -93,7 +93,7 @@ public class MainActivity extends Activity{
             @Override
             public void onClick(View v) {
                 verification.init();
-                verification.send("15825978680");
+                verification.send("15123142687");
             }
         });
 

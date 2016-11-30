@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.GettingAddressAdapter;
@@ -23,6 +24,10 @@ public class MyAddressActivity extends Activity{
     Button addNewAddress;
     ListView listView;
     List<GettingAddress> lists = new ArrayList<>();
+
+    TextView name,phone;
+    TextView editAddress,deleteAddress;
+    String str1,str2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,22 @@ public class MyAddressActivity extends Activity{
 
         GettingAddressAdapter gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,getLists());
         listView.setAdapter(gettingAddressAdapter);
+//        editAddress = (TextView) findViewById(R.id.edit_address);
+//        deleteAddress = (TextView) findViewById(R.id.delete_address);
+        name = (TextView) findViewById(R.id.name);
+        phone = (TextView) findViewById(R.id.phone);
 
+//        editAddress.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+////                intent.putExtra("name",str1);
+////                intent.putExtra("phone",str2);
+//                intent.setClass(MyAddressActivity.this, AddressEditActivity.class);
+//                startActivity(intent);
+////                startActivityForResult(intent,110);
+//            }
+//        });
 
         back.setOnClickListener(onClickListener);
         addNewAddress.setOnClickListener(onClickListener);
@@ -52,9 +72,23 @@ public class MyAddressActivity extends Activity{
             }
         }
     };
+
+//    @Override
+//    protected void onActivityResult(int requestCode,
+//                                    int resultCode,
+//                                    Intent data) { //包含的数据，用bundle接收
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Bundle bundle = data.getExtras();
+//        String s1 = bundle.getString("name");
+//        String s2 = bundle.getString("phone");
+//        name.setText(s1);
+//        phone.setText(s2);
+//    }
+
     public List<GettingAddress> getLists(){
-        for(int i=0;i<2;i++){
+        for(int i=0;i<3;i++){
             GettingAddress gettingAddress = new GettingAddress();
+
             lists.add(gettingAddress);
         }
         return lists;
