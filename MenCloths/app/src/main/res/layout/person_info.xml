@@ -94,15 +94,9 @@
             android:paddingLeft="10dp"
             android:textCursorDrawable="@null"
 
-            />
+            android:id="@+id/editText2" />
 
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/set_split_line"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,6 +131,12 @@
            />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/set_split_line"
+        />
 
     <View
         android:layout_width="match_parent"
