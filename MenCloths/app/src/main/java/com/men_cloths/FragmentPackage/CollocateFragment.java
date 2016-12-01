@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.CollocateAdapter;
+import com.men_cloths.mainContent.SearchActivity;
 import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.Collocate;
 
@@ -23,11 +25,19 @@ import java.util.List;
  */
 public class CollocateFragment extends Fragment{
     ListView listView;
-
+    EditText editText;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.mencloths_mall,null);
         listView= (ListView)view.findViewById(R.id.listview_mall);
+        editText= (EditText) view.findViewById(R.id.edit_mall);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         CollocateAdapter collocateAdapter=new CollocateAdapter(getActivity(),getData());
         listView.setAdapter(collocateAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

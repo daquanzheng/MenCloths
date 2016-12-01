@@ -37,8 +37,10 @@ public class AddressEditActivity extends Activity{
         saveAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle = getIntent().getExtras();
+//                Intent intent = getIntent();
+//                intent.putExtra("name",editName.getText());
+//                intent.putExtra("phone",editPhone.getText());
+//                setResult(110,intent);
                 finish();
             }
         });

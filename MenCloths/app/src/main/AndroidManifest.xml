@@ -29,7 +29,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mainContent.SearchActivity"></activity>
+        <activity android:name=".mainContent.SearchActivity">
+
+        </activity>
 
         <activity android:name=".mainContent.Seting"/>
         <activity android:name=".mainContent.Account" android:launchMode="singleTask"/>
@@ -45,7 +47,6 @@
         <activity android:name=".mainContent.SoftPassword" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassWorldForChange" android:launchMode="singleTask"/>
 
-        <activity android:name="com.men_cloths.mainContent.TrendActivity"/>
 
         <activity android:name=".mainContent.ShopInfo"></activity>
         <activity android:name=".mainContent.ThreadInfo"></activity>
@@ -69,9 +70,9 @@
         <activity android:name=".mainContent.MyHelperActivity"/>
         <activity android:name=".mainContent.FootprintActivity"/>
         <activity android:name=".mainContent.AddressEditActivity"/>
-        <activity android:name=".MainActivity">
-        </activity>
-        <service android:name=".mainContent.GetInfo"/>
+        <activity android:name=".mainContent.MyWuliuActivity"/>
+        <activity android:name=".mainContent.ExtraAppraiseActivity"/>
+        <!--<activity android:name=".MainActivity"/>-->
 
     </application>
 

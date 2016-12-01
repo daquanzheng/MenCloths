@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
@@ -136,7 +137,7 @@ public class DingDanActivity extends FragmentActivity{
         });
 
     }
-    public class MyViewPagerFragment extends FragmentPagerAdapter {
+    public class MyViewPagerFragment extends FragmentStatePagerAdapter {
 
         public MyViewPagerFragment(FragmentManager fm) {
             super(fm);

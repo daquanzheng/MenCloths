@@ -71,26 +71,28 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/check_dingdan"
-                    android:text="评价"
-                    android:textColor="#111"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"/>
-                <TextView
+                    android:id="@+id/extra_appraise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="追加评价"
-                    android:textColor="#fff"
-                    android:background="@drawable/button_bg"
+                    android:textColor="#111"
+                    android:background="@drawable/check_dingdan"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
                     android:paddingLeft="6dp"
                     android:paddingRight="6dp"
-                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp" />
+                <TextView
+                    android:id="@+id/appraise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:text="评价"
+                    android:textColor="#fff"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
                     android:layout_marginRight="15dp"/>
             </LinearLayout>
         </LinearLayout>

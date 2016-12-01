@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff">
+    android:background="#fff"
+    android:descendantFocusability="blocksDescendants">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,6 +58,8 @@
         android:layout_height="wrap_content"
         android:textColor="#111"
         android:hint="联系电话"
+        android:inputType="number"
+        android:maxLines="11"
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:layout_marginLeft="19dp"/>
@@ -70,12 +73,12 @@
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:orientation="horizontal">
-        <TextView
+        <EditText
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
-            android:text="地址"
+            android:hint="地址"
             android:textColor="#111"/>
         <TextView
             android:layout_width="wrap_content"
@@ -95,12 +98,12 @@
         android:paddingTop="14dp"
         android:paddingBottom="12dp"
         android:orientation="horizontal">
-        <TextView
+        <EditText
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
-            android:text="街道"
+            android:hint="街道"
             android:textColor="#111"/>
         <TextView
             android:layout_width="wrap_content"

@@ -41,7 +41,7 @@
         android:textColor="@color/black_model"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp" />
-        <com.men_cloths.model.MyGridView
+        <GridView
             android:id="@+id/search_top_gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:layout_marginRight="10dp"
             android:stretchMode="columnWidth"
             android:numColumns="auto_fit"
-            ></com.men_cloths.model.MyGridView>
+            ></GridView>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -68,7 +68,7 @@
             android:textColor="@color/black_model"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp" />
-        <com.men_cloths.model.MyGridView
+        <GridView
             android:id="@+id/search_bottom_gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,6 +80,6 @@
             android:layout_marginRight="10dp"
             android:stretchMode="columnWidth"
             android:numColumns="auto_fit"
-            ></com.men_cloths.model.MyGridView>
+            ></GridView>
     </LinearLayout>
 </LinearLayout>

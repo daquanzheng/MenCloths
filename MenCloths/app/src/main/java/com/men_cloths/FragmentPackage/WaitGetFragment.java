@@ -30,7 +30,7 @@ public class WaitGetFragment extends Fragment{
         return view;
     }
     public List<WaitGet> getLists(){
-        for(int i=0;i<5;i++){
+        for(int i=0;i<4;i++){
             WaitGet waitGet = new WaitGet();
             lists.add(waitGet);
         }
