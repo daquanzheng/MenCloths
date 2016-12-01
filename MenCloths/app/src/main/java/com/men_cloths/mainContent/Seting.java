@@ -21,8 +21,8 @@ public class Seting extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seting);
         setOnclit();
-
-
+        Intent intent=new Intent(this,GetInfo.class);
+        startService(intent);
 
     }
 

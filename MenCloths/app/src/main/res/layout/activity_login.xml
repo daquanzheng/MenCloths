@@ -40,6 +40,7 @@
         android:layout_marginTop="30dp"
         >
         <EditText
+            android:id="@+id/tel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入手机号"
@@ -51,6 +52,7 @@
             android:background="@null"
             />
         <EditText
+            android:id="@+id/passwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint=""
