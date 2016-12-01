@@ -3,7 +3,9 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -38,10 +40,30 @@ public class MyAddressActivity extends Activity{
 
         GettingAddressAdapter gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,getLists());
         listView.setAdapter(gettingAddressAdapter);
-//        editAddress = (TextView) findViewById(R.id.edit_address);
 //        deleteAddress = (TextView) findViewById(R.id.delete_address);
-        name = (TextView) findViewById(R.id.name);
-        phone = (TextView) findViewById(R.id.phone);
+
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                editAddress = (TextView) view.findViewById(R.id.edit_address);
+//                name = (TextView) view.findViewById(R.id.name);
+//                phone = (TextView) view.findViewById(R.id.phone);
+//                editAddress.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent intent = new Intent();
+//                        str1 = name.getText().toString();
+//                        str2 = phone.getText().toString();
+//                        intent.putExtra("name",str1);
+//                        intent.putExtra("phone",str2);
+//                        intent.setClass(MyAddressActivity.this, AddressEditActivity.class);
+//                        Log.i("跳转到编辑地址界面=====>",""+str1+str2);
+//                        startActivityForResult(intent,110);
+//                    }
+//                });
+//            }
+//        });
 
 //        editAddress.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -50,7 +72,7 @@ public class MyAddressActivity extends Activity{
 ////                intent.putExtra("name",str1);
 ////                intent.putExtra("phone",str2);
 //                intent.setClass(MyAddressActivity.this, AddressEditActivity.class);
-//                startActivity(intent);
+//                MyAddressActivity.this.startActivity(intent);
 ////                startActivityForResult(intent,110);
 //            }
 //        });
