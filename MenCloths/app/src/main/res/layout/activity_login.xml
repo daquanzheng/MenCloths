@@ -12,10 +12,9 @@
         android:layout_marginTop="42dp"
         >
         <ImageView
-            android:id="@+id/img_login_cawera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/circle1"
+            android:src="@mipmap/ring"
             android:layout_centerHorizontal="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -39,10 +38,9 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginTop="30dp"
-         android:focusableInTouchMode="true"
-        android:focusable="true">
+        >
         <EditText
-            android:id="@+id/edit_login_phonenumb"
+            android:id="@+id/tel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入手机号"
@@ -52,35 +50,20 @@
             android:gravity="center"
             android:paddingLeft="15dp"
             android:background="@null"
-            android:digits="0123456789"
-            android:maxLength="11"/>
-        <LinearLayout
+            />
+        <EditText
+            android:id="@+id/passwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-            <EditText
-                android:id="@+id/edit_login_password"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:hint=""
-                android:drawableLeft="@mipmap/lock"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:background="@null"
-                android:inputType="textPassword"/>
-            <ImageView
-                android:id="@+id/img_login_showpassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/eyes"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
+            android:hint=""
+            android:drawableLeft="@mipmap/lock"
+            android:drawableRight="@mipmap/eyes"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@null"/>
     </LinearLayout>
 
 

@@ -53,6 +53,7 @@ public class MessageVerification{
                 message.arg1=event;
                 message.arg2=result;
                 message.obj=data;
+                message.what=1234;
                 handler.sendMessage(message);
             }
         };
