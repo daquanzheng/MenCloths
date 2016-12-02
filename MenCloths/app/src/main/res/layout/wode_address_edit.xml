@@ -75,6 +75,7 @@
         android:paddingBottom="12dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/edit_address_name"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -101,6 +102,7 @@
         android:paddingBottom="12dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/edit_street"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

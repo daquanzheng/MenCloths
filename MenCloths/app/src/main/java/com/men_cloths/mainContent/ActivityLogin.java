@@ -35,6 +35,9 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -229,10 +232,17 @@ public class ActivityLogin extends Activity {
             if(connection.getResponseCode()==200){
                 reader=new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String tel=reader.readLine();
+                try {
+                    JSONObject object=new JSONObject(tel);
+                    tel=object.getString("tel");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 SharedPreferences preferences=getSharedPreferences("login_info",MODE_PRIVATE);
                 SharedPreferences.Editor editor=preferences.edit();
                 editor.putString("token",touke);
                 editor.putString("tel",tel);
+                editor.putString("message","新浪微博用户");
                 editor.commit();
                 Message message=Message.obtain();
                 message.what=666;

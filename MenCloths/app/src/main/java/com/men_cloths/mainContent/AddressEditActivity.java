@@ -18,8 +18,7 @@ import com.men_cloths.R;
 public class AddressEditActivity extends Activity{
     ImageView back;
     TextView saveAddress;
-    EditText editName;
-    EditText editPhone;
+    EditText editName,editPhone,editAddressName,editStreet;
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +29,8 @@ public class AddressEditActivity extends Activity{
         saveAddress = (TextView) findViewById(R.id.save_address);
         editName = (EditText) findViewById(R.id.edit_name);
         editPhone = (EditText) findViewById(R.id.edit_phone);
+        editAddressName = (EditText) findViewById(R.id.edit_address_name);
+        editStreet = (EditText) findViewById(R.id.edit_street);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -52,37 +53,6 @@ public class AddressEditActivity extends Activity{
                 finish();
             }
         });
-        editName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                editName.setText(s.toString());
-            }
-        });
-        editPhone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                editPhone.setText(s.toString());
-            }
-        });
     }
 }
