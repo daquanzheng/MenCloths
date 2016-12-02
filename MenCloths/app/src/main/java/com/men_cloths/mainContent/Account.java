@@ -21,8 +21,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
 
 /**
  * Created by Administrator on 2016/10/25.
@@ -162,7 +164,11 @@ public class Account extends Activity{
             switch (message.what){
                 case 1:
                     if(name!=null){
-                        user_name.setText(name);
+                        try {
+                            user_name.setText(URLDecoder.decode(name,"utf-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
                     }
                     break;
                 case -1:

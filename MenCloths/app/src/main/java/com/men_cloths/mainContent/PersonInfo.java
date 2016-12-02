@@ -23,8 +23,11 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 /**
  * Created by Administrator on 2016/10/19.
@@ -132,11 +135,27 @@ public class PersonInfo extends Activity {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
+        }finally {
+            if (connection!=null){
+                connection.disconnect();
+            }
+            if(reader!=null){
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
     private void setInfo(String s){
-        String url="http://139.199.196.199/index.php/home/index/changeinformation?token="+token+"&tel="+tel+"&username="+s;
+        String url= null;
+        try {
+            url = "http://139.199.196.199/index.php/home/index/changeinformation?token="+token+"&tel="+tel+"&username="+ URLEncoder.encode(s,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         HttpURLConnection connection=null;
         BufferedReader reader=null;
 
@@ -181,7 +200,12 @@ public class PersonInfo extends Activity {
             switch (message.what){
                 case 1:
                     if(name!=null){
-                        editText.setText(name);
+                        try {
+                            editText.setText(URLDecoder.decode(name,"utf-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                     if(imageUrl!=null){
                         LoadImage.load(head,imageUrl);
