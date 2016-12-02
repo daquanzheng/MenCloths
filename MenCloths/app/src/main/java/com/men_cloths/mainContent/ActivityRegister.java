@@ -97,6 +97,7 @@ public class ActivityRegister extends Activity {
                         }
                     }else{
                         ((Throwable)data).printStackTrace();
+                        Toast.makeText(ActivityRegister.this,"验证码验证失败",Toast.LENGTH_SHORT).show();
                     }
                     break;
             }
