@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.mainContent.HomeActivity;
 import com.men_cloths.mainContent.ShopInfo;
 
 /**
@@ -25,7 +26,7 @@ public class AllOrderFragement extends Fragment{
         goShopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ShopInfo.class);
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
             }
         });

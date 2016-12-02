@@ -3,6 +3,8 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ public class AddressEditActivity extends Activity{
     TextView saveAddress;
     EditText editName;
     EditText editPhone;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,7 @@ public class AddressEditActivity extends Activity{
         editName = (EditText) findViewById(R.id.edit_name);
         editPhone = (EditText) findViewById(R.id.edit_phone);
 
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,11 +41,47 @@ public class AddressEditActivity extends Activity{
         saveAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = getIntent();
+                //        intent = getIntent();
+//        Bundle bundle = intent.getExtras();
+//        editName.setText(bundle.getString("name"));
+//        editPhone.setText(bundle.getString("phone"));
+
 //                intent.putExtra("name",editName.getText());
 //                intent.putExtra("phone",editPhone.getText());
 //                setResult(110,intent);
                 finish();
+            }
+        });
+        editName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                editName.setText(s.toString());
+            }
+        });
+        editPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                editPhone.setText(s.toString());
             }
         });
     }
