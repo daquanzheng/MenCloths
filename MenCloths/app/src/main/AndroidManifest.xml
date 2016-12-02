@@ -48,7 +48,7 @@
         <activity android:name=".mainContent.Coupon"/>
         <activity android:name=".mainContent.Passwd" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassword" android:launchMode="singleTask"/>
-        <activity android:name=".mainContent.SoftPassWorldForChange" android:launchMode="singleTask"/>
+        <activity android:name=".mainContent.SoftPassWorldForChange" />
 
 
         <activity android:name=".mainContent.ShopInfo"></activity>
