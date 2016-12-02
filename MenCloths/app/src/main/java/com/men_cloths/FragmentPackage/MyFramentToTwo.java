@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.men_cloths.R;
 
@@ -16,10 +18,12 @@ import com.men_cloths.R;
 
 public class MyFramentToTwo extends Fragment {
     private Button button;
-
+    public EditText editText;
     private listener lis;
+    public TextView send;
     public interface  listener{
         public void onclik();
+        public void send();
     }
     public void setOnMyFramentclikListener(listener listener){
         this.lis=listener;
@@ -40,6 +44,14 @@ public class MyFramentToTwo extends Fragment {
                 lis.onclik();
             }
         });
+         send= (TextView) view.findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lis.send();
+            }
+        });
+        editText= (EditText) view.findViewById(R.id.editText);
         return view;
 
 

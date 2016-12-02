@@ -12,9 +12,10 @@
         android:layout_marginTop="42dp"
         >
         <ImageView
+            android:id="@+id/img_login_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ring"
+            android:src="@mipmap/circle1"
             android:layout_centerHorizontal="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -48,22 +49,38 @@
             android:drawableLeft="@mipmap/my"
             android:layout_gravity="center"
             android:gravity="center"
-            android:paddingLeft="15dp"
+            android:padding="5dp"
             android:background="@null"
-            />
-        <EditText
-            android:id="@+id/passwd"
+            android:digits="0123456789"
+            android:maxLength="11"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=""
-            android:drawableLeft="@mipmap/lock"
-            android:drawableRight="@mipmap/eyes"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@null"/>
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/passwd"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:drawableLeft="@mipmap/lock"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@null"
+                android:inputType="textPassword"/>
+            <ImageView
+                android:id="@+id/img_login_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/eyes"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
