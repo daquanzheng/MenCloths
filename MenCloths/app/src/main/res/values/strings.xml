@@ -23,6 +23,10 @@
     <string name="collect">收藏</string>
     <string name="quxiao">取消收藏</string>
     <string name="cancel">可以取消可以取消可以取消可以取消可以取消可以取消可以取消可以取消可以取消可以取消</string>
+    <string name="get_copon">您可以随时关注易到或易到APP上的最新优惠活动，就有机会获得优惠券哦！
+                            您可以随时关注易到或易到APP上的最新优惠活动，就有机会获得优惠券哦！</string>
+    <string name="use_copon">您可以在购买商品的支付页面使用优惠券抵扣现金，但要注意优惠券的有效期限哦！
+                            您可以在购买商品的支付页面使用优惠券抵扣现金，但要注意优惠券的有效期限哦</string>
     <string name="navigation_page1_name">「潮流与个性」</string>
     <string name="navigation_page1_goal">你好色彩穿出我风格</string>
     <string name="navigation_page2_name">「时尚与装扮」</string>

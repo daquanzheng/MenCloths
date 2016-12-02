@@ -15,6 +15,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 
+
+
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,10 +34,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mainContent.SearchActivity">
-
-        </activity>
-
+        <activity android:name=".mainContent.SearchActivity"/>
         <activity android:name=".mainContent.Seting"/>
         <activity android:name=".mainContent.Account" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.Interchangeable" android:launchMode="singleTask"/>
@@ -61,7 +63,8 @@
         <activity android:name=".mainContent.Page2"/>
         <activity android:name=".mainContent.Page3"/>
         <!--<activity android:name=".Page4"/>-->
-        <activity android:name=".mainContent.ActivityLogin"/>
+        <activity android:name=".mainContent.ActivityLogin">
+        </activity>
         <activity android:name=".mainContent.ActivityLoginSuccess"/>
         <activity android:name=".mainContent.ActivityRegister"/>
         <activity android:name=".mainContent.DingDanActivity"/>
@@ -73,6 +76,17 @@
         <activity android:name=".mainContent.MyWuliuActivity"/>
         <activity android:name=".mainContent.ExtraAppraiseActivity"/>
         <!--<activity android:name=".MainActivity"/>-->
+
+
+        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+
+        <service android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false">
+        </service>
 
     </application>
 
