@@ -33,6 +33,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/MobCommons-2016.1012.1447.jar')
-    compile name:'SMSSDK-2.1.2',ext:'aar'
-    compile name:'SMSSDKGUI-2.1.2',ext:'aar'
+    compile name: 'SMSSDK-2.1.2', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
+    compile files('libs/weibosdkcore_release.jar')
 }

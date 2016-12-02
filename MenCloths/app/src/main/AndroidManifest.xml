@@ -15,6 +15,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 
+
+
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -73,6 +78,17 @@
         <activity android:name=".mainContent.MyWuliuActivity"/>
         <activity android:name=".mainContent.ExtraAppraiseActivity"/>
         <!--<activity android:name=".MainActivity"/>-->
+
+
+        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+
+        <service android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false">
+        </service>
 
     </application>
 

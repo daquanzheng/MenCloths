@@ -121,6 +121,7 @@ public class Login{
             editor.putString("statu",jsonObject.getString("statu"));
             editor.putString("message",jsonObject.getString("message"));
             editor.putString("token",jsonObject.getString("token"));
+            editor.putString("tel",user);
             editor.commit();
 
         } catch (JSONException e) {
