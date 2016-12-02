@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -20,20 +21,22 @@ import java.util.List;
  */
 public class NewProductFragment extends Fragment{
     ListView listView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.listview_no_divider,null);
         listView= (ListView) view.findViewById(R.id.listview_no_divider);
         NewProductAdapter newProductAdapter=new NewProductAdapter(getActivity(),getdata());
-        listView.setAdapter(newProductAdapter);
+
         ImageView imageView=new ImageView(getActivity());
-        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        AbsListView.LayoutParams layoutParams=new  AbsListView.LayoutParams(
+                AbsListView.LayoutParams.MATCH_PARENT,  AbsListView.LayoutParams.WRAP_CONTENT
         );
         imageView.setLayoutParams(layoutParams);
         imageView.setImageResource(R.mipmap.new_top);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         listView.addHeaderView(imageView);
+        listView.setAdapter(newProductAdapter);
         return view;
     }
     public List<NewProduct> getdata(){

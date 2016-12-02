@@ -16,7 +16,7 @@ import java.util.List;
 public class Adapter {
 	
 	
-	
+	private static int position;
 	 
 	 public SocllectAdapter getSocllectAdapter(Context context,List<Shop> list){
 		 return new SocllectAdapter(context,list);
@@ -64,6 +64,7 @@ public class Adapter {
 				holder.title=(TextView) convertView.findViewById(R.id.title);
 				holder.size=(TextView) convertView.findViewById(R.id.size);
 				holder.price=(TextView) convertView.findViewById(R.id.price);
+				holder.off= (TextView) convertView.findViewById(R.id.cancel);
 				convertView.setTag(holder);
 				
 			}else{
@@ -74,6 +75,14 @@ public class Adapter {
 			holder.title.setText(list.get(position).getTitle());
 			holder.size.setText(list.get(position).getSize());
 			holder.price.setText(list.get(position).getPrice());
+			Adapter.position=position;
+			holder.off.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					list.remove(list.get(Adapter.position));
+					SocllectAdapter.this.notifyDataSetChanged();
+				}
+			});
 			
 			
 			
@@ -87,7 +96,7 @@ public class Adapter {
 		
 		class Holder{
 			ImageView imageview;
-			TextView title,size,price;
+			TextView title,size,price,off;
 			
 		}
 		

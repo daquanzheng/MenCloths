@@ -13,8 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/linearlayout_brand"
-        android:descendantFocusability="afterDescendants"
-
         >
 
         <ImageView
@@ -38,10 +36,10 @@
             android:layout_height="match_parent">
 
             <Button
-                android:descendantFocusability="beforeDescendants"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:text="取消关注"
+                android:textSize="12sp"
                 android:textColor="@color/brand_font"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"

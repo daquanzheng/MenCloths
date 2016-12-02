@@ -38,7 +38,7 @@ public class Collection extends Activity{
 		listView=(ListView) findViewById(R.id.collect_list_view);
 		baseAdapter=new Adapter().getSocllectAdapter(this, list);
 		listView.setAdapter(baseAdapter);
-		onclickForitem();
+		//onclickForitem();
 		
 		
 		
