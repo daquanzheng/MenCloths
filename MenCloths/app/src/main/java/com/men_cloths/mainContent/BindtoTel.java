@@ -146,7 +146,6 @@ public class BindtoTel extends Activity{
                        intent.putExtra("tel",tel);
                        startActivity(intent);
 
-
                    }else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
                        //获取验证码成功
                        Log.i("hhh","----------------------获取验证码成功");

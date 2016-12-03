@@ -1,8 +1,6 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -22,7 +20,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -153,6 +150,9 @@ public class ActivityLogin extends Activity {
                     break;
                 case 555:
                     Toast.makeText(ActivityLogin.this,"第三方登录失败",Toast.LENGTH_SHORT).show();
+                    break;
+                case -123:
+                    Toast.makeText(ActivityLogin.this,"网络不太好，请检查连接",Toast.LENGTH_SHORT).show();
                     break;
             }
         }

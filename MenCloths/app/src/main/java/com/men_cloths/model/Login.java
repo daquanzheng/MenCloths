@@ -63,6 +63,10 @@ public class Login{
                     handler.sendMessage(message);
                 }
 
+            }else{
+                Message message=Message.obtain();
+                message.what=-123;
+                handler.sendMessage(message);
             }
 
         } catch (IOException e) {
