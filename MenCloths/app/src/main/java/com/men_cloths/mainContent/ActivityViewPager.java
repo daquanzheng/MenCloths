@@ -61,6 +61,7 @@ public class ActivityViewPager extends Activity{
                         public void onClick(View v) {
                             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     });
                 }
