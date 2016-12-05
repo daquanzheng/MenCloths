@@ -83,6 +83,7 @@ public class ActivityLogin extends Activity {
         taobao.setOnClickListener(onClickListener);
         show.setOnClickListener(onClickListener);
         camera.setOnClickListener(onClickListener);
+
     }
     Intent intent=new Intent();
     URL url;
@@ -92,7 +93,7 @@ public class ActivityLogin extends Activity {
             switch (v.getId()){
                 case R.id.textview_loginpage_login:
                     Login.login(tel.getText().toString(),passwd.getText().toString(),ActivityLogin.this,handler);
-                    //intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
+                    //intent.setClass(ActivityLogin.this,MineLoginFragment.class);
                    // startActivity(intent);
                     break;
                 case R.id.textview_loginpage_register:
@@ -133,20 +134,19 @@ public class ActivityLogin extends Activity {
             }
         }
     };
+
     Handler handler=new Handler(){
 
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                     intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
-                     startActivity(intent);
+                    finish();
                     break;
                 case -1:
                     Toast.makeText(ActivityLogin.this,"你的账号或者密码不正确",Toast.LENGTH_SHORT).show();
                     break;
                 case 666:
-                    intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
-                    startActivity(intent);
+                   finish();
                     break;
                 case 555:
                     Toast.makeText(ActivityLogin.this,"第三方登录失败",Toast.LENGTH_SHORT).show();
@@ -154,6 +154,10 @@ public class ActivityLogin extends Activity {
                 case -123:
                     Toast.makeText(ActivityLogin.this,"网络不太好，请检查连接",Toast.LENGTH_SHORT).show();
                     break;
+                case -99:
+                    Toast.makeText(ActivityLogin.this,"账户名或者密码不能为空",Toast.LENGTH_SHORT).show();
+                    break;
+
             }
         }
     };

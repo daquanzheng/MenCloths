@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.model.Classify;
 
 import java.util.List;
@@ -25,7 +26,6 @@ public class ClassifyAdapter extends BaseAdapter{
             this.context=context;
         this.classifyList=classifyList;
         layoutInflater=LayoutInflater.from(context);
-
 
     }
     @Override
@@ -45,19 +45,36 @@ public class ClassifyAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder=null;
         if(convertView==null){
             convertView=layoutInflater.inflate(R.layout.listview_item_classify,null);
-
+            viewHolder=new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder= (ViewHolder) convertView.getTag();
         }
         Classify classify=classifyList.get(position);
-        ImageView imageView1= (ImageView) convertView.findViewById(R.id.classify_item_img1);
-        imageView1.setImageResource(classify.getImgId1());
-        TextView textView1= (TextView) convertView.findViewById(R.id.classify_item_text1);
-        textView1.setText(classify.getText1());
-        ImageView imageView2= (ImageView) convertView.findViewById(R.id.classify_item_img2);
-        imageView2.setImageResource(classify.getImgId2());
-        TextView textView2= (TextView) convertView.findViewById(R.id.classify_item_text2);
-        textView2.setText(classify.getText2());
+        viewHolder.text1.setText(classify.getText1());
+        viewHolder.img1.setTag(classify.getImgUrl1());
+        new HttpImgThread(viewHolder.img1,classify.getImgUrl1()).start();
+        viewHolder.text2.setText(classify.getText2());
+        viewHolder.img2.setTag(classify.getImgUrl2());
+        new HttpImgThread(viewHolder.img2,classify.getImgUrl2()).start();
         return convertView;
+    }
+
+
+    private  class  ViewHolder{
+        private TextView text1;
+        private ImageView img1;
+        private TextView text2;
+        private ImageView img2;
+
+        public ViewHolder(View view){
+            text1= (TextView) view.findViewById(R.id.classify_item_text1);
+            img1= (ImageView) view.findViewById(R.id.classify_item_img1);
+            text2= (TextView) view.findViewById(R.id.classify_item_text2);
+            img2= (ImageView) view.findViewById(R.id.classify_item_img2);
+        }
     }
 }

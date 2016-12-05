@@ -46,7 +46,6 @@ public class HomeActivity extends FragmentActivity{
         classifyMyButton.setOnClickListener(onClickListener);
         mineMyButton.setOnClickListener(onClickListener);
         initial();
-
     }
     public void initial(){
         if (myButtonClick[0]) {
@@ -173,4 +172,11 @@ public class HomeActivity extends FragmentActivity{
         }
     };
 
+    @Override
+    protected void onRestart() {
+
+
+
+        super.onRestart();
+    }
 }
