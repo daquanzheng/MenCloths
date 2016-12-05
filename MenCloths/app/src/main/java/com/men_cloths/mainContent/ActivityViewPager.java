@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.men_cloths.adapter.MyPagerAdapter;
 import com.men_cloths.R;
+import com.men_cloths.model.HasLogin;
 
 import java.util.ArrayList;
 
@@ -21,9 +22,15 @@ public class ActivityViewPager extends Activity{
     ViewPager viewPager;
     ArrayList<View>arrayList;
     TextView tiyan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(!HasLogin.isfirst(this)){
+            Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
         setContentView(R.layout.activityviewpager);
         viewPager=(ViewPager)findViewById(R.id.viewpager);
 
@@ -73,6 +80,11 @@ public class ActivityViewPager extends Activity{
 
 
 
-        }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

@@ -38,6 +38,18 @@ public class Login{
 
     private void run(){
         String url="http://139.199.196.199/index.php/home/index/login?tel="+user+"&passwd="+passwd;
+        if(user==null || passwd==null){
+            Message message=Message.obtain();
+            message.what=-99;
+            handler.sendMessage(message);
+            return;
+        }
+        if(user.length()==0||passwd.length()==0){
+            Message message=Message.obtain();
+            message.what=-99;
+            handler.sendMessage(message);
+            return;
+        }
         HttpURLConnection connection=null;
         BufferedReader reader=null;
         try {
@@ -54,6 +66,10 @@ public class Login{
 
                 String code=hashMap.get("statu");
                 if(code.equals("1")){
+                    SharedPreferences sharedPreferences=context.getSharedPreferences("login_info",Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putBoolean("islogin",true);
+                    editor.commit();
                     Message message=Message.obtain();
                     message.what=1;
                     handler.sendMessage(message);

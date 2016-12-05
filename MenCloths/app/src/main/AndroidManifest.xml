@@ -88,6 +88,7 @@
         <service android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false">
         </service>
+        <service android:name=".model.OFF"/>
 
     </application>
 

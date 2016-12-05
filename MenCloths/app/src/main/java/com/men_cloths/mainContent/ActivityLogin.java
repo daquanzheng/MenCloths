@@ -83,6 +83,7 @@ public class ActivityLogin extends Activity {
         taobao.setOnClickListener(onClickListener);
         show.setOnClickListener(onClickListener);
         camera.setOnClickListener(onClickListener);
+
     }
     Intent intent=new Intent();
     URL url;
@@ -133,6 +134,7 @@ public class ActivityLogin extends Activity {
             }
         }
     };
+
     Handler handler=new Handler(){
 
         public void handleMessage(Message message){
@@ -154,6 +156,10 @@ public class ActivityLogin extends Activity {
                 case -123:
                     Toast.makeText(ActivityLogin.this,"网络不太好，请检查连接",Toast.LENGTH_SHORT).show();
                     break;
+                case -99:
+                    Toast.makeText(ActivityLogin.this,"账户名或者密码不能为空",Toast.LENGTH_SHORT).show();
+                    break;
+
             }
         }
     };

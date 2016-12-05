@@ -44,6 +44,7 @@
                    android:textColor="#363636"
                    android:text="马克华菲长袖衬衫男士韩版时尚修身纯色亚麻 白衬衣潮2016秋装新款"
                    />
+
                <TextView
                    android:id="@+id/size"
                    android:layout_width="wrap_content"

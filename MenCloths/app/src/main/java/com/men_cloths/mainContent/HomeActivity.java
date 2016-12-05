@@ -1,7 +1,8 @@
 package com.men_cloths.mainContent;
 
 
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -173,4 +174,30 @@ public class HomeActivity extends FragmentActivity{
         }
     };
 
+
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(OFF.PACKG);
+//        registerReceiver(off, filter);
+//    }
+//    OFF off=new OFF();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+//        Intent intent = new Intent();
+//        intent.setAction(OFF.PACKG); // 说明动作
+//        sendBroadcast(intent);// 该函数用于发送广播
+//        finish();
+        SharedPreferences sharedPreferences=getSharedPreferences("login_info", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putBoolean("isfirst",false);
+        editor.commit();
+
+
+    }
 }
