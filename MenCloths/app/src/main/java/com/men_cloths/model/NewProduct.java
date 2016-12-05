@@ -4,18 +4,18 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/10/25.
  */
 public class NewProduct {
-    int img1;
+    String img1;
     String content1;
     Double price1;
-    int img2;
+    String img2;
     String content2;
     Double price2;
 
-    public int getImg1() {
+    public String getImg1() {
         return img1;
     }
 
-    public void setImg1(int img1) {
+    public void setImg1(String img1) {
         this.img1 = img1;
     }
 
@@ -35,11 +35,11 @@ public class NewProduct {
         this.price1 = price1;
     }
 
-    public int getImg2() {
+    public String getImg2() {
         return img2;
     }
 
-    public void setImg2(int img2) {
+    public void setImg2(String img2) {
         this.img2 = img2;
     }
 
