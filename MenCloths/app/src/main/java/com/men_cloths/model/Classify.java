@@ -4,17 +4,17 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/10.
  */
 public class Classify {
-    int imgId1;
+    String imgUrl1;
     String text1;
-    int imgId2;
+    String imgUrl2;
     String text2;
 
-    public int getImgId1() {
-        return imgId1;
+    public String getImgUrl1() {
+        return imgUrl1;
     }
 
-    public void setImgId1(int imgId1) {
-        this.imgId1 = imgId1;
+    public void setImgUrl1(String imgUrl1) {
+        this.imgUrl1 = imgUrl1;
     }
 
     public String getText1() {
@@ -25,12 +25,12 @@ public class Classify {
         this.text1 = text1;
     }
 
-    public int getImgId2() {
-        return imgId2;
+    public String getImgUrl2() {
+        return imgUrl2;
     }
 
-    public void setImgId2(int imgId2) {
-        this.imgId2 = imgId2;
+    public void setImgUrl2(String imgUrl2) {
+        this.imgUrl2 = imgUrl2;
     }
 
     public String getText2() {

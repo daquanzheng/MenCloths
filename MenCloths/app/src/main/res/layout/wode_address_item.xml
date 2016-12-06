@@ -40,13 +40,13 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="张先生"
+            android:text="姓名"
             android:textColor="#111"/>
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="14354193642"
+            android:text="联系电话"
             android:layout_marginRight="18dp"
             android:textColor="#111"/>
     </LinearLayout>
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="7dp"
-        android:text="重庆市渝中区石油路235号"
+        android:text="详细地址"
         android:textColor="#111"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,14 +65,9 @@
         android:layout_marginLeft="18dp"
         android:layout_marginTop="12dp">
         <TextView
-            android:id="@+id/is_default"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/yuandian"
-            android:drawablePadding="5dp"
-            android:text="默认地址"
-            android:layout_marginLeft="6dp"
             android:textColor="#f08f04"/>
         <TextView
             android:id="@+id/edit_address"

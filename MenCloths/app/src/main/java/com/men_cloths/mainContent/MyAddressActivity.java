@@ -3,13 +3,10 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.GettingAddressAdapter;
@@ -26,10 +23,8 @@ public class MyAddressActivity extends Activity{
     Button addNewAddress;
     ListView listView;
     List<GettingAddress> lists = new ArrayList<>();
-
-    TextView name,phone;
-    TextView editAddress,deleteAddress;
-    String str1,str2;
+    GettingAddressAdapter gettingAddressAdapter;
+    int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,45 +32,20 @@ public class MyAddressActivity extends Activity{
         addNewAddress = (Button)findViewById(R.id.add_newaddress);
         back = (ImageView) findViewById(R.id.back);
         listView = (ListView) findViewById(R.id.my_address);
-
-        GettingAddressAdapter gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,getLists());
+        gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,getLists());
+        //自定义的接口
+        gettingAddressAdapter.setOnEidtOnClickListener(new GettingAddressAdapter.EditOnClickListenr() {
+            @Override
+            public int onClick(int itemid, String name, String phone) {
+                Intent intent = new Intent(MyAddressActivity.this,AddressEditActivity.class);
+                intent.putExtra("name",name);
+                intent.putExtra("phone",phone);
+                startActivityForResult(intent,110);
+                position = itemid;
+                return position;
+            }
+        });
         listView.setAdapter(gettingAddressAdapter);
-//        deleteAddress = (TextView) findViewById(R.id.delete_address);
-
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                editAddress = (TextView) view.findViewById(R.id.edit_address);
-//                name = (TextView) view.findViewById(R.id.name);
-//                phone = (TextView) view.findViewById(R.id.phone);
-//                editAddress.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent();
-//                        str1 = name.getText().toString();
-//                        str2 = phone.getText().toString();
-//                        intent.putExtra("name",str1);
-//                        intent.putExtra("phone",str2);
-//                        intent.setClass(MyAddressActivity.this, AddressEditActivity.class);
-//                        Log.i("跳转到编辑地址界面=====>",""+str1+str2);
-//                        startActivityForResult(intent,110);
-//                    }
-//                });
-//            }
-//        });
-
-//        editAddress.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-////                intent.putExtra("name",str1);
-////                intent.putExtra("phone",str2);
-//                intent.setClass(MyAddressActivity.this, AddressEditActivity.class);
-//                MyAddressActivity.this.startActivity(intent);
-////                startActivityForResult(intent,110);
-//            }
-//        });
 
         back.setOnClickListener(onClickListener);
         addNewAddress.setOnClickListener(onClickListener);
@@ -94,25 +64,26 @@ public class MyAddressActivity extends Activity{
             }
         }
     };
-
-//    @Override
-//    protected void onActivityResult(int requestCode,
-//                                    int resultCode,
-//                                    Intent data) { //包含的数据，用bundle接收
-//        super.onActivityResult(requestCode, resultCode, data);
-//        Bundle bundle = data.getExtras();
-//        String s1 = bundle.getString("name");
-//        String s2 = bundle.getString("phone");
-//        name.setText(s1);
-//        phone.setText(s2);
-//    }
+    //跳转回来的回调
+    @Override
+    protected void onActivityResult(int requestCode,
+                                    int resultCode,
+                                    Intent data) { //包含的数据，用bundle接收
+        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode==110){
+//            Bundle bundle = data.getExtras();
+//            getLists().get(position).setName(bundle.getString("name"));
+//            getLists().get(position).setPhone(bundle.getString("phone"));
+//            getLists().get(position).setAddressDetails(bundle.getString("address")+bundle.getString("street"));
+//            gettingAddressAdapter.notifyDataSetChanged();
+//        }
+    }
 
     public List<GettingAddress> getLists(){
-        for(int i=0;i<3;i++){
+        for(int i=0;i<3;i++) {
             GettingAddress gettingAddress = new GettingAddress();
-
             lists.add(gettingAddress);
         }
-        return lists;
+    return lists;
     }
 }

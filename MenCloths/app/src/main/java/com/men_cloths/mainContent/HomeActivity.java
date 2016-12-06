@@ -1,8 +1,7 @@
 package com.men_cloths.mainContent;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -47,7 +46,6 @@ public class HomeActivity extends FragmentActivity{
         classifyMyButton.setOnClickListener(onClickListener);
         mineMyButton.setOnClickListener(onClickListener);
         initial();
-
     }
     public void initial(){
         if (myButtonClick[0]) {
@@ -174,20 +172,11 @@ public class HomeActivity extends FragmentActivity{
         }
     };
 
-
-
-
-
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onRestart() {
 
 
-        SharedPreferences sharedPreferences=getSharedPreferences("login_info", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putBoolean("isfirst",false);
-        editor.commit();
 
-
+        super.onRestart();
     }
 }
