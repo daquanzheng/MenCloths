@@ -51,8 +51,6 @@
         <activity android:name=".mainContent.ClassifyInfo"></activity>
 
         <!--<activity android:name=".mainContent.Test"></activity>-->
-        <activity android:name=".mainContent.MineLoginFragment"/>
-
         <activity android:name=".mainContent.ActivityViewPager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -88,7 +86,7 @@
         <service android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false">
         </service>
-        <service android:name=".model.OFF"/>
+        <receiver android:name=".model.OFF"/>
 
     </application>
 
