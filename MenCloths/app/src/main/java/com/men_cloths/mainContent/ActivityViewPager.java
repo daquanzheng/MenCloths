@@ -3,6 +3,8 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
@@ -19,13 +21,43 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/10/31.
  */
 public class ActivityViewPager extends Activity{
-    ViewPager viewPager;
-    ArrayList<View>arrayList;
-    TextView tiyan;
-
+    private ViewPager viewPager;
+    private ArrayList<View>arrayList;
+    private TextView tiyan;
+    private static final int OFF=-1;
+    private static final int ON=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        HasLogin.checkLogin(this,handler);
+
+
+
+
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    Handler handler=new Handler(){
+      public void handleMessage(Message message){
+          switch (message.what){
+              case OFF:
+                  next();
+                  break;
+              case ON:
+                  next();
+                  break;
+          }
+      }
+    };
+
+    public void next(){
         if(!HasLogin.isfirst(this)){
             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
             startActivity(intent);
@@ -74,17 +106,5 @@ public class ActivityViewPager extends Activity{
                 }
             }
         });
-
-
-
-
-
-
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 }

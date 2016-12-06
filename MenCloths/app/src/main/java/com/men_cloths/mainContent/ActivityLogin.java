@@ -140,15 +140,13 @@ public class ActivityLogin extends Activity {
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                     intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
-                     startActivity(intent);
+                     finish();
                     break;
                 case -1:
                     Toast.makeText(ActivityLogin.this,"你的账号或者密码不正确",Toast.LENGTH_SHORT).show();
                     break;
                 case 666:
-                    intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
-                    startActivity(intent);
+                    finish();
                     break;
                 case 555:
                     Toast.makeText(ActivityLogin.this,"第三方登录失败",Toast.LENGTH_SHORT).show();
