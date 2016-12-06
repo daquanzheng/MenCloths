@@ -172,11 +172,5 @@ public class HomeActivity extends FragmentActivity{
         }
     };
 
-    @Override
-    protected void onRestart() {
 
-
-
-        super.onRestart();
-    }
 }
