@@ -1,7 +1,9 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -29,13 +31,7 @@ public class ActivityViewPager extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HasLogin.checkLogin(this,handler);
-
-
-
-
-
-
+        HasLogin.checkLogin(this,handler);//检查是否登录，不管是否登录都会进行接下来的步骤
 
     }
 
@@ -58,7 +54,7 @@ public class ActivityViewPager extends Activity{
     };
 
     public void next(){
-        if(!HasLogin.isfirst(this)){
+        if(!HasLogin.isfirst(this)){//检查是否第一次登录，如果是就不进行导航页展示，直接跳转到主页面
             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
             startActivity(intent);
             finish();
@@ -100,6 +96,12 @@ public class ActivityViewPager extends Activity{
                         public void onClick(View v) {
                             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
                             startActivity(intent);
+                            if (HasLogin.isfirst(ActivityViewPager.this)){
+                                SharedPreferences sharedPreferences=getSharedPreferences("login_info", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                editor.putBoolean("isfirst",false);
+                                editor.commit();
+                            }
                             finish();
                         }
                     });

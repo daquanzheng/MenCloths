@@ -20,6 +20,7 @@ import java.net.URL;
 public class HasLogin {
    public static  boolean hasLogin(Context context){
        SharedPreferences sharedPreferences=context.getSharedPreferences("login_info", Context.MODE_PRIVATE);
+       //Log.i("ststststst",sharedPreferences.getBoolean("islogin",false)+""+sharedPreferences.getString("token",""));
        return sharedPreferences.getBoolean("islogin",false);
    }
    public static  boolean isfirst(Context context){
@@ -54,16 +55,23 @@ public class HasLogin {
                     bufferedReader=new BufferedReader(new InputStreamReader(connection.getInputStream()));
                     String line;
                     line=bufferedReader.readLine();
+                   // Log.i("hhh",line+"dsadhandsajdasd"+sharedPreferences.getString("tel","")+sharedPreferences.getString("token",""));
 
                     try {
                         JSONObject object=new JSONObject(line);
                         String code=object.optString("code","");
                         if(code.equals("1")){
                             SharedPreferences.Editor editor=sharedPreferences.edit();
-                            editor.putBoolean("islogin",false);
-                            handler.sendEmptyMessage(1);
-                        }else {
+                            editor.putBoolean("islogin",true);
+                            editor.commit();
+                            if (handler!=null)
                             handler.sendEmptyMessage(-1);
+                        }else if(code.equals("-1")){
+                            if (handler!=null)
+                            handler.sendEmptyMessage(1);
+                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                            editor.putBoolean("islogin",false);
+                            editor.commit();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -72,6 +80,11 @@ public class HasLogin {
 
 
                 }else {
+
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putBoolean("islogin",false);
+                    editor.commit();
+                    if (handler!=null)
                     handler.sendEmptyMessage(-1);
                 }
             } catch (IOException e) {
