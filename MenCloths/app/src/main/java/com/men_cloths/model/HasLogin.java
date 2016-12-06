@@ -58,12 +58,16 @@ public class HasLogin {
                     try {
                         JSONObject object=new JSONObject(line);
                         String code=object.optString("code","");
-                        if(code.equals("1")){
+                        if(code.equals("-1")){
                             SharedPreferences.Editor editor=sharedPreferences.edit();
                             editor.putBoolean("islogin",false);
-                            handler.sendEmptyMessage(1);
-                        }else {
+                            editor.commit();
                             handler.sendEmptyMessage(-1);
+                        }else if(code.equals("1")){
+                            handler.sendEmptyMessage(1);
+                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                            editor.putBoolean("islogin",true);
+                            editor.commit();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -72,6 +76,10 @@ public class HasLogin {
 
 
                 }else {
+                    handler.sendEmptyMessage(-1);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putBoolean("islogin",false);
+                    editor.commit();
                     handler.sendEmptyMessage(-1);
                 }
             } catch (IOException e) {
