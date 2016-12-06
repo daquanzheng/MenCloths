@@ -34,7 +34,18 @@ public class Register{
 
     private void function(){
         String url="http://139.199.196.199/index.php/home/index/register?tel="+user+"&passwd="+passwd;
-
+        if(user==null || passwd==null){
+            Message message=Message.obtain();
+            message.what=-99;
+            handler.sendMessage(message);
+            return;
+        }
+        if(user.length()==0||passwd.length()==0){
+            Message message=Message.obtain();
+            message.what=-99;
+            handler.sendMessage(message);
+            return;
+        }
         HttpURLConnection connection=null;
         BufferedReader bufferedReader=null;
 

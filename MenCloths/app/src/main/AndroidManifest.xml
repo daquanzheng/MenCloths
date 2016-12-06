@@ -13,25 +13,19 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-
-
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
 
 
 
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/man_head"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".mainContent.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".mainContent.SearchActivity"/>
@@ -40,14 +34,16 @@
         <activity android:name=".mainContent.Interchangeable" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.MessAge" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.PersonInfo" android:launchMode="singleTask"/>
-        <activity android:name=".mainContent.BindSucessfuly" android:launchMode="singleTask"/>
+        <activity android:name=".mainContent.BindSucessfuly">
+
+        </activity>
         <activity android:name=".mainContent.Collection" />
         <activity android:name=".mainContent.Brand"/>
         <activity android:name=".mainContent.BindtoTel" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.Coupon"/>
         <activity android:name=".mainContent.Passwd" android:launchMode="singleTask"/>
         <activity android:name=".mainContent.SoftPassword" android:launchMode="singleTask"/>
-        <activity android:name=".mainContent.SoftPassWorldForChange" android:launchMode="singleTask"/>
+        <activity android:name=".mainContent.SoftPassWorldForChange" />
 
 
         <activity android:name=".mainContent.ShopInfo"></activity>
@@ -56,9 +52,13 @@
         <activity android:name=".mainContent.ClassifyInfo"></activity>
 
         <!--<activity android:name=".mainContent.Test"></activity>-->
-        <activity android:name=".mainContent.MyMainpageInActivity"/>
+        <activity android:name=".mainContent.ActivityViewPager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".mainContent.ActivityViewPager"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".mainContent.Page1"/>
         <activity android:name=".mainContent.Page2"/>
         <activity android:name=".mainContent.Page3"/>
@@ -86,11 +86,8 @@
 
         <service android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false">
-        </service><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+        </service>
+        <receiver android:name=".model.OFF"/>
 
     </application>
 

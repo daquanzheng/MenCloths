@@ -9,7 +9,6 @@ public class GettingAddress {
     String name;
     String phone;
     String addressDetails;
-    String isDefault;
 
     public String getGetGoodsAddress() {
         return getGoodsAddress;
@@ -51,11 +50,4 @@ public class GettingAddress {
         this.addressDetails = addressDetails;
     }
 
-    public String getIsDefault() {
-        return isDefault;
-    }
-
-    public void setIsDefault(String isDefault) {
-        this.isDefault = isDefault;
-    }
 }

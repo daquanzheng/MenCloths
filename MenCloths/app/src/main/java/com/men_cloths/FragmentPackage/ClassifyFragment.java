@@ -1,6 +1,7 @@
 package com.men_cloths.FragmentPackage;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,6 +18,17 @@ import com.men_cloths.mainContent.ClassifyInfo;
 import com.men_cloths.mainContent.SearchActivity;
 import com.men_cloths.model.Classify;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +50,7 @@ public class ClassifyFragment extends Fragment{
                 getActivity().startActivity(intent);
             }
         });
-        ClassifyAdapter classifyAdapter=new ClassifyAdapter(getActivity(),getData());
-        listView.setAdapter(classifyAdapter);
+          startAsyncTask();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,32 +74,87 @@ public class ClassifyFragment extends Fragment{
         });
         return view;
     }
-    public List<Classify> getData(){
-        List<Classify> classifyList=new ArrayList<>();
-        for(int i=0;i<12;i++){
-            Classify classify=new Classify();
-            switch (i%3){
-                case 0:
-                    classify.setImgId1(R.mipmap.classify_t_shirt);
-                    classify.setText1("T恤");
-                    classify.setImgId2(R.mipmap.classify_shirt);
-                    classify.setText2("衬衫");
-                    break;
-                case 1:
-                    classify.setImgId1(R.mipmap.classify_hoodie);
-                    classify.setText1("卫衣");
-                    classify.setImgId2(R.mipmap.classify_trousers);
-                    classify.setText2("裤装");
-                    break;
-                case 2:
-                    classify.setImgId1(R.mipmap.classify_shoes);
-                    classify.setText1("鞋子");
-                    classify.setImgId2(R.mipmap.classify_accessories);
-                    classify.setText2("配饰");
-                    break;
-            }
-            classifyList.add(classify);
+    public class MyAsyncTask extends AsyncTask<String,Integer,String> {
+
+        @Override
+        protected void onPreExecute() {
+            //在execute(Params... params)被调用后立即执行，一般用来在执行后台任务前对UI做一些标记
+            super.onPreExecute();
         }
-        return classifyList;
+
+        @Override
+        protected void onPostExecute(String s) {//执行UI操作
+            if(s!=null){
+                try {
+                    List<Classify> classifyList=new ArrayList<>();
+                    JSONObject jsonObject=new JSONObject(s);
+                    JSONArray jsonArray=jsonObject.getJSONArray("data");
+                    for(int i=0;i<jsonArray.length();i++){
+                        if(i%2==0) {
+                            JSONObject obj = jsonArray.getJSONObject(i);
+                            Classify classify = new Classify();
+                            classify.setText1(obj.getString("categroy"));
+                            classify.setImgUrl1(obj.getString("img"));
+                            JSONObject object = jsonArray.getJSONObject(i + 1);
+                            classify.setText2(object.getString("categroy"));
+                            classify.setImgUrl2(object.getString("img"));
+                            classifyList.add(classify);
+                        }
+                    }
+                    ClassifyAdapter classifyAdapter=new ClassifyAdapter(getActivity(),classifyList);
+                    listView.setAdapter(classifyAdapter);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            super.onPostExecute(s);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            //更新类似于进度条的控件的进度效果
+            super.onProgressUpdate(values);
+        }
+
+        @Override//所有的耗时操作都在此时进行，不能进行UI操作
+        protected String doInBackground(String... params) {//在后台运行的回调方法
+            StringBuilder stringBuilder=new StringBuilder();//可序列
+            InputStream is=null;
+            try {
+                URL url=new URL(params[0]);
+                HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();//建立本次网络请求的连接
+                if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
+                    is=httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader=new BufferedReader
+                            (new InputStreamReader(is,"utf-8"));
+                    String s;
+                    while ((s=bufferedReader.readLine())!=null){
+                        stringBuilder.append(s);
+                    }
+                    return stringBuilder.toString();
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            finally {
+                try {
+                    if(is!=null)
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+    }
+    public void startAsyncTask(){
+        MyAsyncTask myAsyncTask=new MyAsyncTask();
+        String httpUrl="http://139.199.196.199/index.php/home/index/product_categroy";
+        myAsyncTask.execute(httpUrl);
     }
 }

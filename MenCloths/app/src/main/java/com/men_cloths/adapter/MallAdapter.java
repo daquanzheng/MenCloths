@@ -48,6 +48,6 @@ public class MallAdapter extends BaseAdapter{
         }
         ImageView imageView= (ImageView) convertView.findViewById(R.id.mall_img);
         imageView.setImageResource(list.get(position));
-        return imageView;
+        return convertView;
     }
 }

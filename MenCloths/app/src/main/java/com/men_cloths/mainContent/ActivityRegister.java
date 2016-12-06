@@ -25,6 +25,7 @@ public class ActivityRegister extends Activity {
     EditText tel,passwd,ver;
     boolean isverification=false;
     TextView getVer;
+    boolean isClick=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,11 @@ public class ActivityRegister extends Activity {
         getVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               verification.send(tel.getText().toString());
+               if(isClick){
+                  isClick=false;
+                  verification.send(tel.getText().toString());
+                  canClick();
+               }
             }
         });
     }
@@ -58,6 +63,7 @@ public class ActivityRegister extends Activity {
                 }else{
                     Toast.makeText(ActivityRegister.this,"验证码输入错误",Toast.LENGTH_SHORT).show();
                     isverification=false;
+
                 }
             }
         });
@@ -100,6 +106,16 @@ public class ActivityRegister extends Activity {
                         Toast.makeText(ActivityRegister.this,"验证码验证失败",Toast.LENGTH_SHORT).show();
                     }
                     break;
+                case -99:
+                    Toast.makeText(ActivityRegister.this,"账户或者密码不能为空",Toast.LENGTH_SHORT).show();
+                    break;
+                case 12345:
+                    if(message.arg1==0){
+                        getVer.setText("获取验证码");
+                    }else {
+                        getVer.setText("重新获取"+message.arg1);
+                    }
+                    break;
             }
 
         }
@@ -109,5 +125,29 @@ public class ActivityRegister extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         verification.cancellation();
+    }
+
+    public void canClick(){
+        new Thread(){
+            public void run(){
+                int i=60;
+                while(true){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Message message=Message.obtain();
+                    message.what=12345;
+                    message.arg1=i;
+                    handler.sendMessage(message);
+                    if(i==0){
+                        isClick=true;
+                        break;
+                    }
+                    i--;
+                }
+            }
+        }.start();
     }
 }

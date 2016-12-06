@@ -41,7 +41,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="请输入安全密码密码"
+        android:text="请输入新的安全密码"
         android:paddingTop="6dp"
         android:paddingLeft="19dp"
         android:textColor="#B6B6B6"
@@ -55,6 +55,7 @@
         android:gravity="center"
         >
         <EditText
+            android:id="@+id/txt1"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -63,6 +64,7 @@
             android:gravity="center"
             />
         <EditText
+            android:id="@+id/txt2"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -70,6 +72,7 @@
             android:gravity="center"
             />
         <EditText
+            android:id="@+id/txt3"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -80,6 +83,7 @@
 
             />
         <EditText
+            android:id="@+id/txt4"
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:background="@drawable/edittext_softpassswd"
@@ -90,5 +94,19 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完成"
+        android:textSize="12dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/frament_button"
+        />
 
 </LinearLayout>

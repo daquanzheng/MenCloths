@@ -147,38 +147,38 @@
         android:background="@color/set_split_line"
         />
     <!--******************************************-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:paddingLeft="19dp"
-            android:text="修改安全密码"
-            android:textColor="@color/set_font_num1"
-            android:textSize="12dp"
-            />
-        <ImageView
-            android:layout_width="8dp"
-            android:layout_height="13dp"
-            android:src="@mipmap/right"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="19dp"
-            />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--&gt;-->
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingTop="14dp"-->
+            <!--android:paddingBottom="14dp"-->
+            <!--android:paddingLeft="19dp"-->
+            <!--android:text="修改安全密码"-->
+            <!--android:textColor="@color/set_font_num1"-->
+            <!--android:textSize="12dp"-->
+            <!--/>-->
+        <!--<ImageView-->
+            <!--android:layout_width="8dp"-->
+            <!--android:layout_height="13dp"-->
+            <!--android:src="@mipmap/right"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginRight="19dp"-->
+            <!--/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/set_split_line"
-        />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="3dp"-->
+        <!--android:background="@color/set_split_line"-->
+        <!--/>-->
 
 
 

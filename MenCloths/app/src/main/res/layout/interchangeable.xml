@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="#fefefe"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -96,8 +96,8 @@
             android:layout_height="1dp"
             android:layout_weight="1"/>
         <com.men_cloths.mainContent.SwitchButton
-            android:layout_width="35dp"
-            android:layout_height="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="18dp"
             sb:state="false"
             android:id="@+id/button_"

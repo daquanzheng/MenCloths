@@ -3,8 +3,6 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,7 +29,10 @@ public class AddressEditActivity extends Activity{
         editPhone = (EditText) findViewById(R.id.edit_phone);
         editAddressName = (EditText) findViewById(R.id.edit_address_name);
         editStreet = (EditText) findViewById(R.id.edit_street);
-
+        intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        editName.setText(bundle.getString("name"));
+        editPhone.setText(bundle.getString("phone"));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,13 +43,10 @@ public class AddressEditActivity extends Activity{
         saveAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //        intent = getIntent();
-//        Bundle bundle = intent.getExtras();
-//        editName.setText(bundle.getString("name"));
-//        editPhone.setText(bundle.getString("phone"));
-
 //                intent.putExtra("name",editName.getText());
 //                intent.putExtra("phone",editPhone.getText());
+//                intent.putExtra("address",editAddressName.getText());
+//                intent.putExtra("street",editStreet.getText());
 //                setResult(110,intent);
                 finish();
             }

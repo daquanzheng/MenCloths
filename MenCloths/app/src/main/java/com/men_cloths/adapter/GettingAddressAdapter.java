@@ -1,9 +1,6 @@
 package com.men_cloths.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.men_cloths.R;
-import com.men_cloths.mainContent.AddressEditActivity;
 import com.men_cloths.model.GettingAddress;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,8 +22,15 @@ import java.util.List;
  */
 public class GettingAddressAdapter extends BaseAdapter{
     Context context;
-    List<GettingAddress> addressList;
+    List<GettingAddress> addressList = new ArrayList<>();
     LayoutInflater inflater;
+    EditOnClickListenr editOnClickListener;
+    public interface  EditOnClickListenr{//接口
+        public int onClick(int itemid,String name,String phone);
+    }
+    public void setOnEidtOnClickListener(EditOnClickListenr editOnClickListener){
+        this.editOnClickListener=editOnClickListener;
+    }
 
     public GettingAddressAdapter(Context context,List<GettingAddress> addressList){
         this.context = context;
@@ -47,9 +51,9 @@ public class GettingAddressAdapter extends BaseAdapter{
     public long getItemId(int position) {
         return position;
     }
-    TextView editAddress,deleteAddress;
+    TextView editAddress,deleteAddress,name,phone,addDetails;
     CheckBox showAddressDetails;
-    String str1,str2;
+    String str1,str2,str3;
     LinearLayout addressAll;
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -57,6 +61,10 @@ public class GettingAddressAdapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.wode_address_item,null);
             editAddress = (TextView) convertView.findViewById(R.id.edit_address);
             deleteAddress = (TextView) convertView.findViewById(R.id.delete_address);
+            name = (TextView) convertView.findViewById(R.id.name);
+            phone = (TextView) convertView.findViewById(R.id.phone);
+            addDetails = (TextView) convertView.findViewById(R.id.address_details);
+
             deleteAddress.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -88,12 +96,9 @@ public class GettingAddressAdapter extends BaseAdapter{
             editAddress.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent();
-//                    intent.putExtra("name",str1);
-//                    intent.putExtra("phone",str2);
-                    intent.setClass(context, AddressEditActivity.class);
-                    context.startActivity(intent);
-//                    context.startActivityForResult(intent,110);
+                    str1 = name.getText().toString();
+                    str2 = phone.getText().toString();
+                    editOnClickListener.onClick(position,str1,str2);//当我点击某个item的编辑按钮然后通知activity
                 }
             });
         }

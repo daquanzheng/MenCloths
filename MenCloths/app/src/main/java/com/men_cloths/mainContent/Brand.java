@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,14 +27,14 @@ public class Brand extends Activity {
     private ImageView back;
     private ListView listView;
     private LayoutInflater inflater;
-    private int position;
+    private static int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brand);
         init();
         listView.setAdapter(baseAdapter);
-        setOnclicForListView();
+       // setOnclicForListView();
 
     }
 
@@ -79,10 +80,18 @@ public class Brand extends Activity {
                 holder=new ViewHolder();
                 holder.imageView= (ImageView) convertView.findViewById(R.id.imageView3);
                 holder.textView= (TextView) convertView.findViewById(R.id.textView);
+                holder.button= (Button) convertView.findViewById(R.id.off);
                 convertView.setTag(holder);
             }else {
                 holder= (ViewHolder) convertView.getTag();
             }
+            holder.button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    list.remove(list.get(Brand.position));
+                    baseAdapter.notifyDataSetChanged();
+                }
+            });
 
             return convertView;
         }
@@ -96,6 +105,7 @@ public class Brand extends Activity {
     class ViewHolder{
         ImageView imageView;
         TextView textView;
+        Button button;
     }
     class SS{
         String image;
@@ -114,19 +124,19 @@ public class Brand extends Activity {
    }
 
     public void setOnclicForListView(){
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,  int position, long id) {
-                TextView textView= (TextView) view.findViewById(R.id.off);
-                Brand.this.position=position;
-                textView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        list.remove(Brand.this.position);
-                        baseAdapter.notifyDataSetChanged();
-                    }
-                });
-            }
-        });
+       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               Brand.position=position;
+               Button button= (Button) view.findViewById(R.id.off);
+               button.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       list.remove(Brand.position);
+                       baseAdapter.notifyDataSetChanged();
+                   }
+               });
+           }
+       });
     }
 }

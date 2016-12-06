@@ -6,13 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.AbsListView;
 import android.widget.ListView;
-
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.TrendAdapter;
-
 import com.men_cloths.model.Trend;
 
 import java.util.ArrayList;
@@ -28,14 +26,15 @@ public class TrendFragment extends Fragment{
         View view=inflater.inflate(R.layout.listview_have_divider,null);
         listView= (ListView) view.findViewById(R.id.listview_have_divider);
         TrendAdapter trendAdapter=new TrendAdapter(getActivity(),getdata());
-        listView.setAdapter(trendAdapter);
+
         View headview=new View(getActivity());
-        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,12
+        AbsListView.LayoutParams layoutParams=new AbsListView.LayoutParams(
+                AbsListView.LayoutParams.MATCH_PARENT,12
         );
         headview.setLayoutParams(layoutParams);
         headview.setBackgroundResource(R.color.spacing_simple);
         listView.addHeaderView(headview);
+        listView.setAdapter(trendAdapter);
         return view;
     }
     public List<Trend> getdata(){

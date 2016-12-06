@@ -127,7 +127,7 @@ public class SwitchButton extends View{
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(first.getWidth()+ro.getWidth()/2,first.getHeight());
+        setMeasuredDimension(first.getWidth()+ro.getWidth()/2+20,first.getHeight());
     }
 
     public void init(){

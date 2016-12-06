@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 
+import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.NewProduct;
 
@@ -23,21 +24,21 @@ import java.util.List;
  */
 public class NewProductAdapter extends BaseAdapter{
     Context context;
-    List<NewProduct> newProducts;
+    List<NewProduct> newProductList;
     LayoutInflater layoutInflater;
-    public NewProductAdapter(Context context, List<NewProduct> newProducts){
+    public NewProductAdapter(Context context, List<NewProduct> newProductList){
         this.context=context;
-        this.newProducts=newProducts;
+        this.newProductList=newProductList;
         layoutInflater=LayoutInflater.from(context);
     }
     @Override
     public int getCount() {
-        return newProducts.size();
+        return newProductList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return newProducts.get(position);
+        return newProductList.get(position);
     }
 
     @Override
@@ -47,24 +48,23 @@ public class NewProductAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder=null;
         if(convertView==null){
             convertView=layoutInflater.inflate(R.layout.listview_item_new,null);
+            viewHolder=new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder= (ViewHolder) convertView.getTag();
         }
-        NewProduct newProduct=newProducts.get(position);
-        ImageView imageView1= (ImageView) convertView.findViewById(R.id.new_img1);
-        imageView1.setImageResource(newProduct.getImg1());
-        TextView textView1= (TextView) convertView.findViewById(R.id.new_text_title1);
-        textView1.setText(newProduct.getContent1());
-        TextView textPrice1= (TextView) convertView.findViewById(R.id.new_text_price1);
-        textPrice1.setText("￥"+newProduct.getPrice1()+"0");
-        ImageView imageView2= (ImageView) convertView.findViewById(R.id.new_img2);
-        imageView2.setImageResource(newProduct.getImg2());
-        TextView textView2= (TextView) convertView.findViewById(R.id.new_text_title2);
-        textView2.setText(newProduct.getContent2());
-        TextView textPrice2= (TextView) convertView.findViewById(R.id.new_text_price2);
-        textPrice2.setText("￥"+newProduct.getPrice2()+"0");
-        imageView1.setOnClickListener(onClickListener);
-        imageView2.setOnClickListener(onClickListener);
+        NewProduct newProduct=newProductList.get(position);
+        viewHolder.content1.setText(newProduct.getContent1());
+        viewHolder.price1.setText("￥"+newProduct.getPrice1().toString()+"0");
+        viewHolder.img1.setTag(newProduct.getImg1());
+        new HttpImgThread(viewHolder.img1,newProduct.getImg1()).start();
+        viewHolder.content2.setText(newProduct.getContent2());
+        viewHolder.price2.setText("￥"+newProduct.getPrice2().toString()+"0");
+        viewHolder.img2.setTag(newProduct.getImg2());
+        new HttpImgThread(viewHolder.img2,newProduct.getImg2()).start();
         return convertView;
     }
     View.OnClickListener onClickListener=new View.OnClickListener() {
@@ -80,4 +80,23 @@ public class NewProductAdapter extends BaseAdapter{
             }
         }
     };
+    private class ViewHolder{
+        private TextView content1;
+        private TextView price1;
+        private ImageView img1;
+        private TextView content2;
+        private TextView price2;
+        private ImageView img2;
+        public ViewHolder(View view){
+           content1= (TextView) view.findViewById(R.id.new_text_title1);
+            price1= (TextView) view.findViewById(R.id.new_text_price1);
+            img1= (ImageView) view.findViewById(R.id.new_img1);
+            content2= (TextView) view.findViewById(R.id.new_text_title2);
+            price2= (TextView) view.findViewById(R.id.new_text_price2);
+            img2= (ImageView) view.findViewById(R.id.new_img2);
+        }
+
+    }
+
+
 }

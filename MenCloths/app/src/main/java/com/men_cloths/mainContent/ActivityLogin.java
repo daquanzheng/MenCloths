@@ -1,8 +1,6 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -22,7 +20,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,6 +83,7 @@ public class ActivityLogin extends Activity {
         taobao.setOnClickListener(onClickListener);
         show.setOnClickListener(onClickListener);
         camera.setOnClickListener(onClickListener);
+
     }
     Intent intent=new Intent();
     URL url;
@@ -136,24 +134,30 @@ public class ActivityLogin extends Activity {
             }
         }
     };
+
     Handler handler=new Handler(){
 
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                     intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
-                     startActivity(intent);
+                     finish();
                     break;
                 case -1:
                     Toast.makeText(ActivityLogin.this,"你的账号或者密码不正确",Toast.LENGTH_SHORT).show();
                     break;
                 case 666:
-                    intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
-                    startActivity(intent);
+                    finish();
                     break;
                 case 555:
                     Toast.makeText(ActivityLogin.this,"第三方登录失败",Toast.LENGTH_SHORT).show();
                     break;
+                case -123:
+                    Toast.makeText(ActivityLogin.this,"网络不太好，请检查连接",Toast.LENGTH_SHORT).show();
+                    break;
+                case -99:
+                    Toast.makeText(ActivityLogin.this,"账户名或者密码不能为空",Toast.LENGTH_SHORT).show();
+                    break;
+
             }
         }
     };

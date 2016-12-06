@@ -21,8 +21,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
 
 /**
  * Created by Administrator on 2016/10/25.
@@ -57,8 +59,12 @@ public class Account extends Activity{
         telNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Account.this,BindtoTel.class);
-                startActivity(intent);
+              if(tel.length()!=11){
+                  Toast.makeText(Account.this,"该功能暂时不支持第三方用户",Toast.LENGTH_SHORT).show();
+              }else {
+                  Intent intent=new Intent(Account.this,BindtoTel.class);
+                  startActivity(intent);
+              }
 
             }
         });
@@ -67,6 +73,10 @@ public class Account extends Activity{
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(tel.length()!=11){
+                    Toast.makeText(Account.this,"该功能暂时不支持第三方用户",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent=new Intent(Account.this,SoftPassword.class);
                 startActivity(intent);
             }
@@ -86,8 +96,15 @@ public class Account extends Activity{
     @Override
     protected void onResume() {
         super.onResume();
-         getinfo();
+        if(tel.length()==11){
+            getinfo();
+        }else {
+            user_name.setText(msg);
+        }
+
+
     }
+    private String msg;
 
     private  void init(){
         user_name= (TextView) findViewById(R.id.user_name);
@@ -95,6 +112,7 @@ public class Account extends Activity{
         SharedPreferences preferences=getSharedPreferences("login_info",MODE_PRIVATE);
         token=preferences.getString("token","");
         tel=preferences.getString("tel","");
+        msg=preferences.getString("message","");
     }
 
 
@@ -162,7 +180,11 @@ public class Account extends Activity{
             switch (message.what){
                 case 1:
                     if(name!=null){
-                        user_name.setText(name);
+                        try {
+                            user_name.setText(URLDecoder.decode(name,"utf-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
                     }
                     break;
                 case -1:
