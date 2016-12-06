@@ -3,10 +3,15 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.model.ActivityManager;
+import com.men_cloths.model.OFF;
 
 /**
  * Created by Administrator on 2016/10/19.
@@ -14,6 +19,7 @@ import com.men_cloths.R;
 
 public class Seting extends Activity{
     private LinearLayout linearLayout,message,interchanged,personInfo;//账户
+    private TextView exit;
 
 
     @Override
@@ -23,6 +29,7 @@ public class Seting extends Activity{
         setOnclit();
         Intent intent=new Intent(this,GetInfo.class);
         startService(intent);
+        ActivityManager.getActivityManager().add(this);
 
     }
 
@@ -66,5 +73,19 @@ public class Seting extends Activity{
                 startActivity(intent);
             }
         });
+        exit= (TextView) findViewById(R.id.exit);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OFF.unRegister(Seting.this,handler);
+
+            }
+        });
     }
+    Handler handler=new Handler(){
+        public void handleMessage(Message message){
+            ActivityManager.getActivityManager().exit();
+        }
+    };
+
 }

@@ -1,7 +1,9 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -94,6 +96,12 @@ public class ActivityViewPager extends Activity{
                         public void onClick(View v) {
                             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
                             startActivity(intent);
+                            if (HasLogin.isfirst(ActivityViewPager.this)){
+                                SharedPreferences sharedPreferences=getSharedPreferences("login_info", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                editor.putBoolean("isfirst",false);
+                                editor.commit();
+                            }
                             finish();
                         }
                     });
