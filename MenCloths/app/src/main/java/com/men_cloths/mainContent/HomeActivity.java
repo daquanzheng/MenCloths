@@ -13,7 +13,9 @@ import com.men_cloths.FragmentPackage.CollocateFragment;
 import com.men_cloths.FragmentPackage.HomeFragment;
 import com.men_cloths.FragmentPackage.MallFragment;
 import com.men_cloths.FragmentPackage.MineFragment;
+import com.men_cloths.FragmentPackage.MineLoginFragment;
 import com.men_cloths.R;
+import com.men_cloths.model.HasLogin;
 import com.men_cloths.model.MyButton;
 
 /**
@@ -27,6 +29,7 @@ public class HomeActivity extends FragmentActivity{
     MyButton mineMyButton;
     Boolean[] myButtonClick={true,false,false,false,false,};
     FragmentManager fragmentManager=getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +110,7 @@ public class HomeActivity extends FragmentActivity{
                         }
                     }
                     initial();
-                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                    fragmentTransaction=fragmentManager.beginTransaction();
                     HomeFragment homeFragment=new HomeFragment();
                     fragmentTransaction.replace(R.id.root_relativeLayout,homeFragment);
                     fragmentTransaction.commit();
@@ -165,7 +168,12 @@ public class HomeActivity extends FragmentActivity{
                     initial();
                     fragmentTransaction=fragmentManager.beginTransaction();
                     MineFragment mineFragment=new MineFragment();
-                    fragmentTransaction.replace(R.id.root_relativeLayout,mineFragment);
+                    MineLoginFragment mineLoginFragment=new MineLoginFragment();
+                    if(!HasLogin.hasLogin(HomeActivity.this)) {
+                        fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
+                    }{
+                    fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
+                }
                     fragmentTransaction.commit();
                     break;
             }
@@ -174,9 +182,15 @@ public class HomeActivity extends FragmentActivity{
 
     @Override
     protected void onRestart() {
-
-
-
+        fragmentTransaction=fragmentManager.beginTransaction();
+        MineFragment mineFragment=new MineFragment();
+        MineLoginFragment mineLoginFragment=new MineLoginFragment();
+        if(!HasLogin.hasLogin(HomeActivity.this)) {
+            fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
+        }{
+            fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
+        }
+        fragmentTransaction.commit();
         super.onRestart();
     }
 }

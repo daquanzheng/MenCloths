@@ -155,7 +155,7 @@ public class ClassifyFragment extends Fragment{
     }
     public void startAsyncTask(){
         MyAsyncTask myAsyncTask=new MyAsyncTask();
-        String httpUrl="http://10.0.2.2/index.php/home/index/product_category";
+        String httpUrl="http://10.0.2.2/index.php/home/index/product_categroy";
         myAsyncTask.execute(httpUrl);
     }
 }

@@ -23,10 +23,9 @@ public class ClassifyAdapter extends BaseAdapter{
     LayoutInflater layoutInflater;
 
     public ClassifyAdapter(Context context, List<Classify> classifyList){
-            this.context=context;
+        this.context=context;
         this.classifyList=classifyList;
         layoutInflater=LayoutInflater.from(context);
-
     }
     @Override
     public int getCount() {
@@ -69,7 +68,6 @@ public class ClassifyAdapter extends BaseAdapter{
         private ImageView img1;
         private TextView text2;
         private ImageView img2;
-
         public ViewHolder(View view){
             text1= (TextView) view.findViewById(R.id.classify_item_text1);
             img1= (ImageView) view.findViewById(R.id.classify_item_img1);
