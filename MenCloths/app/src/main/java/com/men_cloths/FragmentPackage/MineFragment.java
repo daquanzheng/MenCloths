@@ -1,5 +1,7 @@
 package com.men_cloths.FragmentPackage;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -67,35 +69,65 @@ public class MineFragment extends Fragment{
                     startActivity(intent);
                     break;
                 case R.id.dingdan:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.youhuijuan:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.address:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.message:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.collect:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.pinpai:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.zuji:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.helper:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
                 case R.id.zhanghu:
-                    Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"亲，你还没有登录哦",Toast.LENGTH_SHORT).show();
+                    createAlertdialog();
                     break;
             }
         }
     };
+    public void createAlertdialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("亲，你还没有登录哦");
+        builder.setMessage("是否立即登录？");
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getActivity(),ActivityLogin.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+//        builder.setCancelable(true);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
     public class ViewHolder{
         Button enter;
         Button addUser;
