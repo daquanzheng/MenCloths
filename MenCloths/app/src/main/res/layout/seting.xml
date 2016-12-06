@@ -215,6 +215,19 @@
         android:background="@color/set_split_line"
         />
 
+    <TextView
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="退出"
+        android:textColor="#d81e06"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@mipmap/exit"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        />
+
 
 
 </LinearLayout>

@@ -25,7 +25,9 @@ public class ClassifyAdapter extends BaseAdapter{
     public ClassifyAdapter(Context context, List<Classify> classifyList){
         this.context=context;
         this.classifyList=classifyList;
-        layoutInflater=LayoutInflater.from(context);
+        if(context!=null){
+            layoutInflater=LayoutInflater.from(context);
+        }
     }
     @Override
     public int getCount() {

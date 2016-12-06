@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.men_cloths.R;
 
@@ -18,10 +19,12 @@ public class MallAdapter extends BaseAdapter{
     Context context;
     List<Integer> list;
     LayoutInflater layoutInflater;
+
     public MallAdapter(Context context,List<Integer> list){
         this.context=context;
         this.list=list;
         layoutInflater=LayoutInflater.from(context);
+
     }
     @Override
     public int getCount() {

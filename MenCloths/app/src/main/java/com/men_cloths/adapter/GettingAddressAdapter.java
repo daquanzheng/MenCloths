@@ -26,7 +26,8 @@ public class GettingAddressAdapter extends BaseAdapter{
     LayoutInflater inflater;
     EditOnClickListenr editOnClickListener;
     public interface  EditOnClickListenr{//接口
-        public int onClick(int itemid,String name,String phone);
+        public void onClick(int itemid,String name,String phone);
+        public void onClick(int position,String name);
     }
     public void setOnEidtOnClickListener(EditOnClickListenr editOnClickListener){
         this.editOnClickListener=editOnClickListener;
@@ -51,26 +52,32 @@ public class GettingAddressAdapter extends BaseAdapter{
     public long getItemId(int position) {
         return position;
     }
-    TextView editAddress,deleteAddress,name,phone,addDetails;
+    TextView editAddress,deleteAddress;
     CheckBox showAddressDetails;
-    String str1,str2,str3;
     LinearLayout addressAll;
+    String str1,str2,str3;
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder;
         if(convertView==null){
             convertView = inflater.inflate(R.layout.wode_address_item,null);
             editAddress = (TextView) convertView.findViewById(R.id.edit_address);
             deleteAddress = (TextView) convertView.findViewById(R.id.delete_address);
-            name = (TextView) convertView.findViewById(R.id.name);
-            phone = (TextView) convertView.findViewById(R.id.phone);
-            addDetails = (TextView) convertView.findViewById(R.id.address_details);
+            viewHolder = new ViewHolder();
+            viewHolder.newname = (TextView) convertView.findViewById(R.id.name);
+            viewHolder.newphone = (TextView) convertView.findViewById(R.id.phone);
+            viewHolder.newaddress = (TextView) convertView.findViewById(R.id.address_details);
+            convertView.setTag(viewHolder);
 
+            final ViewHolder finalViewHolder1 = viewHolder;
             deleteAddress.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("删除的区域下标======>",""+position);
-                    addressList.remove(position);
-                    GettingAddressAdapter.this.notifyDataSetChanged();
+//                    Log.i("删除的区域下标======>",""+position);
+//                    addressList.remove(position);
+//                    GettingAddressAdapter.this.notifyDataSetChanged();
+                str3 = finalViewHolder1.newname.getText().toString();
+                editOnClickListener.onClick(position,str3);
                 }
             });
 
@@ -82,26 +89,36 @@ public class GettingAddressAdapter extends BaseAdapter{
                     if(finalConvertView !=null) {
                         addressAll = (LinearLayout) finalConvertView.findViewById(R.id.address_all);
                         if (isChecked) {
-                        Log.i("详细地址显示========>",""+finalConvertView.toString());
+//                        Log.i("详细地址显示========>",""+finalConvertView.toString());
                             addressAll.setVisibility(View.VISIBLE);
                             GettingAddressAdapter.this.notifyDataSetChanged();
                         } else {
-                            Log.i("详细地址隐藏========>",""+finalConvertView.toString());
+//                            Log.i("详细地址隐藏========>",""+finalConvertView.toString());
                             addressAll.setVisibility(View.INVISIBLE);
                             GettingAddressAdapter.this.notifyDataSetChanged();
                         }
                     }
                 }
             });
+            final ViewHolder finalViewHolder = viewHolder;
             editAddress.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    str1 = name.getText().toString();
-                    str2 = phone.getText().toString();
+                    str1 = finalViewHolder.newname.getText().toString();
+                    str2 = finalViewHolder.newphone.getText().toString();
                     editOnClickListener.onClick(position,str1,str2);//当我点击某个item的编辑按钮然后通知activity
                 }
             });
         }
+        viewHolder = (ViewHolder) convertView.getTag();
+        GettingAddress gettingAddress = addressList.get(position);
+        viewHolder.newname.setText(gettingAddress.getName());
+        viewHolder.newphone.setText(gettingAddress.getPhone());
+        viewHolder.newaddress.setText(gettingAddress.getAddressDetails());
         return convertView;
+    }
+    public class ViewHolder{
+        TextView newname;
+        TextView newphone,newaddress;
     }
 }

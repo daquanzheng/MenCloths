@@ -1,8 +1,6 @@
 package com.men_cloths.FragmentPackage;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -145,6 +143,7 @@ public class ClassifyFragment extends Fragment{
             }
             finally {
                 try {
+                    if(is!=null)
                     is.close();
                 } catch (IOException e) {
                     e.printStackTrace();
