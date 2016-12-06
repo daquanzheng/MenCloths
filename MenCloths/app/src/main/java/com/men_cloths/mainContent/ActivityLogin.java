@@ -93,7 +93,7 @@ public class ActivityLogin extends Activity {
             switch (v.getId()){
                 case R.id.textview_loginpage_login:
                     Login.login(tel.getText().toString(),passwd.getText().toString(),ActivityLogin.this,handler);
-                    //intent.setClass(ActivityLogin.this,MineLoginFragment.class);
+                    //intent.setClass(ActivityLogin.this,MyMainpageInActivity.class);
                    // startActivity(intent);
                     break;
                 case R.id.textview_loginpage_register:
@@ -140,13 +140,13 @@ public class ActivityLogin extends Activity {
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                    finish();
+                     finish();
                     break;
                 case -1:
                     Toast.makeText(ActivityLogin.this,"你的账号或者密码不正确",Toast.LENGTH_SHORT).show();
                     break;
                 case 666:
-                   finish();
+                    finish();
                     break;
                 case 555:
                     Toast.makeText(ActivityLogin.this,"第三方登录失败",Toast.LENGTH_SHORT).show();
