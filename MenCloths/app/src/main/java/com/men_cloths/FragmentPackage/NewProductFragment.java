@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.men_cloths.R;
 import com.men_cloths.adapter.ClassifyAdapter;
 import com.men_cloths.adapter.NewProductAdapter;
+import com.men_cloths.mainContent.HomeActivity;
 import com.men_cloths.model.Classify;
 import com.men_cloths.model.NewProduct;
 
@@ -132,7 +133,7 @@ public class NewProductFragment extends Fragment{
     }
     public void startAsyncTask(){
         MyAsyncTask myAsyncTask=new MyAsyncTask();
-        String httpUrl="http://10.0.2.2/index.php/home/index/new_product";
+        String httpUrl="http://139.199.196.199/index.php/home/index/new_product";
         myAsyncTask.execute(httpUrl);
     }
 }

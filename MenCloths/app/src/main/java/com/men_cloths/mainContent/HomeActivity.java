@@ -27,7 +27,7 @@ public class HomeActivity extends FragmentActivity{
     MyButton collocateMyButton;
     MyButton classifyMyButton;
     MyButton mineMyButton;
-    Boolean[] myButtonClick={true,false,false,false,false,};
+      public static Boolean[] myButtonClick={true,false,false,false,false,};
     FragmentManager fragmentManager=getSupportFragmentManager();
     FragmentTransaction fragmentTransaction;
     @Override
@@ -54,6 +54,10 @@ public class HomeActivity extends FragmentActivity{
         if (myButtonClick[0]) {
             homeMyButton.setImgResource(R.mipmap.home);
             homeMyButton.setText("");
+            fragmentTransaction=fragmentManager.beginTransaction();
+            HomeFragment homeFragment=new HomeFragment();
+            fragmentTransaction.replace(R.id.root_relativeLayout,homeFragment);
+            fragmentTransaction.commit();
         }else {
             homeMyButton.setImgResource(0);
             homeMyButton.setText("首页");
@@ -63,6 +67,10 @@ public class HomeActivity extends FragmentActivity{
         if (myButtonClick[1]) {
             mallMyButton.setImgResource(R.mipmap.mall);
             mallMyButton.setText("");
+            fragmentTransaction=fragmentManager.beginTransaction();
+            MallFragment mallFragment=new MallFragment();
+            fragmentTransaction.replace(R.id.root_relativeLayout,mallFragment);
+            fragmentTransaction.commit();
         }else {
             mallMyButton.setImgResource(0);
             mallMyButton.setText("商城");
@@ -72,6 +80,10 @@ public class HomeActivity extends FragmentActivity{
         if(myButtonClick[2]){
             collocateMyButton.setText("");
             collocateMyButton.setImgResource(R.mipmap.collocate);
+            fragmentTransaction=fragmentManager.beginTransaction();
+            CollocateFragment collocateFragment=new CollocateFragment();
+            fragmentTransaction.replace(R.id.root_relativeLayout,collocateFragment);
+            fragmentTransaction.commit();
         } else {
             collocateMyButton.setImgResource(0);
             collocateMyButton.setText("搭配");
@@ -81,6 +93,10 @@ public class HomeActivity extends FragmentActivity{
         if(myButtonClick[3]){
             classifyMyButton.setImgResource(R.mipmap.classify);
             classifyMyButton.setText("");
+            fragmentTransaction=fragmentManager.beginTransaction();
+            ClassifyFragment classifyFragment=new ClassifyFragment();
+            fragmentTransaction.replace(R.id.root_relativeLayout,classifyFragment);
+            fragmentTransaction.commit();
         }else {
             classifyMyButton.setImgResource(0);
             classifyMyButton.setText("分类");
@@ -90,6 +106,16 @@ public class HomeActivity extends FragmentActivity{
         if(myButtonClick[4]){
             mineMyButton.setText("");
             mineMyButton.setImgResource(R.mipmap.mine);
+            fragmentTransaction=fragmentManager.beginTransaction();
+            MineFragment mineFragment=new MineFragment();
+            MineLoginFragment mineLoginFragment=new MineLoginFragment();
+            if(!HasLogin.hasLogin(HomeActivity.this)) {
+                fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
+            }
+            else{
+                fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
+            }
+            fragmentTransaction.commit();
         }else {
             mineMyButton.setImgResource(0);
             mineMyButton.setText("我的");
@@ -110,10 +136,6 @@ public class HomeActivity extends FragmentActivity{
                         }
                     }
                     initial();
-                    fragmentTransaction=fragmentManager.beginTransaction();
-                    HomeFragment homeFragment=new HomeFragment();
-                    fragmentTransaction.replace(R.id.root_relativeLayout,homeFragment);
-                    fragmentTransaction.commit();
                     break;
                 case R.id.mall_button:
                     for(int i=0;i<myButtonClick.length;i++){
@@ -124,10 +146,6 @@ public class HomeActivity extends FragmentActivity{
                         }
                     }
                     initial();
-                    fragmentTransaction=fragmentManager.beginTransaction();
-                    MallFragment mallFragment=new MallFragment();
-                    fragmentTransaction.replace(R.id.root_relativeLayout,mallFragment);
-                    fragmentTransaction.commit();
                     break;
                 case R.id.collocate_button:
                     for(int i=0;i<myButtonClick.length;i++){
@@ -138,10 +156,6 @@ public class HomeActivity extends FragmentActivity{
                         }
                     }
                     initial();
-                    fragmentTransaction=fragmentManager.beginTransaction();
-                    CollocateFragment collocateFragment=new CollocateFragment();
-                    fragmentTransaction.replace(R.id.root_relativeLayout,collocateFragment);
-                    fragmentTransaction.commit();
                     break;
                 case R.id.classify_button:
                     for(int i=0;i<myButtonClick.length;i++){
@@ -152,10 +166,6 @@ public class HomeActivity extends FragmentActivity{
                         }
                     }
                     initial();
-                    fragmentTransaction=fragmentManager.beginTransaction();
-                    ClassifyFragment classifyFragment=new ClassifyFragment();
-                    fragmentTransaction.replace(R.id.root_relativeLayout,classifyFragment);
-                    fragmentTransaction.commit();
                     break;
                 case R.id.mine_button:
                     for(int i=0;i<myButtonClick.length;i++){
@@ -166,15 +176,6 @@ public class HomeActivity extends FragmentActivity{
                         }
                     }
                     initial();
-                    fragmentTransaction=fragmentManager.beginTransaction();
-                    MineFragment mineFragment=new MineFragment();
-                    MineLoginFragment mineLoginFragment=new MineLoginFragment();
-                    if(!HasLogin.hasLogin(HomeActivity.this)) {
-                        fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
-                    }{
-                    fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
-                }
-                    fragmentTransaction.commit();
                     break;
             }
         }
@@ -182,15 +183,7 @@ public class HomeActivity extends FragmentActivity{
 
     @Override
     protected void onRestart() {
-        fragmentTransaction=fragmentManager.beginTransaction();
-        MineFragment mineFragment=new MineFragment();
-        MineLoginFragment mineLoginFragment=new MineLoginFragment();
-        if(!HasLogin.hasLogin(HomeActivity.this)) {
-            fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
-        }{
-            fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
-        }
-        fragmentTransaction.commit();
+        initial();
         super.onRestart();
     }
 }

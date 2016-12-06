@@ -4,16 +4,16 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/10/24.
  */
 public class Trend {
-    int img;
+    String img;
     String title;
     String collection;
     String detail;
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

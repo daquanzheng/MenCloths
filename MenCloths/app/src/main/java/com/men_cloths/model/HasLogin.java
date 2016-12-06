@@ -60,13 +60,13 @@ public class HasLogin {
                         String code=object.optString("code","");
                         if(code.equals("-1")){
                             SharedPreferences.Editor editor=sharedPreferences.edit();
-                            editor.putBoolean("islogin",false);
+                            editor.putBoolean("islogin",true);
                             editor.commit();
                             handler.sendEmptyMessage(-1);
                         }else if(code.equals("1")){
                             handler.sendEmptyMessage(1);
                             SharedPreferences.Editor editor=sharedPreferences.edit();
-                            editor.putBoolean("islogin",true);
+                            editor.putBoolean("islogin",false);
                             editor.commit();
                         }
                     } catch (JSONException e) {

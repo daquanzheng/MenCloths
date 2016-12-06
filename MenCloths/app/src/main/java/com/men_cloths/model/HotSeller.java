@@ -4,15 +4,15 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/10/25.
  */
 public class HotSeller {
-    int hotImg;
+    String hotImg;
     String hotContent;
     Double hotPrice;
 
-    public int getHotImg() {
+    public String getHotImg() {
         return hotImg;
     }
 
-    public void setHotImg(int hotImg) {
+    public void setHotImg(String hotImg) {
         this.hotImg = hotImg;
     }
 

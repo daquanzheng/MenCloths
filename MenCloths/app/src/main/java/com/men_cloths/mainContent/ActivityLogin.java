@@ -140,7 +140,7 @@ public class ActivityLogin extends Activity {
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                     finish();
+                    finish();
                     break;
                 case -1:
                     Toast.makeText(ActivityLogin.this,"你的账号或者密码不正确",Toast.LENGTH_SHORT).show();
