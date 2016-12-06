@@ -171,7 +171,7 @@ public class HomeActivity extends FragmentActivity{
                     MineLoginFragment mineLoginFragment=new MineLoginFragment();
                     if(!HasLogin.hasLogin(HomeActivity.this)) {
                         fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
-                    }{
+                    }else {
                     fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
                 }
                     fragmentTransaction.commit();
@@ -187,7 +187,7 @@ public class HomeActivity extends FragmentActivity{
         MineLoginFragment mineLoginFragment=new MineLoginFragment();
         if(!HasLogin.hasLogin(HomeActivity.this)) {
             fragmentTransaction.replace(R.id.root_relativeLayout, mineFragment);
-        }{
+        }else{
             fragmentTransaction.replace(R.id.root_relativeLayout, mineLoginFragment);
         }
         fragmentTransaction.commit();

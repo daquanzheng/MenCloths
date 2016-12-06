@@ -132,7 +132,7 @@ public class NewProductFragment extends Fragment{
     }
     public void startAsyncTask(){
         MyAsyncTask myAsyncTask=new MyAsyncTask();
-        String httpUrl="http://10.0.2.2/index.php/home/index/new_product";
+        String httpUrl="http://192.168.7.20/index.php/home/index/new_product";
         myAsyncTask.execute(httpUrl);
     }
 }

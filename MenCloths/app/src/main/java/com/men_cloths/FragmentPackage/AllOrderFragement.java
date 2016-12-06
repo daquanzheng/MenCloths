@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.men_cloths.R;
 import com.men_cloths.mainContent.HomeActivity;
 import com.men_cloths.mainContent.ShopInfo;
+import com.men_cloths.model.Waitpay;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/11/28.
