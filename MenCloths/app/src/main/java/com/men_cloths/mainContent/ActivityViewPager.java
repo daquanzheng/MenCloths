@@ -29,13 +29,7 @@ public class ActivityViewPager extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HasLogin.checkLogin(this,handler);
-
-
-
-
-
-
+        HasLogin.checkLogin(this,handler);//检查是否登录，不管是否登录都会进行接下来的步骤
 
     }
 
@@ -58,7 +52,7 @@ public class ActivityViewPager extends Activity{
     };
 
     public void next(){
-        if(!HasLogin.isfirst(this)){
+        if(!HasLogin.isfirst(this)){//检查是否第一次登录，如果是就不进行导航页展示，直接跳转到主页面
             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
             startActivity(intent);
             finish();

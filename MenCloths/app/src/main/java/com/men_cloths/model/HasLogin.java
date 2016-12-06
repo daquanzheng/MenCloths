@@ -58,7 +58,7 @@ public class HasLogin {
                     try {
                         JSONObject object=new JSONObject(line);
                         String code=object.optString("code","");
-                        if(code.equals("1")){
+                        if(code.equals("-1")){
                             SharedPreferences.Editor editor=sharedPreferences.edit();
                             editor.putBoolean("islogin",false);
                             handler.sendEmptyMessage(1);
