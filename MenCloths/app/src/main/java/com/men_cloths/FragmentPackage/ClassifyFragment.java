@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,6 +99,7 @@ public class ClassifyFragment extends Fragment{
                             JSONObject object = jsonArray.getJSONObject(i + 1);
                             classify.setText2(object.getString("categroy"));
                             classify.setImgUrl2(object.getString("img"));
+                            Log.i("setImgUrl2",""+object.getString("img"));
                             classifyList.add(classify);
                         }
                     }

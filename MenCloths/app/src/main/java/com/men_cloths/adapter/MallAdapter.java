@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.men_cloths.R;
+import com.men_cloths.model.ProductClassify;
 
 import java.util.List;
 
@@ -17,10 +18,10 @@ import java.util.List;
  */
 public class MallAdapter extends BaseAdapter{
     Context context;
-    List<Integer> list;
+    List<ProductClassify> list;
     LayoutInflater layoutInflater;
 
-    public MallAdapter(Context context,List<Integer> list){
+    public MallAdapter(Context context,List<ProductClassify> list){
         this.context=context;
         this.list=list;
         layoutInflater=LayoutInflater.from(context);
@@ -33,7 +34,7 @@ public class MallAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return list.get(position);
     }
 
     @Override
@@ -46,8 +47,9 @@ public class MallAdapter extends BaseAdapter{
         if(convertView==null){
             convertView=layoutInflater.inflate(R.layout.listview_item_mall,null);
         }
+        ProductClassify productClassify=list.get(position);
         ImageView imageView= (ImageView) convertView.findViewById(R.id.mall_img);
-        imageView.setImageResource(list.get(position));
+        imageView.setImageBitmap(productClassify.getImgname());
         return convertView;
     }
 }
