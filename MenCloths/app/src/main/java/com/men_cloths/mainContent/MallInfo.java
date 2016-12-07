@@ -14,9 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+
 import com.men_cloths.R;
 import com.men_cloths.adapter.ProductDetailsAdapter;
 import com.men_cloths.model.ProductDetails;
