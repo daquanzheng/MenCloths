@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.ExtraAppraiseActivity;
-import com.men_cloths.mainContent.MyWuliuActivity;
 import com.men_cloths.model.Waitappraise;
 import com.men_cloths.model.Waitpay;
 
@@ -22,9 +21,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitappraiseAdapter extends BaseAdapter{
-    List<Waitappraise> waitappraiseList = new ArrayList<>();
-    Context context;
-    LayoutInflater inflater;
+    private   List<Waitappraise> waitappraiseList = new ArrayList<>();
+    private  Context context;
+    private   LayoutInflater inflater;
     public WaitappraiseAdapter(Context context, List<Waitappraise> waitappraiseList){
         this.context = context;
         this.waitappraiseList = waitappraiseList;

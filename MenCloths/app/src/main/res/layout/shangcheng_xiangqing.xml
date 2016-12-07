@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp">
                 <ImageView
+                    android:id="@+id/back"
                     android:layout_width="20dp"
                     android:layout_height="22dp"
                     android:src="@mipmap/zuo_white"
@@ -36,14 +38,16 @@
                 android:layout_marginTop="2dp"
                 android:src="@mipmap/shangcheng_xiangqing_logo"
                 android:scaleType="fitXY"/>
-            <ListView
-                android:id="@+id/listview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            </LinearLayout>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            </ListView>
+    </ListView>
 
-        </LinearLayout>
+
+
 
 
 </LinearLayout>

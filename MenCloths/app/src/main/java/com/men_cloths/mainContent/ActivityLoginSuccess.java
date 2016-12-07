@@ -13,8 +13,8 @@ import com.men_cloths.R;
  * Created by Administrator on 2016/10/19.
  */
 public class ActivityLoginSuccess extends Activity {
-    TextView loginNow;
-    ImageView back;
+    private  TextView loginNow;
+    private  ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

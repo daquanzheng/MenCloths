@@ -11,16 +11,12 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.HomeActivity;
-import com.men_cloths.mainContent.ShopInfo;
-import com.men_cloths.model.Waitpay;
-
-import java.util.List;
 
 /**
  * Created by Administrator on 2016/11/28.
  */
 public class AllOrderFragement extends Fragment{
-    TextView goShopping;
+    private  TextView goShopping;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_empty,null);
@@ -29,14 +25,8 @@ public class AllOrderFragement extends Fragment{
         goShopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i=0;i<HomeActivity.myButtonClick.length;i++){
-                    if(i==1){
-                        HomeActivity.myButtonClick[i]=true;
-                    }else {
-                        HomeActivity.myButtonClick[i]=false;
-                    }
-                }
-                getActivity().finish();
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
+                startActivity(intent);
             }
         });
         return view;

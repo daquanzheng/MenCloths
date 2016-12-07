@@ -4,10 +4,10 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/10.
  */
 public class Classify {
-    String imgUrl1;
-    String text1;
-    String imgUrl2;
-    String text2;
+    private  String imgUrl1;
+    private  String text1;
+    private  String imgUrl2;
+    private   String text2;
 
     public String getImgUrl1() {
         return imgUrl1;

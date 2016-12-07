@@ -58,7 +58,6 @@
         android:layout_height="wrap_content"
         android:textColor="#111"
         android:hint="联系电话"
-        android:inputType="number"
         android:enabled="true"
         android:paddingTop="14dp"
         android:paddingBottom="12dp"

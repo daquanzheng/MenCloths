@@ -17,9 +17,9 @@ import java.util.List;
  * Created by Administrator on 2016/10/24.
  */
 public class ShowAdapter extends BaseAdapter{
-    Context context;
-    List<Show> showList;
-    LayoutInflater layoutInflater;
+    private   Context context;
+    private   List<Show> showList;
+    private  LayoutInflater layoutInflater;
     public ShowAdapter(Context context, List<Show> showList){
         this.context=context;
         this.showList=showList;

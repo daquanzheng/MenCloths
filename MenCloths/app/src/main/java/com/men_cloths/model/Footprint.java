@@ -4,12 +4,12 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/28.
  */
 public class Footprint {
-    String time;
-    int picture;
-    String name;
-    String color;
-    String size;
-    String price;
+    private  String time;
+    private   int picture;
+    private  String name;
+    private   String color;
+    private  String size;
+    private  String price;
 
     public String getTime() {
         return time;

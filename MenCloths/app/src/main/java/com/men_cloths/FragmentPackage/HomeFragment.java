@@ -22,12 +22,12 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class HomeFragment extends Fragment{
-    ViewPager viewPager;
-    RadioGroup topRadioGroup;
-    RadioButton newProductBtn;
-    RadioButton hotSellerBtn;
-    RadioButton trendBtn;
-    RadioButton showBtn;
+    private  ViewPager viewPager;
+    private   RadioGroup topRadioGroup;
+    private  RadioButton newProductBtn;
+    private   RadioButton hotSellerBtn;
+    private   RadioButton trendBtn;
+    private    RadioButton showBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.mencloths_home,null);

@@ -4,11 +4,11 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/29.
  */
 public class GettingAddress {
-    String getGoodsAddress;
-    int iconShow;
-    String name;
-    String phone;
-    String addressDetails;
+    private  String getGoodsAddress;
+    private  int iconShow;
+    private  String name;
+    private  String phone;
+    private  String addressDetails;
 
     public String getGetGoodsAddress() {
         return getGoodsAddress;

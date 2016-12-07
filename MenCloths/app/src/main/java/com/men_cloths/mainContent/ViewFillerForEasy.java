@@ -25,7 +25,7 @@ public class ViewFillerForEasy extends RelativeLayout{
     private float first,now;
     private final float WIDTH= ShopInfo.width;
     private ImageView catchImage;
-    LayoutParams layoutParams1,layoutParams2,layoutParam;
+    private LayoutParams layoutParams1,layoutParams2,layoutParam;
     private float beginLeft=0,beginRight=0,bginCenter=0;
 
 

@@ -4,12 +4,12 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/10/25.
  */
 public class NewProduct {
-    String img1;
-    String content1;
-    Double price1;
-    String img2;
-    String content2;
-    Double price2;
+    private  String img1;
+    private  String content1;
+    private   Double price1;
+    private   String img2;
+    private   String content2;
+    private   Double price2;
 
     public String getImg1() {
         return img1;

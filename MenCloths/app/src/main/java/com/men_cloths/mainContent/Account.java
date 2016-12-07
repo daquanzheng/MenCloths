@@ -35,8 +35,8 @@ public class Account extends Activity{
     private TextView bindTelNumber,telNumber;
     private  LinearLayout linearLayout;
     private ImageView back;
-    TextView user_name;
-    String name,token,tel;
+    private TextView user_name;
+    private   String name,token,tel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,11 +158,15 @@ public class Account extends Activity{
                              handler.sendMessage(message);
                          }else {
                              Message message=Message.obtain();
-                             message.what=-1;
+                             message.what=0;
                              handler.sendMessage(message);
                          }
 
 
+                     }else {
+                         Message message=Message.obtain();
+                         message.what=-1;
+                         handler.sendMessage(message);
                      }
                  } catch (IOException e) {
                      e.printStackTrace();
@@ -189,6 +193,9 @@ public class Account extends Activity{
                     break;
                 case -1:
                     Toast.makeText(Account.this,"网络连接异常",Toast.LENGTH_SHORT).show();
+                    break;
+                case 0:
+                    Toast.makeText(Account.this,"你还没有设置任何信息",Toast.LENGTH_SHORT).show();
                     break;
 
             }
