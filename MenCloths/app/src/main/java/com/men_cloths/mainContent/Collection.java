@@ -112,7 +112,7 @@ public class Collection extends Activity{
 					public void onClick(View v) {
 						new Thread(){
 							public void run(){
-								if(remove((String)Collection.view.getTag(),tel)) {
+								if(remove(list.get(Collection.this.position).getId(),tel)) {
 									list.remove(Collection.this.position);
 									handler.sendEmptyMessage(0);
 								}
@@ -123,6 +123,8 @@ public class Collection extends Activity{
 
 			}
 		});
+
+
 	}
 
 	public void getHttpURL(){
