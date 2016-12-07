@@ -1,7 +1,6 @@
 package com.men_cloths.FragmentPackage;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,9 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-
+import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.CollocateAdapter;
@@ -19,17 +17,6 @@ import com.men_cloths.mainContent.SearchActivity;
 import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.Collocate;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,18 +38,19 @@ public class CollocateFragment extends Fragment{
                 getActivity().startActivity(intent);
             }
         });
-        startAsyncTask();
+        CollocateAdapter collocateAdapter=new CollocateAdapter(getActivity(),getData());
+        listView.setAdapter(collocateAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                LinearLayout linearLayout1= (LinearLayout) view.findViewById(R.id.collocate_linearlayout1);
-                LinearLayout linearLayout2= (LinearLayout) view.findViewById(R.id.collocate_linearlayout2);
-                LinearLayout linearLayout3= (LinearLayout) view.findViewById(R.id.collocate_linearlayout3);
-                LinearLayout linearLayout4= (LinearLayout) view.findViewById(R.id.collocate_linearlayout4);
-                linearLayout1.setOnClickListener(onClickListener);
-                linearLayout2.setOnClickListener(onClickListener);
-                linearLayout3.setOnClickListener(onClickListener);
-                linearLayout4.setOnClickListener(onClickListener);
+                TextView textView1= (TextView) view.findViewById(R.id.collocate_img01_text01);
+                TextView textView2= (TextView) view.findViewById(R.id.collocate_img01_text02);
+                TextView textView3= (TextView) view.findViewById(R.id.collocate_img01_text03);
+                TextView textView4= (TextView) view.findViewById(R.id.collocate_img01_text04);
+                textView1.setOnClickListener(onClickListener);
+                textView2.setOnClickListener(onClickListener);
+                textView3.setOnClickListener(onClickListener);
+                textView4.setOnClickListener(onClickListener);
             }
         });
         return view;
@@ -71,100 +59,56 @@ public class CollocateFragment extends Fragment{
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.collocate_linearlayout1:
+                case R.id.collocate_img01_text01:
                     Intent intent=new Intent(getActivity(), ShopInfo.class);
                     startActivity(intent);
 
                     break;
-                case R.id.collocate_linearlayout2:
+                case R.id.collocate_img01_text02:
                     intent=new Intent(getActivity(), ShopInfo.class);
                     startActivity(intent);
 
                     break;
-                case R.id.collocate_linearlayout3:
+                case R.id.collocate_img01_text03:
                     intent=new Intent(getActivity(), ShopInfo.class);
                     startActivity(intent);
 
                     break;
-                case R.id.collocate_linearlayout4:
+                case R.id.collocate_img01_text04:
                     intent=new Intent(getActivity(), ShopInfo.class);
                     startActivity(intent);
+
                     break;
             }
         }
     };
-        public class MyAsyncTask extends AsyncTask<String,Integer,String>{
-            @Override
-            protected void onPreExecute() {
-
-                super.onPreExecute();
+    public List<Collocate> getData(){
+        List<Collocate> collocateList=new ArrayList<>();
+        for(int i=0;i<10;i++){
+            Collocate collocate=new Collocate();
+            if(i%2==0){
+                collocate.setWholeImg1(R.mipmap.collocate_img01);
+                collocate.setPartImg1(R.mipmap.collocate_img01_01);
+                collocate.setPartImg1Title("牛仔夹克外套");
+                collocate.setPartImg2(R.mipmap.collocate_img01_02);
+                collocate.setPartImg2Title("白色衬衫");
+                collocate.setPartImg3(R.mipmap.collocate_img01_03);
+                collocate.setPartImg3Title("白色牛仔裤");
+                collocate.setPartImg4(R.mipmap.collocate_img01_04);
+                collocate.setPartImg4Title("深蓝色乐福鞋");
+            }else {
+                collocate.setWholeImg2(R.mipmap.collocate_img02);
+                collocate.setPartImg1(R.mipmap.collocate_img02_01);
+                collocate.setPartImg1Title("休闲呢子大衣");
+                collocate.setPartImg2(R.mipmap.collocate_img02_02);
+                collocate.setPartImg2Title("宽檐大檐帽子");
+                collocate.setPartImg3(R.mipmap.collocate_img02_03);
+                collocate.setPartImg3Title("灰色阔腿裤");
+                collocate.setPartImg4(R.mipmap.collocate_img02_04);
+                collocate.setPartImg4Title("黑色系带皮鞋");
             }
-
-            @Override
-            protected void onPostExecute(String s) {
-                if(s!=null){
-                    try {
-                        List<Collocate> collocateList=new ArrayList<>();
-                        JSONObject jsonObject=new JSONObject(s);
-                        JSONArray jsonArray=jsonObject.getJSONArray("data");
-                        for(int i=0;i<jsonArray.length();i++){
-                            Collocate collocate=new Collocate();
-                            JSONObject obj=jsonArray.getJSONObject(i);
-                            collocate.setWholeImg(obj.getString("whole_img"));
-                            collocate.setPartImg1(obj.getString("part_img1"));
-                            collocate.setPartImg1Title(obj.getString("part_title1"));
-                            collocate.setPartImg2(obj.getString("part_img2"));
-                            collocate.setPartImg2Title(obj.getString("part_title2"));
-                            collocate.setPartImg3(obj.getString("part_img3"));
-                            collocate.setPartImg3Title(obj.getString("part_title3"));
-                            collocate.setPartImg4(obj.getString("part_img4"));
-                            collocate.setPartImg4Title(obj.getString("part_title4"));
-                            collocateList.add(collocate);
-                        }
-                        CollocateAdapter collocateAdapter=new CollocateAdapter(getActivity(),collocateList);
-                        listView.setAdapter(collocateAdapter);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                super.onPostExecute(s);
-            }
-
-            @Override
-            protected void onProgressUpdate(Integer... values) {
-                super.onProgressUpdate(values);
-            }
-
-            @Override
-            protected String doInBackground(String... params) {
-                StringBuilder stringBuilder=new StringBuilder();
-                InputStream is=null;
-                try {
-                    URL url=new URL(params[0]);
-                    HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
-                    httpURLConnection.setRequestMethod("GET");
-                    httpURLConnection.setConnectTimeout(5000);
-                    httpURLConnection.connect();
-                    if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
-                        is=httpURLConnection.getInputStream();
-                        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(is,"utf-8"));
-                        String s;
-                        while((s=bufferedReader.readLine())!=null){
-                            stringBuilder.append(s);
-                        }
-                        return stringBuilder.toString();
-                    }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
+            collocateList.add(collocate);
         }
-        public void startAsyncTask(){
-            MyAsyncTask myAsyncTask=new MyAsyncTask();
-            String httpUrl="http://139.199.196.199/index.php/home/index/collocate";
-            myAsyncTask.execute(httpUrl);
-        }
+        return collocateList;
+    }
 }

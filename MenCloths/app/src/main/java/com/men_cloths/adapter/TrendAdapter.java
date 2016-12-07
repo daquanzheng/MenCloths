@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
-import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.mainContent.ThreadInfo;
 import com.men_cloths.model.Trend;
 
@@ -54,8 +53,7 @@ public class TrendAdapter extends BaseAdapter{
         TextView textView= (TextView) convertView.findViewById(R.id.trend_title);
         textView.setText(trend.getTitle());
         ImageView imageView= (ImageView) convertView.findViewById(R.id.img_trend_sport);
-        imageView.setTag(trend.getImg());
-        new HttpImgThread(imageView,trend.getImg()).start();
+        imageView.setImageResource(trend.getImg());
         final TextView collectionTV= (TextView) convertView.findViewById(R.id.trend_item_collection);
         collectionTV.setOnClickListener(new View.OnClickListener() {
             @Override

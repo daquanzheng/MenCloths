@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
-import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.model.HotSeller;
 
 import java.util.List;
@@ -43,29 +42,16 @@ public class HotSellerAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder=null;
         if(convertView==null){
             convertView=layoutInflater.inflate(R.layout.listview_item_hotseller,null);
-            viewHolder=new ViewHolder(convertView);
-            convertView.setTag(viewHolder);
-        }else {
-            viewHolder= (ViewHolder) convertView.getTag();
         }
         HotSeller hotSeller=hotSellerList.get(position);
-        viewHolder.contentTV.setText(hotSeller.getHotContent());
-        viewHolder.priceTV.setText("￥"+hotSeller.getHotPrice()+"0");
-        viewHolder.hotImg.setTag(hotSeller.getHotImg());
-        new HttpImgThread(viewHolder.hotImg,hotSeller.getHotImg()).start();
+        TextView textView1= (TextView) convertView.findViewById(R.id.hot_seller_content);
+        textView1.setText(hotSeller.getHotContent());
+        ImageView imageView= (ImageView) convertView.findViewById(R.id.hot_seller_img);
+        imageView.setImageResource(hotSeller.getHotImg());
+        TextView textView2= (TextView) convertView.findViewById(R.id.hot_seller_price);
+        textView2.setText("￥ "+hotSeller.getHotPrice()+"0");
         return convertView;
-    }
-    private class ViewHolder{
-        private TextView contentTV;
-        private TextView priceTV;
-        private ImageView hotImg;
-        public ViewHolder(View view){
-            contentTV= (TextView) view.findViewById(R.id.hot_seller_content);
-            priceTV= (TextView) view.findViewById(R.id.hot_seller_price);
-            hotImg= (ImageView) view.findViewById(R.id.hot_seller_img);
-        }
     }
 }
