@@ -30,9 +30,14 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitPayFragment extends Fragment {
+<<<<<<< HEAD
     ListView listView;
     List<Waitpay> lists = new ArrayList<>();
     WaitpayAdapter waitpayAdapter;
+=======
+    private   ListView listView;
+    private   List<Waitpay> lists = new ArrayList<>();
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_daifukuan,null);

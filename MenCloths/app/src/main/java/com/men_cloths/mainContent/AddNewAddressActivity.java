@@ -2,8 +2,6 @@ package com.men_cloths.mainContent;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +9,8 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import java.net.URL;
  * Created by Administrator on 2016/11/28.
  */
 public class AddNewAddressActivity extends Activity{
-    ViewHolder viewHolder;
+    private  ViewHolder viewHolder;
     public class ViewHolder{
         ImageView back;
         TextView saveNewAddress,name,phone,address,street;
@@ -40,6 +40,7 @@ public class AddNewAddressActivity extends Activity{
         viewHolder.phone = (TextView) findViewById(R.id.phone);
         viewHolder.address = (TextView) findViewById(R.id.address);
         viewHolder.street = (TextView) findViewById(R.id.street);
+
 
         viewHolder.back.setOnClickListener(onClickListener);
         viewHolder.saveNewAddress.setOnClickListener(onClickListener);
@@ -59,24 +60,33 @@ public class AddNewAddressActivity extends Activity{
                             addNewAddress();
                         }
                     }.start();
+<<<<<<< HEAD
                     //线程是耗时操作，必须等线程跑完了才能finish
+=======
+//                    Intent intent = getIntent();
+//                    intent.putExtra("newname",viewHolder.name.getText().toString());
+//                    intent.putExtra("newphone",viewHolder.phone.getText().toString());
+//                    intent.putExtra("newaddress",viewHolder.address.getText().toString());
+//                    intent.putExtra("newstreet",viewHolder.street.getText().toString());
+//                    setResult(121,intent);
+                    finish();
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
                     break;
             }
         }
     };
-
     public void addNewAddress(){
         try {
-            String string = "http://192.168.7.9/index.php/Home/Address/";
-            URL url = new URL(string+"addnewaddress?name="+viewHolder.name.getText().toString()+"&phone="+viewHolder.phone.getText().toString()+
-                    "&address="+viewHolder.address.getText().toString()+viewHolder.street.getText().toString());
-           // Log.i("url=====>",""+url);
+            String string = "http://10.0.2.2/index.php/Home/index/";
+            URL url = new URL(string+"addNewAddress?name="+viewHolder.name.getText()+"phone="+viewHolder.phone.getText()+
+                    "address="+viewHolder.address.getText());
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
 //            httpURLConnection.setRequestProperty();
             httpURLConnection.connect();
             if(httpURLConnection.getResponseCode()==200){
+<<<<<<< HEAD
 //                InputStream inputStream = httpURLConnection.getInputStream();
 //                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
 //                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
@@ -86,18 +96,24 @@ public class AddNewAddressActivity extends Activity{
 //                }
               //  Log.i("加入的数据",""+stringBuilder);
                 handler.sendEmptyMessage(0);
+=======
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
+                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
+                String s;
+                while ((s=bufferedReader.readLine())!=null){
+                    stringBuilder.append(s);
+                }
+                Log.i("加入的数据",""+stringBuilder);
+                JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
-    Handler handler=new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            finish();
-            return true;
-        }
-    });
 }

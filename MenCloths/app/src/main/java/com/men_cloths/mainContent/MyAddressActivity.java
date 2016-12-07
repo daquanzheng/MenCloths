@@ -3,9 +3,6 @@ package com.men_cloths.mainContent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,17 +12,6 @@ import com.men_cloths.R;
 import com.men_cloths.adapter.GettingAddressAdapter;
 import com.men_cloths.model.GettingAddress;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +19,20 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class MyAddressActivity extends Activity{
+<<<<<<< HEAD
     ImageView back;
     Button addNewAddress;
     ListView listView;
     List<GettingAddress> lists = new ArrayList<>();
     GettingAddressAdapter gettingAddressAdapter;
+=======
+    private  ImageView back;
+    private   Button addNewAddress;
+    private  ListView listView;
+    private   List<GettingAddress> lists = new ArrayList<>();
+    private  GettingAddressAdapter gettingAddressAdapter;
+    private int position;
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,44 +40,17 @@ public class MyAddressActivity extends Activity{
         addNewAddress = (Button)findViewById(R.id.add_newaddress);
         back = (ImageView) findViewById(R.id.back);
         listView = (ListView) findViewById(R.id.my_address);
-        gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,lists);
+        gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,getLists());
         //自定义的接口
         gettingAddressAdapter.setOnEidtOnClickListener(new GettingAddressAdapter.EditOnClickListenr() {
             @Override
-            public void onClick(int itemid, String name, String phone) {
+            public int onClick(int itemid, String name, String phone) {
                 Intent intent = new Intent(MyAddressActivity.this,AddressEditActivity.class);
                 intent.putExtra("name",name);
                 intent.putExtra("phone",phone);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onClick(int position, String name) {
-                final int index = position;
-                final String str = name;
-                new Thread(){
-                    @Override
-                    public void run() {
-                        super.run();
-                        String string = "http://192.168.7.9/index.php/Home/Address/deleteaddress";
-                        try {
-                            URL url = new URL(string+"?name="+str);
-                            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                            httpURLConnection.setRequestMethod("GET");
-                            httpURLConnection.setConnectTimeout(5000);
-                            httpURLConnection.connect();
-                            if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
-                                lists.remove(index);
-                                handler.sendEmptyMessage(0);
-
-                            }
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }.start();
+                startActivityForResult(intent,110);
+                position = itemid;
+                return position;
             }
         });
         listView.setAdapter(gettingAddressAdapter);
@@ -104,6 +72,7 @@ public class MyAddressActivity extends Activity{
             }
         }
     };
+<<<<<<< HEAD
 
     public void getAddress(){
         String string = "http://192.168.7.9/index.php/Home/Address/getnewaddress";
@@ -144,23 +113,28 @@ public class MyAddressActivity extends Activity{
         }
     }
 
+=======
+    //跳转回来的回调
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     @Override
-    protected void onResume() {
-        super.onResume();
-        lists.clear();
-        new Thread(){
-            @Override
-            public void run() {
-                getAddress();
-            }
-        }.start();
+    protected void onActivityResult(int requestCode,
+                                    int resultCode,
+                                    Intent data) { //包含的数据，用bundle接收
+        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode==110){
+//            Bundle bundle = data.getExtras();
+//            getLists().get(position).setName(bundle.getString("name"));
+//            getLists().get(position).setPhone(bundle.getString("phone"));
+//            getLists().get(position).setAddressDetails(bundle.getString("address")+bundle.getString("street"));
+//            gettingAddressAdapter.notifyDataSetChanged();
+//        }
     }
 
-    Handler handler=new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            gettingAddressAdapter.notifyDataSetChanged();
-            return true;
+    public List<GettingAddress> getLists(){
+        for(int i=0;i<3;i++) {
+            GettingAddress gettingAddress = new GettingAddress();
+            lists.add(gettingAddress);
         }
-    });
+    return lists;
+    }
 }

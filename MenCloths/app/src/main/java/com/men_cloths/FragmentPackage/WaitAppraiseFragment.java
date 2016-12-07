@@ -31,9 +31,14 @@ import java.util.List;
  */
 public class WaitAppraiseFragment extends Fragment{
 <<<<<<< HEAD
+<<<<<<< HEAD
     ListView listView;
     List<Waitappraise> lists = new ArrayList<>();
     WaitappraiseAdapter waitappraiseAdapter;
+=======
+    private   ListView listView;
+    private  List<Waitappraise> lists = new ArrayList<>();
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
 =======
     private   ListView listView;
     private  List<Waitappraise> lists = new ArrayList<>();
