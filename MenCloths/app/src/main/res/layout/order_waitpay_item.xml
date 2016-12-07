@@ -45,6 +45,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="尺码："/>
                 <TextView
+                    android:id="@+id/goods_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="XL"/>
@@ -64,6 +65,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/check_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/check_dingdan"
@@ -74,6 +76,7 @@
                     android:paddingLeft="6dp"
                     android:paddingRight="6dp"/>
                 <TextView
+                    android:id="@+id/go_pay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="立即付款"

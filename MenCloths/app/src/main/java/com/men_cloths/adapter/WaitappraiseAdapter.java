@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.ExtraAppraiseActivity;
 import com.men_cloths.mainContent.MyWuliuActivity;
 import com.men_cloths.model.Waitappraise;
+import com.men_cloths.model.Waitpay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,10 +47,17 @@ public class WaitappraiseAdapter extends BaseAdapter{
     TextView extraAppraise,appraise;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder;
         if (convertView==null){
             convertView = inflater.inflate(R.layout.order_waitappraise_item,null);
             extraAppraise = (TextView) convertView.findViewById(R.id.extra_appraise);
             appraise = (TextView) convertView.findViewById(R.id.appraise);
+            viewHolder = new ViewHolder();
+            viewHolder.picture = (ImageView) convertView.findViewById(R.id.goods_picture);
+            viewHolder.name = (TextView) convertView.findViewById(R.id.goods_name);
+            viewHolder.color = (TextView) convertView.findViewById(R.id.goods_color);
+            viewHolder.size = (TextView) convertView.findViewById(R.id.goods_size);
+            viewHolder.price = (TextView) convertView.findViewById(R.id.goods_price);
             extraAppraise.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -56,7 +65,19 @@ public class WaitappraiseAdapter extends BaseAdapter{
                     context.startActivity(intent);
                 }
             });
+            convertView.setTag(viewHolder);
         }
+        viewHolder = (ViewHolder) convertView.getTag();
+        Waitappraise waitappraise = waitappraiseList.get(position);
+        viewHolder.picture.setImageResource(waitappraise.getPicture());
+        viewHolder.name.setText(waitappraise.getName());
+        viewHolder.color.setText(waitappraise.getColor());
+        viewHolder.size.setText(waitappraise.getSize());
+        viewHolder.price.setText(waitappraise.getPrice());
         return convertView;
+    }
+    public class ViewHolder{
+        ImageView picture;
+        TextView name,color,size,price;
     }
 }

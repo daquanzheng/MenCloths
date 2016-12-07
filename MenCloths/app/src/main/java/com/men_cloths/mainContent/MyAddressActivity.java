@@ -38,7 +38,6 @@ public class MyAddressActivity extends Activity{
     ListView listView;
     List<GettingAddress> lists = new ArrayList<>();
     GettingAddressAdapter gettingAddressAdapter;
-    int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +112,7 @@ public class MyAddressActivity extends Activity{
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
             if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));

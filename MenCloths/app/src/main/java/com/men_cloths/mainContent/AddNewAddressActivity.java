@@ -59,6 +59,7 @@ public class AddNewAddressActivity extends Activity{
                             addNewAddress();
                         }
                     }.start();
+                    //线程是耗时操作，必须等线程跑完了才能finish
                     break;
             }
         }
@@ -76,13 +77,13 @@ public class AddNewAddressActivity extends Activity{
 //            httpURLConnection.setRequestProperty();
             httpURLConnection.connect();
             if(httpURLConnection.getResponseCode()==200){
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
-                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
-                String s;
-                while ((s=bufferedReader.readLine())!=null){
-                    stringBuilder.append(s);
-                }
+//                InputStream inputStream = httpURLConnection.getInputStream();
+//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
+//                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
+//                String s;
+//                while ((s=bufferedReader.readLine())!=null){
+//                    stringBuilder.append(s);
+//                }
               //  Log.i("加入的数据",""+stringBuilder);
                 handler.sendEmptyMessage(0);
             }

@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.model.Footprint;
@@ -67,13 +66,13 @@ public class FootprintAdapter extends BaseAdapter{
 
         }
         viewHolder = (ViewHolder) convertView.getTag();
-//        Footprint footprint = new Footprint();
+        Footprint footprint = footprintList.get(position);
 //        viewHolder.time.setText(footprint.getTime());
-//        viewHolder.picture.setImageResource(footprint.getPicture());
-//        viewHolder.name.setText(footprint.getName());
-//        viewHolder.color.setText(footprint.getColor());
-//        viewHolder.size.setText(footprint.getSize());
-//        viewHolder.price.setText(footprint.getPrice());
+        viewHolder.picture.setImageResource(footprint.getPicture());
+        viewHolder.name.setText(footprint.getName());
+        viewHolder.color.setText(footprint.getColor());
+        viewHolder.size.setText(footprint.getSize());
+        viewHolder.price.setText(footprint.getPrice());
         return convertView;
     }
     public class ViewHolder{
