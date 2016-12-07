@@ -48,14 +48,14 @@ import java.net.URL;
 public class ActivityLogin extends Activity {
    private TextView login;
    private TextView register;
-    ImageView tencent,wechat,sina,taobao,camera,show;
+   private ImageView tencent,wechat,sina,taobao,camera,show;
    private EditText  tel,passwd;
    private SsoHandler mSsoHandler;
    private Oauth2AccessToken mAccessToken;
    private String touke,uid;
-    int i=0;
-    View view;
-    PopupWindow popupWindow;
+    private int i=0;
+    private View view;
+    private PopupWindow popupWindow;
 
 
     @Override
@@ -140,7 +140,7 @@ public class ActivityLogin extends Activity {
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                     finish();
+                    finish();
                     break;
                 case -1:
                     Toast.makeText(ActivityLogin.this,"你的账号或者密码不正确",Toast.LENGTH_SHORT).show();
