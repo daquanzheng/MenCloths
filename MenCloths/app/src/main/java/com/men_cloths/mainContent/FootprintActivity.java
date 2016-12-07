@@ -2,13 +2,9 @@ package com.men_cloths.mainContent;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.FootprintAdapter;
@@ -21,9 +17,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class FootprintActivity extends Activity{
-    ImageView back;
-    ListView listView;
-    List<Footprint> lists = new ArrayList<>();
+    private  ImageView back;
+    private  ListView listView;
+    private  List<Footprint> lists = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

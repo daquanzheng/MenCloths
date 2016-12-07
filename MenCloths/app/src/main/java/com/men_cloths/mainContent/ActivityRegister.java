@@ -20,11 +20,11 @@ import cn.smssdk.SMSSDK;
  * Created by Administrator on 2016/10/30.
  */
 public class ActivityRegister extends Activity {
-    TextView register;
-    MessageVerification verification;
-    EditText tel,passwd,ver;
+    private TextView register;
+    private MessageVerification verification;
+    private   EditText tel,passwd,ver;
     boolean isverification=false;
-    TextView getVer;
+    private  TextView getVer;
     boolean isClick=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

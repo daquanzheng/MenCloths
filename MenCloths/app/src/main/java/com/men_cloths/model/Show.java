@@ -4,10 +4,10 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/1.
  */
 public class Show {
-    int titleImgId;
-    String Title;
-    String Content;
-    int partImgId1;
+    private  int titleImgId;
+    private   String Title;
+    private   String Content;
+    private  int partImgId1;
 
     public int getTitleImgId() {
         return titleImgId;

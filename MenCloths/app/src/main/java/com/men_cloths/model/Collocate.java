@@ -4,15 +4,32 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/9.
  */
 public class Collocate {
-    String wholeImg;
-    String partImg1;
-    String partImg1Title;
-    String partImg2;
-    String partImg2Title;
-    String partImg3;
-    String partImg3Title;
-    String partImg4;
-    String partImg4Title;
+    private  int WholeImg1;
+    private  int partImg1;
+    private  String partImg1Title;
+    private   int partImg2;
+    private  String partImg2Title;
+    private   int partImg3;
+    private   String partImg3Title;
+    private   int partImg4;
+    private   String partImg4Title;
+    private   int WholeImg2;
+
+    public int getWholeImg1() {
+        return WholeImg1;
+    }
+
+    public void setWholeImg1(int wholeImg1) {
+        WholeImg1 = wholeImg1;
+    }
+
+    public int getWholeImg2() {
+        return WholeImg2;
+    }
+
+    public void setWholeImg2(int wholeImg2) {
+        WholeImg2 = wholeImg2;
+    }
 
     public String getPartImg4Title() {
         return partImg4Title;
@@ -22,11 +39,11 @@ public class Collocate {
         this.partImg4Title = partImg4Title;
     }
 
-    public String getPartImg4() {
+    public int getPartImg4() {
         return partImg4;
     }
 
-    public void setPartImg4(String partImg4) {
+    public void setPartImg4(int partImg4) {
         this.partImg4 = partImg4;
     }
 
@@ -38,19 +55,11 @@ public class Collocate {
         this.partImg3Title = partImg3Title;
     }
 
-    public String getWholeImg() {
-        return wholeImg;
-    }
-
-    public void setWholeImg(String wholeImg) {
-        wholeImg = wholeImg;
-    }
-
-    public String getPartImg1() {
+    public int getPartImg1() {
         return partImg1;
     }
 
-    public void setPartImg1(String partImg1) {
+    public void setPartImg1(int partImg1) {
         this.partImg1 = partImg1;
     }
 
@@ -62,11 +71,11 @@ public class Collocate {
         this.partImg1Title = partImg1Title;
     }
 
-    public String getPartImg2() {
+    public int getPartImg2() {
         return partImg2;
     }
 
-    public void setPartImg2(String partImg2) {
+    public void setPartImg2(int partImg2) {
         this.partImg2 = partImg2;
     }
 
@@ -78,11 +87,11 @@ public class Collocate {
         this.partImg2Title = partImg2Title;
     }
 
-    public String getPartImg3() {
+    public int getPartImg3() {
         return partImg3;
     }
 
-    public void setPartImg3(String partImg3) {
+    public void setPartImg3(int partImg3) {
         this.partImg3 = partImg3;
     }
 }

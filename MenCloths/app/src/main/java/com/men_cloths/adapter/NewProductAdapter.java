@@ -23,9 +23,9 @@ import java.util.List;
  * Created by Administrator on 2016/10/24.
  */
 public class NewProductAdapter extends BaseAdapter{
-    Context context;
-    List<NewProduct> newProductList;
-    LayoutInflater layoutInflater;
+    private  Context context;
+    private   List<NewProduct> newProductList;
+    private  LayoutInflater layoutInflater;
     public NewProductAdapter(Context context, List<NewProduct> newProductList){
         this.context=context;
         this.newProductList=newProductList;

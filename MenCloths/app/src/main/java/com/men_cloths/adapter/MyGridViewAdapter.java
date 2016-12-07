@@ -17,8 +17,8 @@ import java.util.List;
  * Created by Administrator on 2016/11/6.
  */
 public class MyGridViewAdapter extends BaseAdapter{
-    Context context;
-    List<String> stringList;
+    private  Context context;
+    private   List<String> stringList;
     public MyGridViewAdapter(Context context,List<String> stringList){
         this.context=context;
         this.stringList=stringList;

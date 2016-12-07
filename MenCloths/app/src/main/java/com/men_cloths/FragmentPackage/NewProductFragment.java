@@ -32,7 +32,7 @@ import java.util.List;
  * Created by Administrator on 2016/11/1.
  */
 public class NewProductFragment extends Fragment{
-    ListView listView;
+    private  ListView listView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

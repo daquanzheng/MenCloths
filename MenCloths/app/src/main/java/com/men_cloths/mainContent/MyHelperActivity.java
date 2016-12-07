@@ -11,7 +11,7 @@ import com.men_cloths.R;
  * Created by Administrator on 2016/11/28.
  */
 public class MyHelperActivity extends Activity{
-    ImageView back;
+    private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,7 +1,6 @@
 package com.men_cloths.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +68,8 @@ public class Adapter {
 				convertView.setTag(holder);
 
 			//holder.imageview.setImageResource(R.mipmap.collocate_img01);
-			Log.i("hhh","老夫时代"+list.get(position).getIamge());
-			LoadImage.load(holder.imageview,list.get(position).getIamge());
+			//Log.i("hhh","老夫时代"+list.get(position).getIamge());
+			LoadImage.load(holder.imageview,list.get(position).getIamge(),context);
 			holder.title.setText(list.get(position).getName());
 			holder.size.setText(list.get(position).getRule());
 			holder.price.setText(list.get(position).getPrice());

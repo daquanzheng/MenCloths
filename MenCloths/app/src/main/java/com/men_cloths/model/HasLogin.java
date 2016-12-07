@@ -48,7 +48,7 @@ public class HasLogin {
             try {
                 connection= (HttpURLConnection) new URL(path).openConnection();
                 connection.setRequestMethod("GET");
-                connection.setConnectTimeout(5000);
+                connection.setConnectTimeout(2000);
                 if(connection.getResponseCode()==HttpURLConnection.HTTP_OK){
                     //handler.sendEmptyMessage(0);
 
