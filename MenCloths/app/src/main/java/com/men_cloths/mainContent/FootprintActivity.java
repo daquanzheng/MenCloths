@@ -2,15 +2,12 @@ package com.men_cloths.mainContent;
 
 import android.app.Activity;
 import android.os.Bundle;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-=======
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
-=======
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,22 +33,12 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class FootprintActivity extends Activity{
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     ImageView back;
     ListView listView;
     List<Footprint> lists = new ArrayList<>();
     FootprintAdapter footprintAdapter;
-=======
-    private  ImageView back;
-    private  ListView listView;
-    private  List<Footprint> lists = new ArrayList<>();
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
-=======
-    private  ImageView back;
-    private  ListView listView;
-    private  List<Footprint> lists = new ArrayList<>();
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
