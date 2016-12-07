@@ -123,8 +123,8 @@ public class CachetToFile {
 
             }
         if(time!=null){
-            Long l=new Long(time);
-            if(System.currentTimeMillis()-l>259200000)
+            Long lo=new Long(time);
+            if(System.currentTimeMillis()-lo>259200000)
             {
                 db.execSQL("delete from image where time="+time);
                 context.deleteFile(name);

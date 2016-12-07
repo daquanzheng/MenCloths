@@ -14,6 +14,7 @@ public class ActivityManager extends Application{
     private static ActivityManager manager;
     private ActivityManager(){}
     private static List<Activity> list;
+    public static MemoryCache memoryCache=MemoryCache.getMemoryCache(10);
 
     public static ActivityManager getActivityManager() {
         if(manager==null){

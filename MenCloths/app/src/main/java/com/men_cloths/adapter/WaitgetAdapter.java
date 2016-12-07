@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.MyWuliuActivity;
-import com.men_cloths.model.Waitget;
+import com.men_cloths.model.WaitGet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,10 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitgetAdapter extends BaseAdapter{
-    List<Waitget> waitgetList = new ArrayList<>();
+    List<WaitGet> waitgetList = new ArrayList<>();
     Context context;
     LayoutInflater inflater;
-    public WaitgetAdapter(Context context, List<Waitget> waitgetList){
+    public WaitgetAdapter(Context context, List<WaitGet> waitgetList){
         this.context = context;
         this.waitgetList = waitgetList;
         inflater = LayoutInflater.from(context);

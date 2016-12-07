@@ -25,6 +25,7 @@ public class LoadImage extends AsyncTask<String,Void,Bitmap>{
         super.onPostExecute(bitmap);
         if(bitmap!=null && imageView.getTag().equals(url)){
             imageView.setImageBitmap(bitmap);
+            ActivityManager.memoryCache.add(url,bitmap);
         }
         //Log.i("hhh",bitmap+"");
     }
