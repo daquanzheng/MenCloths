@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.MyWuliuActivity;
-import com.men_cloths.model.WaitGet;
+import com.men_cloths.model.Waitget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +19,22 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitgetAdapter extends BaseAdapter{
-    private List<WaitGet> waitGetList = new ArrayList<>();
-    private  Context context;
-    private    LayoutInflater inflater;
-    public WaitgetAdapter(Context context, List<WaitGet> waitGetList){
+    List<Waitget> waitgetList = new ArrayList<>();
+    Context context;
+    LayoutInflater inflater;
+    public WaitgetAdapter(Context context, List<Waitget> waitgetList){
         this.context = context;
-        this.waitGetList = waitGetList;
+        this.waitgetList = waitgetList;
         inflater = LayoutInflater.from(context);
     }
     @Override
     public int getCount() {
-        return waitGetList.size();
+        return waitgetList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return waitGetList.get(position);
+        return waitgetList.get(position);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class WaitgetAdapter extends BaseAdapter{
             deleteOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    waitGetList.remove(position);
+                    waitgetList.remove(position);
                     WaitgetAdapter.this.notifyDataSetChanged();
                 }
             });
@@ -65,5 +65,8 @@ public class WaitgetAdapter extends BaseAdapter{
             });
         }
         return convertView;
+    }
+    public class ViewHolder{
+
     }
 }
