@@ -33,16 +33,14 @@ public class LoadImage extends AsyncTask<String,Void,Bitmap>{
     protected Bitmap doInBackground(String... params) {
         Bitmap bitmap=null;
         try {
-            InputStream is=new URL(params[0]).openConnection().getInputStream();
-           // bitmap= BitmapFactory.decodeStream(is);
+            InputStream is=null;
             if(CachetToFile.isloaded(context,url)){
                is=CachetToFile.getImage(url,context);
                bitmap=BitmapFactory.decodeStream(is);
             }else {
+                is=new URL(params[0]).openConnection().getInputStream();
                 CachetToFile.saveImage(url,context,is);
                 bitmap= BitmapFactory.decodeStream(CachetToFile.getImage(url,context));
-                //is=new URL(params[0]).openConnection().getInputStream();
-
             }
 
             if (is!=null){
