@@ -20,18 +20,24 @@ import java.util.List;
  */
 public class MyAddressActivity extends Activity{
 <<<<<<< HEAD
+<<<<<<< HEAD
     ImageView back;
     Button addNewAddress;
     ListView listView;
     List<GettingAddress> lists = new ArrayList<>();
     GettingAddressAdapter gettingAddressAdapter;
 =======
+=======
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     private  ImageView back;
     private   Button addNewAddress;
     private  ListView listView;
     private   List<GettingAddress> lists = new ArrayList<>();
     private  GettingAddressAdapter gettingAddressAdapter;
     private int position;
+<<<<<<< HEAD
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+=======
 >>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +79,7 @@ public class MyAddressActivity extends Activity{
         }
     };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public void getAddress(){
         String string = "http://192.168.7.9/index.php/Home/Address/getnewaddress";
@@ -113,6 +120,9 @@ public class MyAddressActivity extends Activity{
         }
     }
 
+=======
+    //跳转回来的回调
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
 =======
     //跳转回来的回调
 >>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733

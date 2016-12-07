@@ -20,10 +20,16 @@ import java.util.List;
  */
 public class WaitpayAdapter extends BaseAdapter {
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Waitpay> waitpayList = new ArrayList<>();
     Context context;
     LayoutInflater inflater;
     CheckOrder checkOrder;
+=======
+    private  List<Waitpay> waitpayList = new ArrayList<>();
+    private   Context context;
+    private  LayoutInflater inflater;
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
 =======
     private  List<Waitpay> waitpayList = new ArrayList<>();
     private   Context context;

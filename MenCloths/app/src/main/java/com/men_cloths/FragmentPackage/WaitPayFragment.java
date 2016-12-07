@@ -31,9 +31,14 @@ import java.util.List;
  */
 public class WaitPayFragment extends Fragment {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ListView listView;
     List<Waitpay> lists = new ArrayList<>();
     WaitpayAdapter waitpayAdapter;
+=======
+    private   ListView listView;
+    private   List<Waitpay> lists = new ArrayList<>();
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
 =======
     private   ListView listView;
     private   List<Waitpay> lists = new ArrayList<>();
