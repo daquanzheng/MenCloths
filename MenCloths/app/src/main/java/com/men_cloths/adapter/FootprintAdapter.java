@@ -66,13 +66,13 @@ public class FootprintAdapter extends BaseAdapter{
 
         }
         viewHolder = (ViewHolder) convertView.getTag();
-//        Footprint footprint = new Footprint();
+        Footprint footprint = footprintList.get(position);
 //        viewHolder.time.setText(footprint.getTime());
-//        viewHolder.picture.setImageResource(footprint.getPicture());
-//        viewHolder.name.setText(footprint.getName());
-//        viewHolder.color.setText(footprint.getColor());
-//        viewHolder.size.setText(footprint.getSize());
-//        viewHolder.price.setText(footprint.getPrice());
+        viewHolder.picture.setImageResource(footprint.getPicture());
+        viewHolder.name.setText(footprint.getName());
+        viewHolder.color.setText(footprint.getColor());
+        viewHolder.size.setText(footprint.getSize());
+        viewHolder.price.setText(footprint.getPrice());
         return convertView;
     }
     public class ViewHolder{

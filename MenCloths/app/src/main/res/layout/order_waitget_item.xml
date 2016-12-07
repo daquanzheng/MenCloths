@@ -45,6 +45,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="尺码："/>
                 <TextView
+                    android:id="@+id/goods_size"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"

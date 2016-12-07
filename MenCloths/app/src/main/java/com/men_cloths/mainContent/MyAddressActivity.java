@@ -19,12 +19,26 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class MyAddressActivity extends Activity{
+<<<<<<< HEAD
+<<<<<<< HEAD
+    ImageView back;
+    Button addNewAddress;
+    ListView listView;
+    List<GettingAddress> lists = new ArrayList<>();
+    GettingAddressAdapter gettingAddressAdapter;
+=======
+=======
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     private  ImageView back;
     private   Button addNewAddress;
     private  ListView listView;
     private   List<GettingAddress> lists = new ArrayList<>();
     private  GettingAddressAdapter gettingAddressAdapter;
     private int position;
+<<<<<<< HEAD
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+=======
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +78,54 @@ public class MyAddressActivity extends Activity{
             }
         }
     };
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    public void getAddress(){
+        String string = "http://192.168.7.9/index.php/Home/Address/getnewaddress";
+        try {
+            URL url = new URL(string);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
+            if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
+                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
+                String s;
+                while ((s=bufferedReader.readLine())!=null){
+                    stringBuilder.append(s);
+                }
+               // Log.i("获取到的数据",""+stringBuilder);
+                JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+                JSONArray jsonArray = jsonObject.optJSONArray("data");
+                for(int i=0;i<jsonArray.length();i++){
+                    JSONObject jsonObject1 =jsonArray.getJSONObject(i);
+                    GettingAddress gettingAddress = new GettingAddress();
+                    gettingAddress.setName(jsonObject1.optString("name"));
+                    gettingAddress.setPhone(jsonObject1.optString("phone"));
+                    gettingAddress.setAddressDetails(jsonObject1.optString("address"));
+                    lists.add(gettingAddress);
+                }
+                handler.sendEmptyMessage(0);
+
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+=======
     //跳转回来的回调
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+=======
+    //跳转回来的回调
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
     @Override
     protected void onActivityResult(int requestCode,
                                     int resultCode,

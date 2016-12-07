@@ -60,6 +60,12 @@ public class AddNewAddressActivity extends Activity{
                             addNewAddress();
                         }
                     }.start();
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    //线程是耗时操作，必须等线程跑完了才能finish
+=======
+=======
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
 //                    Intent intent = getIntent();
 //                    intent.putExtra("newname",viewHolder.name.getText().toString());
 //                    intent.putExtra("newphone",viewHolder.phone.getText().toString());
@@ -67,6 +73,10 @@ public class AddNewAddressActivity extends Activity{
 //                    intent.putExtra("newstreet",viewHolder.street.getText().toString());
 //                    setResult(121,intent);
                     finish();
+<<<<<<< HEAD
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+=======
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
                     break;
             }
         }
@@ -82,6 +92,17 @@ public class AddNewAddressActivity extends Activity{
 //            httpURLConnection.setRequestProperty();
             httpURLConnection.connect();
             if(httpURLConnection.getResponseCode()==200){
+<<<<<<< HEAD
+//                InputStream inputStream = httpURLConnection.getInputStream();
+//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
+//                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
+//                String s;
+//                while ((s=bufferedReader.readLine())!=null){
+//                    stringBuilder.append(s);
+//                }
+              //  Log.i("加入的数据",""+stringBuilder);
+                handler.sendEmptyMessage(0);
+=======
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
                 StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
@@ -91,6 +112,10 @@ public class AddNewAddressActivity extends Activity{
                 }
                 Log.i("加入的数据",""+stringBuilder);
                 JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+<<<<<<< HEAD
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+=======
+>>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
