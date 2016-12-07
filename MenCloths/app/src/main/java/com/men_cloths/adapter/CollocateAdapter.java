@@ -18,9 +18,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/9.
  */
 public class CollocateAdapter extends BaseAdapter{
-    List<Collocate> collocateList;
-    Context context;
-    LayoutInflater layoutInflater;
+    private List<Collocate> collocateList;
+    private Context context;
+    private LayoutInflater layoutInflater;
 
     public CollocateAdapter(Context context,List<Collocate> collocateList){
         this.collocateList=collocateList;

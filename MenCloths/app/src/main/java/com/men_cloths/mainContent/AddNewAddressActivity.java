@@ -1,7 +1,6 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +24,7 @@ import java.net.URL;
  * Created by Administrator on 2016/11/28.
  */
 public class AddNewAddressActivity extends Activity{
-    ViewHolder viewHolder;
+    private  ViewHolder viewHolder;
     public class ViewHolder{
         ImageView back;
         TextView saveNewAddress,name,phone,address,street;

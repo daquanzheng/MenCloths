@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.men_cloths.adapter.MyPagerAdapter;
 import com.men_cloths.R;
+import com.men_cloths.model.CachetToFile;
 import com.men_cloths.model.HasLogin;
 
 import java.util.ArrayList;
@@ -56,8 +57,10 @@ public class ActivityViewPager extends Activity{
     public void next(){
         if(!HasLogin.isfirst(this)){//检查是否第一次登录，如果是就不进行导航页展示，直接跳转到主页面
             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
+            CachetToFile.clearImage(this);
             startActivity(intent);
             finish();
+            return;
         }
         setContentView(R.layout.activityviewpager);
         viewPager=(ViewPager)findViewById(R.id.viewpager);

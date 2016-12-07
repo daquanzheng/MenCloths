@@ -15,9 +15,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/9.
  */
 public class MallAdapter extends BaseAdapter{
-    Context context;
-    List<Integer> list;
-    LayoutInflater layoutInflater;
+    private  Context context;
+    private  List<Integer> list;
+    private  LayoutInflater layoutInflater;
     public MallAdapter(Context context,List<Integer> list){
         this.context=context;
         this.list=list;

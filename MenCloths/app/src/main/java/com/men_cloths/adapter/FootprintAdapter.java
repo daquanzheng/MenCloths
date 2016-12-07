@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.model.Footprint;
@@ -20,9 +19,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class FootprintAdapter extends BaseAdapter{
-    List<Footprint> footprintList = new ArrayList<>();
-    Context context;
-    LayoutInflater inflater;
+    private List<Footprint> footprintList = new ArrayList<>();
+    private Context context;
+    private  LayoutInflater inflater;
     public FootprintAdapter(Context context,List<Footprint> footprintList){
         this.context = context;
         this.footprintList = footprintList;

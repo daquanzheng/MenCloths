@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.model.HotSeller;
-import com.men_cloths.model.Trend;
 
 import java.util.List;
 
@@ -18,9 +17,9 @@ import java.util.List;
  * Created by Administrator on 2016/10/24.
  */
 public class HotSellerAdapter extends BaseAdapter{
-    Context context;
-    List<HotSeller> hotSellerList;
-    LayoutInflater layoutInflater;
+    private Context context;
+    private List<HotSeller> hotSellerList;
+    private  LayoutInflater layoutInflater;
     public HotSellerAdapter(Context context, List<HotSeller> hotSellerList){
         this.context=context;
         this.hotSellerList=hotSellerList;

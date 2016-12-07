@@ -15,9 +15,9 @@ import com.men_cloths.R;
 
 public class SoftPassword extends Activity{
 
-    LinearLayout linearLayout;
-    SwitchButton switchButton;
-    ImageView back;
+    private   LinearLayout linearLayout;
+    private   SwitchButton switchButton;
+    private   ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

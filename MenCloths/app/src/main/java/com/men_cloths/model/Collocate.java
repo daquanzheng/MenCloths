@@ -4,16 +4,16 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/9.
  */
 public class Collocate {
-    int WholeImg1;
-    int partImg1;
-    String partImg1Title;
-    int partImg2;
-    String partImg2Title;
-    int partImg3;
-    String partImg3Title;
-    int partImg4;
-    String partImg4Title;
-    int WholeImg2;
+    private  int WholeImg1;
+    private  int partImg1;
+    private  String partImg1Title;
+    private   int partImg2;
+    private  String partImg2Title;
+    private   int partImg3;
+    private   String partImg3Title;
+    private   int partImg4;
+    private   String partImg4Title;
+    private   int WholeImg2;
 
     public int getWholeImg1() {
         return WholeImg1;

@@ -19,12 +19,12 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class MyAddressActivity extends Activity{
-    ImageView back;
-    Button addNewAddress;
-    ListView listView;
-    List<GettingAddress> lists = new ArrayList<>();
-    GettingAddressAdapter gettingAddressAdapter;
-    int position;
+    private  ImageView back;
+    private   Button addNewAddress;
+    private  ListView listView;
+    private   List<GettingAddress> lists = new ArrayList<>();
+    private  GettingAddressAdapter gettingAddressAdapter;
+    private int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

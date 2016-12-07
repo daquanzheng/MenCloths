@@ -4,11 +4,11 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/28.
  */
 public class Waitpay {
-    int picture;
-    String name;
-    String color;
-    String size;
-    String price;
+    private  int picture;
+    private   String name;
+    private   String color;
+    private  String size;
+    private   String price;
 
     public int getPicture() {
         return picture;

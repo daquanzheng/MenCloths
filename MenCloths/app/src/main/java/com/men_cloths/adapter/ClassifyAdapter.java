@@ -18,9 +18,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/10.
  */
 public class ClassifyAdapter extends BaseAdapter{
-    Context context;
-    List<Classify> classifyList;
-    LayoutInflater layoutInflater;
+    private Context context;
+    private List<Classify> classifyList;
+    private LayoutInflater layoutInflater;
 
     public ClassifyAdapter(Context context, List<Classify> classifyList){
         this.context=context;

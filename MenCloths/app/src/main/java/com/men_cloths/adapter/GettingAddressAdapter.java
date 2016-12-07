@@ -21,10 +21,10 @@ import java.util.List;
  * Created by Administrator on 2016/11/29.
  */
 public class GettingAddressAdapter extends BaseAdapter{
-    Context context;
-    List<GettingAddress> addressList = new ArrayList<>();
-    LayoutInflater inflater;
-    EditOnClickListenr editOnClickListener;
+    private Context context;
+    private  List<GettingAddress> addressList = new ArrayList<>();
+    private  LayoutInflater inflater;
+    private  EditOnClickListenr editOnClickListener;
     public interface  EditOnClickListenr{//接口
         public int onClick(int itemid,String name,String phone);
     }

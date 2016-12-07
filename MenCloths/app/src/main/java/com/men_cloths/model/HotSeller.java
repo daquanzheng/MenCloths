@@ -4,9 +4,9 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/10/25.
  */
 public class HotSeller {
-    int hotImg;
-    String hotContent;
-    Double hotPrice;
+    private int hotImg;
+    private  String hotContent;
+    private Double hotPrice;
 
     public int getHotImg() {
         return hotImg;

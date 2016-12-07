@@ -14,10 +14,10 @@ import com.men_cloths.R;
  * Created by Administrator on 2016/11/29.
  */
 public class AddressEditActivity extends Activity{
-    ImageView back;
-    TextView saveAddress;
-    EditText editName,editPhone,editAddressName,editStreet;
-    Intent intent;
+    private  ImageView back;
+    private   TextView saveAddress;
+    private   EditText editName,editPhone,editAddressName,editStreet;
+    private   Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

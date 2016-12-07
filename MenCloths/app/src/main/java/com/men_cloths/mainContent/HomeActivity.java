@@ -23,14 +23,14 @@ import com.men_cloths.model.MyButton;
  * Created by Administrator on 2016/11/28.
  */
 public class HomeActivity extends FragmentActivity{
-    MyButton homeMyButton;
-    MyButton mallMyButton;
-    MyButton collocateMyButton;
-    MyButton classifyMyButton;
-    MyButton mineMyButton;
-    Boolean[] myButtonClick={true,false,false,false,false,};
-    FragmentManager fragmentManager=getSupportFragmentManager();
-    FragmentTransaction fragmentTransaction;
+    private MyButton homeMyButton;
+    private  MyButton mallMyButton;
+    private  MyButton collocateMyButton;
+    private  MyButton classifyMyButton;
+    private MyButton mineMyButton;
+    private  Boolean[] myButtonClick={true,false,false,false,false,};
+    private   FragmentManager fragmentManager=getSupportFragmentManager();
+    private   FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

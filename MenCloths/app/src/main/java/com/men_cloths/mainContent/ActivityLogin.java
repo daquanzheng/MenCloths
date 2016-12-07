@@ -247,6 +247,7 @@ public class ActivityLogin extends Activity {
                 editor.putString("token",touke);
                 editor.putString("tel",tel);
                 editor.putString("message","新浪微博用户");
+                editor.putBoolean("islogin",true);
                 editor.commit();
                 Message message=Message.obtain();
                 message.what=666;

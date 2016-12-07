@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Administrator on 2016/11/1.
  */
 public class TrendFragment extends Fragment{
-    ListView listView;
+    private  ListView listView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.listview_have_divider,null);

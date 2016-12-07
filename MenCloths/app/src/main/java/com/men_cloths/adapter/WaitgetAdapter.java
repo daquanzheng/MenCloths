@@ -19,9 +19,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitgetAdapter extends BaseAdapter{
-    List<WaitGet> waitGetList = new ArrayList<>();
-    Context context;
-    LayoutInflater inflater;
+    private List<WaitGet> waitGetList = new ArrayList<>();
+    private  Context context;
+    private    LayoutInflater inflater;
     public WaitgetAdapter(Context context, List<WaitGet> waitGetList){
         this.context = context;
         this.waitGetList = waitGetList;

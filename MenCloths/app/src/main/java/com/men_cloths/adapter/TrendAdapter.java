@@ -20,10 +20,10 @@ import java.util.List;
  * Created by Administrator on 2016/10/24.
  */
 public class TrendAdapter extends BaseAdapter{
-    Context context;
-    List<Trend> trendList;
-    LayoutInflater layoutInflater;
-    Boolean state=true;
+    private  Context context;
+    private   List<Trend> trendList;
+    private  LayoutInflater layoutInflater;
+    private Boolean state=true;
     public TrendAdapter(Context context,List<Trend> trendList){
         this.context=context;
         this.trendList=trendList;

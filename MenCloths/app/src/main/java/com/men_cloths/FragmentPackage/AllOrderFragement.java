@@ -11,13 +11,12 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.HomeActivity;
-import com.men_cloths.mainContent.ShopInfo;
 
 /**
  * Created by Administrator on 2016/11/28.
  */
 public class AllOrderFragement extends Fragment{
-    TextView goShopping;
+    private  TextView goShopping;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_empty,null);

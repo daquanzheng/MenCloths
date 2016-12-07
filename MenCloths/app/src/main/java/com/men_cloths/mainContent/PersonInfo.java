@@ -132,11 +132,15 @@ public class PersonInfo extends Activity {
                     handler.sendMessage(message);
                 }else {
                     Message message=Message.obtain();
-                    message.what=-1;
+                    message.what=-2;
                     handler.sendMessage(message);
                 }
 
 
+            }else {
+                Message message=Message.obtain();
+                message.what=-1;
+                handler.sendMessage(message);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -215,7 +219,7 @@ public class PersonInfo extends Activity {
 
                     }
                     if(imageUrl!=null){
-                        LoadImage.load(head,imageUrl);
+                        LoadImage.load(head,imageUrl,PersonInfo.this);
                     }
                     break;
                 case -1:
@@ -223,6 +227,9 @@ public class PersonInfo extends Activity {
                     break;
                 case 0:
                     finish();
+                    break;
+                case -2:
+                    Toast.makeText(PersonInfo.this,"你还没有设置任何信息",Toast.LENGTH_SHORT).show();
                     break;
             }
         }

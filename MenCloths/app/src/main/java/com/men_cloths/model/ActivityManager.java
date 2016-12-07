@@ -1,6 +1,7 @@
 package com.men_cloths.model;
 
 import android.app.Activity;
+import android.app.Application;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * Created by Administrator on 2016/12/6.
  */
 
-public class ActivityManager {
+public class ActivityManager extends Application{
     private static ActivityManager manager;
     private ActivityManager(){}
     private static List<Activity> list;
@@ -30,5 +31,6 @@ public class ActivityManager {
                 activity.finish();
             }
         }
+        System.exit(0);
     }
 }

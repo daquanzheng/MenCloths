@@ -16,9 +16,9 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitpayAdapter extends BaseAdapter {
-    List<Waitpay> waitpayList = new ArrayList<>();
-    Context context;
-    LayoutInflater inflater;
+    private  List<Waitpay> waitpayList = new ArrayList<>();
+    private   Context context;
+    private  LayoutInflater inflater;
     public WaitpayAdapter(Context context,List<Waitpay> waitpayList){
         this.context = context;
         this.waitpayList = waitpayList;
