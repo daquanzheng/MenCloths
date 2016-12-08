@@ -62,22 +62,17 @@ public class AddNewAddressActivity extends Activity{
                             addNewAddress();
                         }
                     }.start();
+                    Log.i("保存成功----------->",""+true);
                     //线程是耗时操作，必须等线程跑完了才能finish
-//                    Intent intent = getIntent();
-//                    intent.putExtra("newname",viewHolder.name.getText().toString());
-//                    intent.putExtra("newphone",viewHolder.phone.getText().toString());
-//                    intent.putExtra("newaddress",viewHolder.address.getText().toString());
-//                    intent.putExtra("newstreet",viewHolder.street.getText().toString());
-//                    setResult(121,intent);
                     break;
             }
         }
     };
     public void addNewAddress(){
         try {
-            String string = "http://10.0.2.2/index.php/Home/index/";
-            URL url = new URL(string+"addNewAddress?name="+viewHolder.name.getText()+"phone="+viewHolder.phone.getText()+
-                    "address="+viewHolder.address.getText());
+            String string = "http://192.168.7.9/index.php/Home/address/";
+            URL url = new URL(string+"addNewAddress?name="+viewHolder.name.getText().toString()+"&phone="+viewHolder.phone.getText()
+                    .toString()+"&address="+viewHolder.address.getText().toString());
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
