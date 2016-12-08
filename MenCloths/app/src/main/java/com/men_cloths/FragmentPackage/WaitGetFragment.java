@@ -49,7 +49,7 @@ public class WaitGetFragment extends Fragment{
                 new Thread(){
                     @Override
                     public void run() {
-                        String str = "http://192.168.7.9/index.php/Home/waitget/deleteorder?name="+na;
+                        String str = "http://139.199.196.199/index.php/Home/waitget/deleteorder?name="+na;
                         try {
                             URL url = new URL(str);
                             HttpURLConnection http = (HttpURLConnection) url.openConnection();
@@ -80,7 +80,7 @@ public class WaitGetFragment extends Fragment{
     }
 
     public void getData(){
-        String string = "http://192.168.7.9/index.php/Home/waitget/getorder";
+        String string = "http://139.199.196.199/index.php/Home/waitget/getorder";
         try {
             URL url = new URL(string);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
