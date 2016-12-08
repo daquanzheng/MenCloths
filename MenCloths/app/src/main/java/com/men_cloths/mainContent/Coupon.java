@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.Adapter;
@@ -239,13 +240,18 @@ public class Coupon extends Activity{
 					baseAdapter.notifyDataSetChanged();
 					break;
 				case -1:
+					Toast.makeText(Coupon.this,"当前网络连接出现问题",Toast.LENGTH_SHORT).show();
 
 					break;
 				case -2:
+					Toast.makeText(Coupon.this,"账号出现异常，或在其他地方已经登录",Toast.LENGTH_SHORT).show();
+
 					break;
 
 			}
 		}
 	};
+
+
 
 }
