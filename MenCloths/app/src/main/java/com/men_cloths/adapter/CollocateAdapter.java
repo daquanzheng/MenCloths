@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
-import com.men_cloths.Thread.HttpImgFromThread;
 import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.model.Collocate;
 
