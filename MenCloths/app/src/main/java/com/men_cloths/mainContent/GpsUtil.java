@@ -23,7 +23,6 @@ import java.net.URL;
 public class GpsUtil {
     private Context context;
     private Location location;
-
     private  Handler handler;
     public GpsUtil(Context context, Handler handler) {
         this.context = context;

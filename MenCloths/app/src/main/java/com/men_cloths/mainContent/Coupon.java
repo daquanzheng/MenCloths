@@ -1,7 +1,11 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -13,17 +17,26 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import com.men_cloths.R;
 import com.men_cloths.adapter.Adapter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Coupon extends Activity{
-	ImageView back;
+	private ImageView back;
 	private RadioGroup group;
 	private List<Integer> list=new ArrayList<>();
 
 	private	RadioButton radiao[]=new RadioButton[3];
 	private	View views[]=new View[3];
 	private ListView listView;
+	private  SharedPreferences preferences;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,7 @@ public class Coupon extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.copon);
 		group=(RadioGroup) findViewById(R.id.group);
+		preferences=getSharedPreferences("login_info",MODE_PRIVATE);
 
 		back = (ImageView) findViewById(R.id.back);
 		
@@ -41,7 +55,7 @@ public class Coupon extends Activity{
 		views[1]=findViewById(R.id.view2);
 		views[2]=findViewById(R.id.view3);
 		listView= (ListView) findViewById(R.id.list_view);
-		createDatebase1(3);
+		createDatebase1(preferences.getInt("coupon_used_count",0));
 		listView.setAdapter(baseAdapter);
 		back.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -49,6 +63,7 @@ public class Coupon extends Activity{
 				finish();
 			}
 		});
+
 
 
 
@@ -63,7 +78,7 @@ public class Coupon extends Activity{
 						break;
 				case R.id.already_used:
 
-					createDatebase1(3);
+					createDatebase1(preferences.getInt("coupon_used_count",0));
 					baseAdapter.notifyDataSetChanged();
 					for(int i=0;i<3;i++)
 					{
@@ -75,7 +90,7 @@ public class Coupon extends Activity{
 					}
 					break;
                 case R.id.can_use:
-					createDatebase2(3);
+					createDatebase2(preferences.getInt("coupon_notuesd_count",0));
 					baseAdapter.notifyDataSetChanged();
                 	for(int i=0;i<3;i++)
 					{
@@ -87,7 +102,7 @@ public class Coupon extends Activity{
 					}
 					break;
                case R.id.not_used:
-				   createDatebase3(3);
+				   createDatebase3(preferences.getInt("coupon_expired_count",0));
 				   baseAdapter.notifyDataSetChanged();
             	   for(int i=0;i<3;i++)
 					{
@@ -102,6 +117,8 @@ public class Coupon extends Activity{
 				
 			}
 		});
+
+		new Thread(){public void run(){getInfo();}}.start();//内容更新
 	}
 
 	public void createDatebase1(int len){
@@ -145,5 +162,90 @@ public class Coupon extends Activity{
 //		pop.showAsDropDown(view);
 //
 //	}
+
+
+	private void getInfo(){
+		String url="http://139.199.196.199/index.php/home/index/userinfo?token="+preferences.getString("token","")+"&tel="+preferences.getString("tel","");
+		HttpURLConnection connection=null;
+		BufferedReader reader=null;
+
+		try {
+			connection= (HttpURLConnection) new URL(url).openConnection();
+			connection.setConnectTimeout(5000);
+			connection.setRequestMethod("GET");
+			connection.connect();
+
+			if(connection.getResponseCode()==200){
+				String line="";
+				reader=new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				line=reader.readLine();
+				Log.i("hhh",line);
+				JSONObject o1=new JSONObject(line);
+				String state=o1.optString("statue","");
+				if(state.equals("1")){
+					JSONObject object=o1.getJSONObject("info");
+					Message message=Message.obtain();
+					message.what=1;
+					handler.sendMessage(message);
+					SharedPreferences preferences=getSharedPreferences("login_info",MODE_PRIVATE);
+					SharedPreferences.Editor editor=preferences.edit();
+					editor.putInt("coupon_expired_count",object.optInt("coupon_expired_count",0));
+					editor.putInt("coupon_used_count",object.optInt("coupon_used_count",0));
+					editor.putInt("coupon_notuesd_count",object.optInt("coupon_notuesd_count",0));
+					editor.commit();
+
+				}else {
+					Message message=Message.obtain();
+					message.what=-2;
+					handler.sendMessage(message);
+				}
+
+
+			}else {
+				Message message=Message.obtain();
+				message.what=-1;
+				handler.sendMessage(message);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}finally {
+			if (connection!=null){
+				connection.disconnect();
+			}
+			if(reader!=null){
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	private Handler handler=new Handler(){
+
+		public void handleMessage(Message message){
+			switch (message.what){
+				case 1:
+					if(radiao[0].isChecked()){
+						createDatebase1(preferences.getInt("coupon_used_count",0));
+					}else if(radiao[1].isChecked()){
+						createDatebase2(preferences.getInt("coupon_notuesd_count",0));
+					}else if(radiao[2].isChecked()){
+						createDatebase3(preferences.getInt("coupon_expired_count",0));
+					}
+					baseAdapter.notifyDataSetChanged();
+					break;
+				case -1:
+
+					break;
+				case -2:
+					break;
+
+			}
+		}
+	};
 
 }
