@@ -129,7 +129,6 @@ public class CollocateFragment extends Fragment{
                 }
                 super.onPostExecute(s);
             }
-
             @Override
             protected void onProgressUpdate(Integer... values) {
                 super.onProgressUpdate(values);
@@ -158,6 +157,15 @@ public class CollocateFragment extends Fragment{
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+                finally {
+                    try {
+                        if(is!=null){
+                            is.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 return null;
             }

@@ -22,10 +22,12 @@ public class HotSellerAdapter extends BaseAdapter{
     Context context;
     List<HotSeller> hotSellerList;
     LayoutInflater layoutInflater;
+    HttpImgThread httpImgThread;
     public HotSellerAdapter(Context context, List<HotSeller> hotSellerList){
         this.context=context;
         this.hotSellerList=hotSellerList;
         layoutInflater=LayoutInflater.from(context);
+        httpImgThread=new HttpImgThread();
     }
     @Override
     public int getCount() {
@@ -56,7 +58,7 @@ public class HotSellerAdapter extends BaseAdapter{
         viewHolder.contentTV.setText(hotSeller.getHotContent());
         viewHolder.priceTV.setText("￥"+hotSeller.getHotPrice()+"0");
         viewHolder.hotImg.setTag(hotSeller.getHotImg());
-        new HttpImgThread(viewHolder.hotImg,hotSeller.getHotImg()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.hotImg,hotSeller.getHotImg());
         return convertView;
     }
     private class ViewHolder{

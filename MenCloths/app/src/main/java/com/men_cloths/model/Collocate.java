@@ -43,7 +43,7 @@ public class Collocate {
     }
 
     public void setWholeImg(String wholeImg) {
-        wholeImg = wholeImg;
+        this.wholeImg = wholeImg;
     }
 
     public String getPartImg1() {

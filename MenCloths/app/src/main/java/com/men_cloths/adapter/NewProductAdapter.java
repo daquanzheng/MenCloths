@@ -26,10 +26,12 @@ public class NewProductAdapter extends BaseAdapter{
     Context context;
     List<NewProduct> newProductList;
     LayoutInflater layoutInflater;
+    HttpImgThread httpImgThread;
     public NewProductAdapter(Context context, List<NewProduct> newProductList){
         this.context=context;
         this.newProductList=newProductList;
         layoutInflater=LayoutInflater.from(context);
+        httpImgThread=new HttpImgThread();
     }
     @Override
     public int getCount() {
@@ -60,11 +62,11 @@ public class NewProductAdapter extends BaseAdapter{
         viewHolder.content1.setText(newProduct.getContent1());
         viewHolder.price1.setText("￥"+newProduct.getPrice1().toString()+"0");
         viewHolder.img1.setTag(newProduct.getImg1());
-        new HttpImgThread(viewHolder.img1,newProduct.getImg1()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.img1,newProduct.getImg1());
         viewHolder.content2.setText(newProduct.getContent2());
         viewHolder.price2.setText("￥"+newProduct.getPrice2().toString()+"0");
         viewHolder.img2.setTag(newProduct.getImg2());
-        new HttpImgThread(viewHolder.img2,newProduct.getImg2()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.img2,newProduct.getImg2());
         return convertView;
     }
     View.OnClickListener onClickListener=new View.OnClickListener() {

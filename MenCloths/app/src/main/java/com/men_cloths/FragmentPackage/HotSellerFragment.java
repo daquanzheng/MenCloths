@@ -109,7 +109,9 @@ public class HotSellerFragment extends Fragment{
             }
             finally {
                 try {
-                    is.close();
+                    if(is!=null) {
+                        is.close();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

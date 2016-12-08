@@ -1,6 +1,7 @@
 package com.men_cloths.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.Thread.HttpImgFromThread;
 import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.model.Collocate;
 
@@ -21,11 +23,13 @@ public class CollocateAdapter extends BaseAdapter{
     List<Collocate> collocateList;
     Context context;
     LayoutInflater layoutInflater;
+    HttpImgThread httpImgThread;
 
     public CollocateAdapter(Context context,List<Collocate> collocateList){
         this.collocateList=collocateList;
         this.context=context;
         layoutInflater=LayoutInflater.from(context);
+      httpImgThread=new HttpImgThread();
     }
     @Override
     public int getCount() {
@@ -55,29 +59,29 @@ public class CollocateAdapter extends BaseAdapter{
         Collocate collocate=collocateList.get(position);
         if(position%2==0) {
             viewHolder.wholeImg1.setTag(collocate.getWholeImg());
-            new HttpImgThread(viewHolder.wholeImg1,collocate.getWholeImg()).start();
+            httpImgThread.showImageByAsyncTask(viewHolder.wholeImg1,collocate.getWholeImg());
             viewHolder.wholeImg1.setVisibility(View.VISIBLE);
             viewHolder.wholeImg2.setVisibility(View.GONE);
         }else {
             viewHolder.wholeImg2.setTag(collocate.getWholeImg());
-            new HttpImgThread(viewHolder.wholeImg2,collocate.getWholeImg()).start();
+            httpImgThread.showImageByAsyncTask(viewHolder.wholeImg2,collocate.getWholeImg());
             viewHolder.wholeImg1.setVisibility(View.GONE);
             viewHolder.wholeImg2.setVisibility(View.VISIBLE);
         }
         viewHolder.partImg1.setTag(collocate.getPartImg1());
-        new HttpImgThread(viewHolder.partImg1,collocate.getPartImg1()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.partImg1,collocate.getPartImg1());
         viewHolder.partText1.setText(collocate.getPartImg1Title());
 
         viewHolder.partImg2.setTag(collocate.getPartImg2());
-        new HttpImgThread(viewHolder.partImg2,collocate.getPartImg2()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.partImg2,collocate.getPartImg2());
         viewHolder.partText2.setText(collocate.getPartImg2Title());
 
         viewHolder.partImg3.setTag(collocate.getPartImg3());
-        new HttpImgThread(viewHolder.partImg3,collocate.getPartImg3()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.partImg3,collocate.getPartImg3());
         viewHolder.partText3.setText(collocate.getPartImg3Title());
 
         viewHolder.partImg4.setTag(collocate.getPartImg4());
-        new HttpImgThread(viewHolder.partImg4,collocate.getPartImg4()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.partImg4,collocate.getPartImg4());
         viewHolder.partText4.setText(collocate.getPartImg4Title());
 
         return convertView;

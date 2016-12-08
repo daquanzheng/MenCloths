@@ -15,6 +15,7 @@
                 android:orientation="horizontal"
                 android:background="@color/brand_font">
                 <ImageView
+                    android:id="@+id/classify_info_backimg"
                     android:layout_width="20dp"
                     android:layout_height="22dp"
                     android:src="@mipmap/zuo_white"

@@ -109,7 +109,9 @@ public class TrendFragment extends Fragment{
             }
             finally {
                 try {
+                    if(is!=null){
                     is.close();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

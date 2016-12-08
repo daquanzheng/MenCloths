@@ -38,11 +38,10 @@ public class HomeFragment extends Fragment{
         trendBtn= (RadioButton) view.findViewById(R.id.home_trend);
         showBtn= (RadioButton) view.findViewById(R.id.home_showing);
         topRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
-        HomeActivity homeActivity= (HomeActivity) this.getActivity();
-        FragmentManager fragmentManager=homeActivity.getSupportFragmentManager();
+        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
         HomeFragmentAdapter homeFragmentAdapter=new HomeFragmentAdapter(fragmentManager,getFragmentList());
         viewPager.setAdapter(homeFragmentAdapter);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -73,12 +72,12 @@ public class HomeFragment extends Fragment{
         return view;
 
     }
+    NewProductFragment newProductFragment=new NewProductFragment();
+    HotSellerFragment hotSellerFragment=new HotSellerFragment();
+    TrendFragment trendFragment=new TrendFragment();
+    ShowFragment showFragment=new ShowFragment();
+    List<Fragment> fragmentList=new ArrayList<>();
     public List<Fragment> getFragmentList(){
-        NewProductFragment newProductFragment=new NewProductFragment();
-        HotSellerFragment hotSellerFragment=new HotSellerFragment();
-        TrendFragment trendFragment=new TrendFragment();
-        ShowFragment showFragment=new ShowFragment();
-        List<Fragment> fragmentList=new ArrayList<>();
         fragmentList.add(newProductFragment);
         fragmentList.add(hotSellerFragment);
         fragmentList.add(trendFragment);

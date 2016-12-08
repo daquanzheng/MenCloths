@@ -21,6 +21,7 @@ public class ClassifyAdapter extends BaseAdapter{
     Context context;
     List<Classify> classifyList;
     LayoutInflater layoutInflater;
+    HttpImgThread httpImgThread;
 
     public ClassifyAdapter(Context context, List<Classify> classifyList){
         this.context=context;
@@ -28,6 +29,7 @@ public class ClassifyAdapter extends BaseAdapter{
         if(context!=null){
             layoutInflater=LayoutInflater.from(context);
         }
+        httpImgThread=new HttpImgThread();
     }
     @Override
     public int getCount() {
@@ -57,10 +59,10 @@ public class ClassifyAdapter extends BaseAdapter{
         Classify classify=classifyList.get(position);
         viewHolder.text1.setText(classify.getText1());
         viewHolder.img1.setTag(classify.getImgUrl1());
-        new HttpImgThread(viewHolder.img1,classify.getImgUrl1()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.img1,classify.getImgUrl1());
         viewHolder.text2.setText(classify.getText2());
         viewHolder.img2.setTag(classify.getImgUrl2());
-        new HttpImgThread(viewHolder.img2,classify.getImgUrl2()).start();
+        httpImgThread.showImageByAsyncTask(viewHolder.img2,classify.getImgUrl2());
         return convertView;
     }
 

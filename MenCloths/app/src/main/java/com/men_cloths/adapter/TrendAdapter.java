@@ -25,10 +25,12 @@ public class TrendAdapter extends BaseAdapter{
     List<Trend> trendList;
     LayoutInflater layoutInflater;
     Boolean state=true;
+    HttpImgThread httpImgThread;
     public TrendAdapter(Context context,List<Trend> trendList){
         this.context=context;
         this.trendList=trendList;
         layoutInflater=LayoutInflater.from(context);
+        httpImgThread=new HttpImgThread();
     }
     @Override
     public int getCount() {
@@ -55,7 +57,7 @@ public class TrendAdapter extends BaseAdapter{
         textView.setText(trend.getTitle());
         ImageView imageView= (ImageView) convertView.findViewById(R.id.img_trend_sport);
         imageView.setTag(trend.getImg());
-        new HttpImgThread(imageView,trend.getImg()).start();
+        httpImgThread.showImageByAsyncTask(imageView,trend.getImg());
         final TextView collectionTV= (TextView) convertView.findViewById(R.id.trend_item_collection);
         collectionTV.setOnClickListener(new View.OnClickListener() {
             @Override

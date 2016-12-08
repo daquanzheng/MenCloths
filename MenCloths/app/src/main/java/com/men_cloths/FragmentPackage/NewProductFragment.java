@@ -1,5 +1,7 @@
 package com.men_cloths.FragmentPackage;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.NewProductAdapter;
+import com.men_cloths.mainContent.ShopInfo;
 import com.men_cloths.model.NewProduct;
 
 import org.json.JSONArray;
@@ -33,13 +37,14 @@ import java.util.List;
  */
 public class NewProductFragment extends Fragment{
     ListView listView;
+    NewProduct newProduct;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.listview_no_divider,null);
         listView= (ListView) view.findViewById(R.id.listview_no_divider);
         startAsyncTask();
-        ImageView imageView=new ImageView(getActivity());
+        final ImageView imageView=new ImageView(getActivity());
         AbsListView.LayoutParams layoutParams=new  AbsListView.LayoutParams(
                 AbsListView.LayoutParams.MATCH_PARENT,  AbsListView.LayoutParams.WRAP_CONTENT
         );
@@ -47,8 +52,33 @@ public class NewProductFragment extends Fragment{
         imageView.setImageResource(R.mipmap.new_top);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         listView.addHeaderView(imageView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                newProduct= (NewProduct) parent.getItemAtPosition(position);
+                ImageView imageView1= (ImageView) view.findViewById(R.id.new_img1);
+                ImageView imageView2= (ImageView) view.findViewById(R.id.new_img2);
+                imageView1.setOnClickListener(onClickListener);
+                imageView2.setOnClickListener(onClickListener);
+            }
+        });
         return view;
     }
+    View.OnClickListener onClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.new_img1:
+                    Intent intent=new Intent(getActivity(), ShopInfo.class);
+                    getActivity().startActivity(intent);
+                    break;
+                case R.id.new_img2:
+                    intent=new Intent(getActivity(), ShopInfo.class);
+                    getActivity().startActivity(intent);
+                    break;
+            }
+        }
+    };
     public class MyAsyncTask extends AsyncTask<String,Integer,String> {
 
         @Override
