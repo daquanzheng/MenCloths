@@ -1,6 +1,7 @@
 package com.men_cloths.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,18 +83,20 @@ public class GettingAddressAdapter extends BaseAdapter{
 
             showAddressDetails = (CheckBox) convertView.findViewById(R.id.show_address_details);
             final View finalConvertView = convertView;
+            showAddressDetails.setTag(addressAll);
+
             showAddressDetails.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if(finalConvertView !=null) {
                         addressAll = (LinearLayout) finalConvertView.findViewById(R.id.address_all);
                         if (isChecked) {
-//                        Log.i("详细地址显示========>",""+finalConvertView.toString());
+                        Log.i("详细地址显示========>",""+finalConvertView.toString());
                             addressAll.setVisibility(View.VISIBLE);
                             GettingAddressAdapter.this.notifyDataSetChanged();
                         } else {
-//                            Log.i("详细地址隐藏========>",""+finalConvertView.toString());
-                            addressAll.setVisibility(View.INVISIBLE);
+                            Log.i("详细地址隐藏========>",""+finalConvertView.toString());
+                            addressAll.setVisibility(View.GONE);
                             GettingAddressAdapter.this.notifyDataSetChanged();
                         }
                     }
@@ -117,6 +120,7 @@ public class GettingAddressAdapter extends BaseAdapter{
         return convertView;
     }
     public class ViewHolder{
+
         TextView newname;
         TextView newphone,newaddress;
     }

@@ -22,11 +22,20 @@ public class FootprintAdapter extends BaseAdapter{
     private List<Footprint> footprintList = new ArrayList<>();
     private Context context;
     private  LayoutInflater inflater;
+    RemoveIntem removeIntem;
     public FootprintAdapter(Context context,List<Footprint> footprintList){
         this.context = context;
         this.footprintList = footprintList;
         inflater = LayoutInflater.from(context);
     }
+    public interface RemoveIntem{
+        public void cut(int position,String name);
+    }
+
+    public void setRemoveIntem(RemoveIntem removeIntem) {
+        this.removeIntem = removeIntem;
+    }
+
     @Override
     public int getCount() {
         return footprintList.size();
@@ -55,11 +64,12 @@ public class FootprintAdapter extends BaseAdapter{
             viewHolder.size = (TextView) convertView.findViewById(R.id.footprint_goods_size);
             viewHolder.price = (TextView) convertView.findViewById(R.id.footprint_goods_price);
             viewHolder.delete = (Button) convertView.findViewById(R.id.footprint_goods_clear);
+            final ViewHolder viewHolder1 = viewHolder;
             viewHolder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    footprintList.remove(position);
-                    FootprintAdapter.this.notifyDataSetChanged();
+                   String str =  viewHolder1.name.getText().toString();
+                    removeIntem.cut(position,str);
                 }
             });
             convertView.setTag(viewHolder);

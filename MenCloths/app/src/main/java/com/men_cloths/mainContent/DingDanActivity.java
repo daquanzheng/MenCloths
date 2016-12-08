@@ -50,7 +50,11 @@ public class DingDanActivity extends FragmentActivity{
         WaitPayFragment waitPayFragment = new WaitPayFragment();
         WaitGetFragment waitGetFragment = new WaitGetFragment();
         WaitAppraiseFragment waitAppraiseFragment = new WaitAppraiseFragment();
-        fragments.add(allOrderFragement);
+//        if(waitPayFragment.getLists().size()==0){
+            fragments.add(allOrderFragement);
+//        }else{
+//            fragments.add(waitPayFragment);
+//        }
         fragments.add(waitPayFragment);
         fragments.add(waitGetFragment);
         fragments.add(waitAppraiseFragment);

@@ -73,7 +73,6 @@ public class MyAddressActivity extends Activity{
                             if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
                                 lists.remove(index);
                                 handler.sendEmptyMessage(0);
-
                             }
                         } catch (MalformedURLException e) {
                             e.printStackTrace();

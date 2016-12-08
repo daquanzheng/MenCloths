@@ -48,6 +48,34 @@ public class FootprintActivity extends Activity{
         back.setOnClickListener(onClickListener);
 
         footprintAdapter = new FootprintAdapter(FootprintActivity.this,lists);
+        footprintAdapter.setRemoveIntem(new FootprintAdapter.RemoveIntem() {
+            @Override
+            public void cut(int position,String name) {
+                final int p = position;
+                final  String s = name;
+                new Thread(){
+                    @Override
+                    public void run() {
+                        String s1 = "http://192.168.7.9/index.php/home/footprint/deletefootprint";
+                        try {
+                            URL url = new URL(s1+"?name="+s);
+                            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+                            http.setRequestMethod("GET");
+                            http.setConnectTimeout(5000);
+                            http.connect();
+                            if(http.getResponseCode()==200){
+                                lists.remove(p);
+                                handler.sendEmptyMessage(0);
+                            }
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
+            }
+        });
         listView.setAdapter(footprintAdapter);
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -99,6 +127,7 @@ public class FootprintActivity extends Activity{
             e.printStackTrace();
         }
     }
+
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {

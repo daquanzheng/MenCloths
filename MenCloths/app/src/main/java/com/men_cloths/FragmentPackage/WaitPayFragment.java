@@ -34,6 +34,11 @@ public class WaitPayFragment extends Fragment {
     ListView listView;
     List<Waitpay> lists = new ArrayList<>();
     WaitpayAdapter waitpayAdapter;
+
+    public List<Waitpay> getLists() {
+        return lists;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_daifukuan,null);
@@ -49,7 +54,7 @@ public class WaitPayFragment extends Fragment {
         listView.setAdapter(waitpayAdapter);
         return view;
     }
-   public void getLists(){
+   public void gettingLists(){
        String string = "http://192.168.7.9/index.php/home/waitpay/getorder";
        try {
            URL url = new URL(string);
@@ -94,7 +99,7 @@ public class WaitPayFragment extends Fragment {
         new Thread(){
             @Override
             public void run() {
-                getLists();
+                gettingLists();
             }
         }.start();
     }
