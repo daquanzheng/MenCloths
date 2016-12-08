@@ -16,6 +16,7 @@ import com.men_cloths.FragmentPackage.MallFragment;
 import com.men_cloths.FragmentPackage.MineFragment;
 import com.men_cloths.FragmentPackage.MineLoginFragment;
 import com.men_cloths.R;
+import com.men_cloths.model.ActivityManager;
 import com.men_cloths.model.HasLogin;
 import com.men_cloths.model.MyButton;
 
@@ -51,6 +52,7 @@ public class HomeActivity extends FragmentActivity{
         classifyMyButton.setOnClickListener(onClickListener);
         mineMyButton.setOnClickListener(onClickListener);
         initial();
+        ActivityManager.getActivityManager().add(this);
     }
     public void initial(){
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
