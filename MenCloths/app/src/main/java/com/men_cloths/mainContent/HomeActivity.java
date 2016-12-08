@@ -181,7 +181,7 @@ public class HomeActivity extends FragmentActivity{
                 }
                 break;
         }
-        fragmentTransaction.commit();
+        fragmentTransaction.commitAllowingStateLoss();
     }
     View.OnClickListener onClickListener=new View.OnClickListener() {
         @Override

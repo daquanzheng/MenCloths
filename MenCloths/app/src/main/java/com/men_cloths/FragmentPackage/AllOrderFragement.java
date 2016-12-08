@@ -25,8 +25,14 @@ public class AllOrderFragement extends Fragment{
         goShopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(intent);
+                for(int i=0;i<HomeActivity.myButtonClick.length;i++){
+                    if(i==1){
+                        HomeActivity.myButtonClick[i]=true;
+                    }else {
+                        HomeActivity.myButtonClick[i]=false;
+                    }
+                }
+                getActivity().finish();
             }
         });
         return view;
