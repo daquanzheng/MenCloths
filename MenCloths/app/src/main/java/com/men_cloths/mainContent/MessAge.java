@@ -1,7 +1,6 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +25,11 @@ public class MessAge extends Activity{
      *
      * */
 
-    Boolean isemptyForNotification=true;
-    Boolean isemptyForTransaction=true;
-    LinearLayout linearLayout;
-    LayoutInflater inflater;
-    ImageView back;
+    private  Boolean isemptyForNotification=true;
+    private  Boolean isemptyForTransaction=true;
+    private  LinearLayout linearLayout;
+    private  LayoutInflater inflater;
+    private   ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

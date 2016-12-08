@@ -27,7 +27,7 @@ import com.men_cloths.mainContent.Seting;
  */
 public class MineLoginFragment extends Fragment{
 
-    ViewHolder viewHolder;
+    private ViewHolder viewHolder;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

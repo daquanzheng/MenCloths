@@ -1,23 +1,26 @@
 package com.men_cloths.model;
 
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.net.URL;
 
 /**
  * Created by Administrator on 2016/12/6.
  */
 public class ProductDetails {
-    int product;
+    Bitmap product;
     String description;
     String type;
     double price;
     double original;
 
-    public int getProduct() {
+    public Bitmap getProduct() {
         return product;
     }
 
-    public void setProduct(int product) {
+    public void setProduct(Bitmap product) {
         this.product = product;
     }
 

@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.mainContent.ActivityLogin;
@@ -21,7 +19,7 @@ import com.men_cloths.mainContent.ActivityRegister;
  * Created by Administrator on 2016/11/25.
  */
 public class MineFragment extends Fragment{
-    ViewHolder viewHolder;
+    private ViewHolder viewHolder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

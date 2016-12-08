@@ -76,25 +76,27 @@ public class GettingAddressAdapter extends BaseAdapter{
 //                    Log.i("删除的区域下标======>",""+position);
 //                    addressList.remove(position);
 //                    GettingAddressAdapter.this.notifyDataSetChanged();
-                str3 = finalViewHolder1.newname.getText().toString();
-                editOnClickListener.onClick(position,str3);
+                    str3 = finalViewHolder1.newname.getText().toString();
+                    editOnClickListener.onClick(position,str3);
                 }
             });
 
             showAddressDetails = (CheckBox) convertView.findViewById(R.id.show_address_details);
             final View finalConvertView = convertView;
+            showAddressDetails.setTag(addressAll);
+
             showAddressDetails.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if(finalConvertView !=null) {
                         addressAll = (LinearLayout) finalConvertView.findViewById(R.id.address_all);
                         if (isChecked) {
-//                        Log.i("详细地址显示========>",""+finalConvertView.toString());
+                        Log.i("详细地址显示========>",""+finalConvertView.toString());
                             addressAll.setVisibility(View.VISIBLE);
                             GettingAddressAdapter.this.notifyDataSetChanged();
                         } else {
-//                            Log.i("详细地址隐藏========>",""+finalConvertView.toString());
-                            addressAll.setVisibility(View.INVISIBLE);
+                            Log.i("详细地址隐藏========>",""+finalConvertView.toString());
+                            addressAll.setVisibility(View.GONE);
                             GettingAddressAdapter.this.notifyDataSetChanged();
                         }
                     }
@@ -118,6 +120,7 @@ public class GettingAddressAdapter extends BaseAdapter{
         return convertView;
     }
     public class ViewHolder{
+
         TextView newname;
         TextView newphone,newaddress;
     }

@@ -1,16 +1,28 @@
 package com.men_cloths.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.HttpAuthHandler;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.model.ProductDetails;
 
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -50,7 +62,11 @@ public class ProductDetailsAdapter extends BaseAdapter {
        }
         ProductDetails productDetails=list.get(position);
         ImageView product=(ImageView)convertView.findViewById(R.id.img_product);
-        product.setImageResource(productDetails.getProduct());
+        //product.setImageResource(productDetails.getProduct());
+//        viewHolder.img1.setTag(classify.getImgUrl1());
+//        new HttpImgThread(viewHolder.img1,classify.getImgUrl1()).start();
+
+        product.setImageBitmap(productDetails.getProduct());
         TextView description=(TextView)convertView.findViewById(R.id.textview_product_description);
         description.setText(productDetails.getDescription());
         TextView type=(TextView)convertView.findViewById(R.id.textview_product_type);

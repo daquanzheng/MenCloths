@@ -15,9 +15,9 @@ import com.men_cloths.R;
 
 public class BindSucessfuly extends Activity {
 
-    ImageView imageView;
-    Intent intent;
-    String tel;
+    private   ImageView imageView;
+    private    Intent intent;
+    private   String tel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

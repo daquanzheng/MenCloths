@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.men_cloths.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +26,7 @@ import java.net.URL;
  * Created by Administrator on 2016/11/28.
  */
 public class AddNewAddressActivity extends Activity{
-    ViewHolder viewHolder;
+    private  ViewHolder viewHolder;
     public class ViewHolder{
         ImageView back;
         TextView saveNewAddress,name,phone,address,street;
@@ -40,6 +42,7 @@ public class AddNewAddressActivity extends Activity{
         viewHolder.phone = (TextView) findViewById(R.id.phone);
         viewHolder.address = (TextView) findViewById(R.id.address);
         viewHolder.street = (TextView) findViewById(R.id.street);
+
 
         viewHolder.back.setOnClickListener(onClickListener);
         viewHolder.saveNewAddress.setOnClickListener(onClickListener);
@@ -59,30 +62,31 @@ public class AddNewAddressActivity extends Activity{
                             addNewAddress();
                         }
                     }.start();
+                    Log.i("保存成功----------->",""+true);
+                    //线程是耗时操作，必须等线程跑完了才能finish
                     break;
             }
         }
     };
-
     public void addNewAddress(){
         try {
-            String string = "http://192.168.7.9/index.php/Home/Address/";
-            URL url = new URL(string+"addnewaddress?name="+viewHolder.name.getText().toString()+"&phone="+viewHolder.phone.getText().toString()+
-                    "&address="+viewHolder.address.getText().toString()+viewHolder.street.getText().toString());
-           // Log.i("url=====>",""+url);
+            String string = "http://192.168.7.9/index.php/Home/address/";
+            URL url = new URL(string+"addNewAddress?name="+viewHolder.name.getText().toString()+"&phone="+viewHolder.phone.getText()
+                    .toString()+"&address="+viewHolder.address.getText().toString());
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
 //            httpURLConnection.setRequestProperty();
             httpURLConnection.connect();
             if(httpURLConnection.getResponseCode()==200){
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
-                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
-                String s;
-                while ((s=bufferedReader.readLine())!=null){
-                    stringBuilder.append(s);
-                }
+
+//                InputStream inputStream = httpURLConnection.getInputStream();
+//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
+//                StringBuilder stringBuilder = new StringBuilder();//单线程用StringBuffer速度快，多线程用StringBuffer保证安全
+//                String s;
+//                while ((s=bufferedReader.readLine())!=null){
+//                    stringBuilder.append(s);
+//                }
               //  Log.i("加入的数据",""+stringBuilder);
                 handler.sendEmptyMessage(0);
             }
@@ -92,7 +96,7 @@ public class AddNewAddressActivity extends Activity{
             e.printStackTrace();
         }
     }
-    Handler handler=new Handler(new Handler.Callback() {
+    Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             finish();

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,7 +37,6 @@ public class MyAddressActivity extends Activity{
     ListView listView;
     List<GettingAddress> lists = new ArrayList<>();
     GettingAddressAdapter gettingAddressAdapter;
-    int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +73,6 @@ public class MyAddressActivity extends Activity{
                             if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
                                 lists.remove(index);
                                 handler.sendEmptyMessage(0);
-
                             }
                         } catch (MalformedURLException e) {
                             e.printStackTrace();
@@ -121,7 +118,7 @@ public class MyAddressActivity extends Activity{
                 while ((s=bufferedReader.readLine())!=null){
                     stringBuilder.append(s);
                 }
-               // Log.i("获取到的数据",""+stringBuilder);
+                // Log.i("获取到的数据",""+stringBuilder);
                 JSONObject jsonObject = new JSONObject(stringBuilder.toString());
                 JSONArray jsonArray = jsonObject.optJSONArray("data");
                 for(int i=0;i<jsonArray.length();i++){

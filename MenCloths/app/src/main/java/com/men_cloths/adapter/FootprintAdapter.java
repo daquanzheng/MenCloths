@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.men_cloths.R;
 import com.men_cloths.model.Footprint;
@@ -20,14 +19,23 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class FootprintAdapter extends BaseAdapter{
-    List<Footprint> footprintList = new ArrayList<>();
-    Context context;
-    LayoutInflater inflater;
+    private List<Footprint> footprintList = new ArrayList<>();
+    private Context context;
+    private  LayoutInflater inflater;
+    RemoveIntem removeIntem;
     public FootprintAdapter(Context context,List<Footprint> footprintList){
         this.context = context;
         this.footprintList = footprintList;
         inflater = LayoutInflater.from(context);
     }
+    public interface RemoveIntem{
+        public void cut(int position,String name);
+    }
+
+    public void setRemoveIntem(RemoveIntem removeIntem) {
+        this.removeIntem = removeIntem;
+    }
+
     @Override
     public int getCount() {
         return footprintList.size();
@@ -56,24 +64,25 @@ public class FootprintAdapter extends BaseAdapter{
             viewHolder.size = (TextView) convertView.findViewById(R.id.footprint_goods_size);
             viewHolder.price = (TextView) convertView.findViewById(R.id.footprint_goods_price);
             viewHolder.delete = (Button) convertView.findViewById(R.id.footprint_goods_clear);
+            final ViewHolder viewHolder1 = viewHolder;
             viewHolder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    footprintList.remove(position);
-                    FootprintAdapter.this.notifyDataSetChanged();
+                   String str =  viewHolder1.name.getText().toString();
+                    removeIntem.cut(position,str);
                 }
             });
             convertView.setTag(viewHolder);
 
         }
         viewHolder = (ViewHolder) convertView.getTag();
-//        Footprint footprint = new Footprint();
+        Footprint footprint = footprintList.get(position);
 //        viewHolder.time.setText(footprint.getTime());
-//        viewHolder.picture.setImageResource(footprint.getPicture());
-//        viewHolder.name.setText(footprint.getName());
-//        viewHolder.color.setText(footprint.getColor());
-//        viewHolder.size.setText(footprint.getSize());
-//        viewHolder.price.setText(footprint.getPrice());
+        viewHolder.picture.setImageResource(footprint.getPicture());
+        viewHolder.name.setText(footprint.getName());
+        viewHolder.color.setText(footprint.getColor());
+        viewHolder.size.setText(footprint.getSize());
+        viewHolder.price.setText(footprint.getPrice());
         return convertView;
     }
     public class ViewHolder{

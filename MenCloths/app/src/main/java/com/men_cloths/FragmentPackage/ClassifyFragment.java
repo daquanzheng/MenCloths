@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +37,8 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class ClassifyFragment extends Fragment{
-    ListView listView;
-    EditText editText;
+    private  ListView listView;
+    private   EditText editText;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.mencloths_mall,null);
@@ -98,6 +99,7 @@ public class ClassifyFragment extends Fragment{
                             JSONObject object = jsonArray.getJSONObject(i + 1);
                             classify.setText2(object.getString("categroy"));
                             classify.setImgUrl2(object.getString("img"));
+                            Log.i("setImgUrl2",""+object.getString("img"));
                             classifyList.add(classify);
                         }
                     }

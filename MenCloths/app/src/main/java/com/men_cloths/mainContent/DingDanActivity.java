@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -24,12 +23,12 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/11/25.
  */
 public class DingDanActivity extends FragmentActivity{
-    ImageView back;
-    RadioGroup radioGroup;
-    RadioButton allOrder,waitPay,waitGet,waitAppraise;
-    View radio1,radio2,radio3,radio4;
-    ArrayList<Fragment> fragments;
-    ViewPager viewPager;
+    private  ImageView back;
+    private  RadioGroup radioGroup;
+    private   RadioButton allOrder,waitPay,waitGet,waitAppraise;
+    private   View radio1,radio2,radio3,radio4;
+    private   ArrayList<Fragment> fragments;
+    private   ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +50,11 @@ public class DingDanActivity extends FragmentActivity{
         WaitPayFragment waitPayFragment = new WaitPayFragment();
         WaitGetFragment waitGetFragment = new WaitGetFragment();
         WaitAppraiseFragment waitAppraiseFragment = new WaitAppraiseFragment();
-        fragments.add(allOrderFragement);
+//        if(waitPayFragment.getLists().size()==0){
+            fragments.add(allOrderFragement);
+//        }else{
+//            fragments.add(waitPayFragment);
+//        }
         fragments.add(waitPayFragment);
         fragments.add(waitGetFragment);
         fragments.add(waitAppraiseFragment);

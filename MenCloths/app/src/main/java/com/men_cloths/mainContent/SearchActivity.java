@@ -2,15 +2,12 @@ package com.men_cloths.mainContent;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.MyGridViewAdapter;
-
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +16,11 @@ import java.util.List;
  * Created by Administrator on 2016/11/6.
  */
 public class SearchActivity extends Activity{
-    GridView GridViewTop;
-    GridView GridViewBottom;
-    EditText editText;
-    ImageView imageView;
-    List<String> stringList=new ArrayList<>();
+    private GridView GridViewTop;
+    private  GridView GridViewBottom;
+    private   EditText editText;
+    private   ImageView imageView;
+    private   List<String> stringList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

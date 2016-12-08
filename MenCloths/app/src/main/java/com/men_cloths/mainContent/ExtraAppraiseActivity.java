@@ -15,8 +15,8 @@ import com.men_cloths.R;
  * Created by Administrator on 2016/11/30.
  */
 public class ExtraAppraiseActivity extends Activity{
-    TextView cancel,extraAppraiseOk;
-    EditText extraAppraise;
+    private   TextView cancel,extraAppraiseOk;
+    private  EditText extraAppraise;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

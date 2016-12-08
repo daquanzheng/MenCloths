@@ -2,7 +2,6 @@ package com.men_cloths.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import java.util.List;
  * Created by Administrator on 2016/11/1.
  */
 public class HomeFragmentAdapter extends FragmentStatePagerAdapter{
-    List<Fragment> fragmentList;
+    private  List<Fragment> fragmentList;
     public HomeFragmentAdapter(FragmentManager fm,List<Fragment> fragmentLis) {
         super(fm);
         this.fragmentList=fragmentLis;
