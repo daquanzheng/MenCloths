@@ -56,7 +56,7 @@ public class FootprintActivity extends Activity{
                 new Thread(){
                     @Override
                     public void run() {
-                        String s1 = "http://192.168.7.9/index.php/home/footprint/deletefootprint";
+                        String s1 = "http://139.199.196.199/index.php/home/footprint/deletefootprint";
                         try {
                             URL url = new URL(s1+"?name="+s);
                             HttpURLConnection http = (HttpURLConnection) url.openConnection();

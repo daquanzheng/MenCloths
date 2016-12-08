@@ -55,7 +55,7 @@ public class WaitPayFragment extends Fragment {
         return view;
     }
    public void gettingLists(){
-       String string = "http://192.168.7.9/index.php/home/waitpay/getorder";
+       String string = "http://139.199.196.199/index.php/home/waitpay/getorder";
        try {
            URL url = new URL(string);
            HttpURLConnection http = (HttpURLConnection) url.openConnection();
