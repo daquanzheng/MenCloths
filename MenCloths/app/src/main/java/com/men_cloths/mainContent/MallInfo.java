@@ -79,7 +79,7 @@ public class MallInfo extends Activity {
         }
     };
     public void getDate() {
-        String httpURL = "http://192.168.7.2//index.php/Home/Index/productdetail";
+        String httpURL = "http://139.199.196.199//index.php/Home/Index/productdetail";
         try {
             StringBuilder stringBuilder = new StringBuilder();
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(httpURL).openConnection();
