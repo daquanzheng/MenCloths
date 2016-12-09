@@ -52,6 +52,7 @@ public class HomeActivity extends FragmentActivity{
         mineMyButton.setOnClickListener(onClickListener);
         initial();
         ActivityManager.getActivityManager().add(this);
+
     }
     public void initial(){
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
@@ -143,9 +144,12 @@ public class HomeActivity extends FragmentActivity{
                 if(mallFragment==null){
                     mallFragment=new MallFragment();
                     fragmentTransaction.add(R.id.root_relativeLayout,mallFragment);
+                    function();
                 }else {
                     fragmentTransaction.show(mallFragment);
+                    function();
                 }
+
                 break;
             case 2:
                 if(collocateFragment==null){
@@ -246,5 +250,15 @@ public class HomeActivity extends FragmentActivity{
     protected void onRestart() {
         initial();
         super.onRestart();
+    }
+
+    public void function(){
+        new Thread(){
+            @Override
+            public void run() {
+                mallFragment.getData();
+                super.run();
+            }
+        }.start();
     }
 }

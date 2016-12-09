@@ -1,5 +1,6 @@
 package com.men_cloths.FragmentPackage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -39,7 +40,9 @@ import java.util.List;
 public class MallFragment extends Fragment {
     ListView listView;
     EditText editText;
+    MallAdapter mallAdapter;
     List<ProductClassify>list=new ArrayList<>();
+    Context context;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.mencloths_mall,null);
@@ -68,14 +71,18 @@ public class MallFragment extends Fragment {
 
             }
         });
+
+        context=getActivity();
+
         return view;
     }
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            MallAdapter mallAdapter=new MallAdapter(getActivity(),list);
+            mallAdapter=new MallAdapter(context,list);
             listView.setAdapter(mallAdapter);
+
         }
     };
     public void getData(){
@@ -108,8 +115,8 @@ public class MallFragment extends Fragment {
                     Log.i("object====",""+httpURLConnection1.getResponseCode());
                    if(httpURLConnection1.getResponseCode()==200){
                         Bitmap bitmap=BitmapFactory.decodeStream(httpURLConnection1.getInputStream());
-                       productClassify.setImgname(bitmap);
-                       Log.i("object====",""+bitmap);
+                        productClassify.setImgname(bitmap);
+                        Log.i("object====",""+bitmap);
                     }
                     list.add(productClassify);
                 }

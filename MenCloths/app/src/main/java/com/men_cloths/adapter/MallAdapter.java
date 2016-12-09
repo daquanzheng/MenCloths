@@ -1,16 +1,21 @@
 package com.men_cloths.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.men_cloths.R;
+import com.men_cloths.model.ActivityManager;
+import com.men_cloths.model.CachetToFile;
+import com.men_cloths.model.LoadImage;
 import com.men_cloths.model.ProductClassify;
 
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -49,7 +54,18 @@ public class MallAdapter extends BaseAdapter{
         }
         ProductClassify productClassify=list.get(position);
         ImageView imageView= (ImageView) convertView.findViewById(R.id.mall_img);
-        imageView.setImageBitmap(productClassify.getImgname());
+        Bitmap bitmap=ActivityManager.memoryCache.get(list.get(position).getUrl());
+        String url=list.get(position).getUrl();
+        InputStream is;
+
+        if(bitmap!=null){
+            imageView.setImageBitmap(bitmap);
+        }else if((is= CachetToFile.getImage(url,context))!=null){
+            imageView.setImageBitmap(BitmapFactory.decodeStream(is));
+        }else {
+            LoadImage.load(imageView,url,context);
+        }
+        //imageView.setImageBitmap(productClassify.getImgname());
         return convertView;
     }
 }

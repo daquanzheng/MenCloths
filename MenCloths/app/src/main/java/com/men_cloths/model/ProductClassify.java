@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
  */
 public class ProductClassify {
     Bitmap imgname;
+    String url;
 
     public Bitmap getImgname() {
         return imgname;
@@ -14,5 +15,13 @@ public class ProductClassify {
 
     public void setImgname(Bitmap imgname) {
         this.imgname = imgname;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
