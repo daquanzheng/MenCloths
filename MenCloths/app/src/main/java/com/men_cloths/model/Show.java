@@ -4,50 +4,49 @@ package com.men_cloths.model;
  * Created by Administrator on 2016/11/1.
  */
 public class Show {
-    private  int titleImgId;
-    private   String Title;
-    private   String Content;
-    private  int partImgId1;
+    private  String titleImg;
+    private   String nickName;
+    private   String mood;
+    private  String partImg1;
+    private String partImg2;
 
-    public int getTitleImgId() {
-        return titleImgId;
+    public String getTitleImg() {
+        return titleImg;
     }
 
-    public void setTitleImgId(int titleImgId) {
-        this.titleImgId = titleImgId;
+    public void setTitleImg(String titleImg) {
+        this.titleImg = titleImg;
     }
 
-    public String getTitle() {
-        return Title;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
-    public String getContent() {
-        return Content;
+    public String getMood() {
+        return mood;
     }
 
-    public void setContent(String content) {
-        Content = content;
+    public void setMood(String mood) {
+        this.mood = mood;
     }
 
-    public int getPartImgId1() {
-        return partImgId1;
+    public String getPartImg1() {
+        return partImg1;
     }
 
-    public void setPartImgId1(int partImgId1) {
-        this.partImgId1 = partImgId1;
+    public void setPartImg1(String partImg1) {
+        this.partImg1 = partImg1;
     }
 
-    public int getPartImgId2() {
-        return partImgId2;
+    public String getPartImg2() {
+        return partImg2;
     }
 
-    public void setPartImgId2(int partImgId2) {
-        this.partImgId2 = partImgId2;
+    public void setPartImg2(String partImg2) {
+        this.partImg2 = partImg2;
     }
-
-    int partImgId2;
 }
