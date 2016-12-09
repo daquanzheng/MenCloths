@@ -139,6 +139,7 @@ public class FootprintActivity extends Activity{
     @Override
     protected void onResume() {
         super.onResume();
+        lists.clear();
         new Thread(){
             @Override
             public void run() {
