@@ -335,6 +335,7 @@ public class ActivityLogin extends Activity {
         intent.putExtra("side_length", 200);//裁剪图片宽高
         startActivityForResult(intent, CROP_PHOTO);
 
+
         //调用系统的裁剪
 //        Intent intent = new Intent("com.android.camera.action.CROP");
 //        intent.setDataAndType(uri, "image/*");
@@ -353,6 +354,7 @@ public class ActivityLogin extends Activity {
         if (uri == null) {
             return;
         }
+        Log.i("hhh",uri+"");
         camera.setImageURI(uri);
     }
     /**
@@ -370,5 +372,7 @@ public class ActivityLogin extends Activity {
         }
         return dirPath;
     }
+
+
 
 }

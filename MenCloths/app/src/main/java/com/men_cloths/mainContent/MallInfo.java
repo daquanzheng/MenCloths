@@ -1,19 +1,14 @@
 package com.men_cloths.mainContent;
 
 import android.app.Activity;
-import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.BinderThread;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
-
 
 import com.men_cloths.R;
 import com.men_cloths.adapter.ProductDetailsAdapter;
@@ -29,7 +24,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +73,7 @@ public class MallInfo extends Activity {
         }
     };
     public void getDate() {
-        String httpURL = "http://192.168.7.2//index.php/Home/Index/productdetail";
+        String httpURL = "http://139.199.196.199//index.php/Home/Index/productdetail";
         try {
             StringBuilder stringBuilder = new StringBuilder();
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(httpURL).openConnection();

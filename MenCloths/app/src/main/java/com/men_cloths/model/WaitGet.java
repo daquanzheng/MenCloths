@@ -3,7 +3,7 @@ package com.men_cloths.model;
 /**
  * Created by Administrator on 2016/11/28.
  */
-public class Waitget {
+public class Waitget{
     int picture;
     String name;
     String color;

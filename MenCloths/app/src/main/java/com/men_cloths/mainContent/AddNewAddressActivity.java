@@ -70,7 +70,7 @@ public class AddNewAddressActivity extends Activity{
     };
     public void addNewAddress(){
         try {
-            String string = "http://192.168.7.9/index.php/Home/address/";
+            String string = "http://139.199.196.199/index.php/Home/address/";
             URL url = new URL(string+"addNewAddress?name="+viewHolder.name.getText().toString()+"&phone="+viewHolder.phone.getText()
                     .toString()+"&address="+viewHolder.address.getText().toString());
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

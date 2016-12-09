@@ -47,6 +47,7 @@ public class MyAddressActivity extends Activity{
         gettingAddressAdapter = new GettingAddressAdapter(MyAddressActivity.this,lists);
         //自定义的接口
         gettingAddressAdapter.setOnEidtOnClickListener(new GettingAddressAdapter.EditOnClickListenr() {
+            //修改地址
             @Override
             public void onClick(int itemid, String name, String phone) {
                 Intent intent = new Intent(MyAddressActivity.this,AddressEditActivity.class);
@@ -54,7 +55,7 @@ public class MyAddressActivity extends Activity{
                 intent.putExtra("phone",phone);
                 startActivity(intent);
             }
-
+            //删除地址
             @Override
             public void onClick(int position, String name) {
                 final int index = position;
@@ -63,7 +64,7 @@ public class MyAddressActivity extends Activity{
                     @Override
                     public void run() {
                         super.run();
-                        String string = "http://192.168.7.9/index.php/Home/Address/deleteaddress";
+                        String string = "http://139.199.196.199/index.php/Home/Address/deleteaddress";
                         try {
                             URL url = new URL(string+"?name="+str);
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -104,7 +105,7 @@ public class MyAddressActivity extends Activity{
     };
 
     public void getAddress(){
-        String string = "http://192.168.7.9/index.php/Home/Address/getnewaddress";
+        String string = "http://139.199.196.199/index.php/Home/Address/getnewaddress";
         try {
             URL url = new URL(string);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
