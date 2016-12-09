@@ -1,7 +1,6 @@
 package com.men_cloths.FragmentPackage;
 
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -30,7 +29,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +79,7 @@ public class MallFragment extends Fragment {
         }
     };
     public void getData(){
-        String httpURL="http://192.168.7.2//index.php/Home/Index/productclassify";
+        String httpURL="http://139.199.196.199//index.php/Home/Index/productclassify";
         try {
             StringBuilder stringBuilder=new StringBuilder();
             HttpURLConnection httpURLConnection=(HttpURLConnection) new URL(httpURL).openConnection();

@@ -33,7 +33,8 @@ public class ActivityViewPager extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HasLogin.checkLogin(this,handler);//检查是否登录，不管是否登录都会进行接下来的步骤
+        HasLogin.checkLogin(this,handler);//检查是否登录，不管是否登录都会进行接下来的步骤，
+                                         // 如果是登录页面将直接处于登录状态，不再要求用户登录
     }
 
     @Override
@@ -99,7 +100,7 @@ public class ActivityViewPager extends Activity{
                         public void onClick(View v) {
                             Intent intent=new Intent(ActivityViewPager.this,HomeActivity.class);
                             startActivity(intent);
-                            if (HasLogin.isfirst(ActivityViewPager.this)){
+                            if (HasLogin.isfirst(ActivityViewPager.this)){//如果软件第一次安装运行，否则不执行if里面的语句
                                 SharedPreferences sharedPreferences=getSharedPreferences("login_info", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor=sharedPreferences.edit();
                                 editor.putBoolean("isfirst",false);

@@ -89,7 +89,7 @@ public class FootprintActivity extends Activity{
         }
     };
     public void getData(){
-        String string = "http://192.168.7.9/index.php/home/footprint/getfootprint";
+        String string = "http://139.199.196.199/index.php/home/footprint/getfootprint";
         try {
             URL url = new URL(string);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
