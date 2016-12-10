@@ -44,7 +44,7 @@ public class NewProductFragment extends Fragment{
         View view=inflater.inflate(R.layout.listview_no_divider,null);
         listView= (ListView) view.findViewById(R.id.listview_no_divider);
         startAsyncTask();
-        final ImageView imageView=new ImageView(getActivity());
+        ImageView imageView=new ImageView(getActivity());
         AbsListView.LayoutParams layoutParams=new  AbsListView.LayoutParams(
                 AbsListView.LayoutParams.MATCH_PARENT,  AbsListView.LayoutParams.WRAP_CONTENT
         );
@@ -58,7 +58,9 @@ public class NewProductFragment extends Fragment{
                 newProduct= (NewProduct) parent.getItemAtPosition(position);
                 ImageView imageView1= (ImageView) view.findViewById(R.id.new_img1);
                 ImageView imageView2= (ImageView) view.findViewById(R.id.new_img2);
+                if(imageView1!=null)
                 imageView1.setOnClickListener(onClickListener);
+                if(imageView2!=null)
                 imageView2.setOnClickListener(onClickListener);
             }
         });
