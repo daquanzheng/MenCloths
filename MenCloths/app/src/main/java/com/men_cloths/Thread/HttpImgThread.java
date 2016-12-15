@@ -3,12 +3,16 @@ package com.men_cloths.Thread;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.util.LruCache;
 import android.widget.ImageView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -145,5 +149,41 @@ public class HttpImgThread {
         }else {
             imageView.setImageBitmap(bitmap);
         }
+    }
+
+    //保存网络图片到本地
+    public void saveBitmap(String imgName,Bitmap bitmap){
+
+        File file=new File(Environment.getExternalStorageDirectory(),imgName);
+        try{
+            FileOutputStream outputStream=new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG,90,outputStream);
+            outputStream.flush();
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public String getImgName(String url){
+
+        return url.substring(url.lastIndexOf("/")+1);
+
+    }
+    //读取本地图片
+    private  Bitmap getBitmap(String pathString){
+        Bitmap bitmap=null;
+
+        File file=new File(pathString);
+
+        if (file.exists()){
+
+            bitmap=BitmapFactory.decodeFile(pathString);
+        }
+
+        return bitmap;
     }
 }
