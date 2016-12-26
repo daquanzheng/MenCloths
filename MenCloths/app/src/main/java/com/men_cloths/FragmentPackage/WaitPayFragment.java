@@ -30,19 +30,15 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitPayFragment extends Fragment {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     ListView listView;
     List<Waitpay> lists = new ArrayList<>();
     WaitpayAdapter waitpayAdapter;
-=======
-    private   ListView listView;
-    private   List<Waitpay> lists = new ArrayList<>();
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
-=======
-    private   ListView listView;
-    private   List<Waitpay> lists = new ArrayList<>();
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+
+    public List<Waitpay> getLists() {
+        return lists;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_daifukuan,null);
@@ -58,8 +54,8 @@ public class WaitPayFragment extends Fragment {
         listView.setAdapter(waitpayAdapter);
         return view;
     }
-   public void getLists(){
-       String string = "http://192.168.7.9/index.php/home/waitpay/getorder";
+   public void gettingLists(){
+       String string = "http://139.199.196.199/index.php/home/waitpay/getorder";
        try {
            URL url = new URL(string);
            HttpURLConnection http = (HttpURLConnection) url.openConnection();
@@ -103,7 +99,7 @@ public class WaitPayFragment extends Fragment {
         new Thread(){
             @Override
             public void run() {
-                getLists();
+                gettingLists();
             }
         }.start();
     }

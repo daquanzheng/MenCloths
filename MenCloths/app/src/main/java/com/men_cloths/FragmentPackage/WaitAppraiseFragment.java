@@ -30,19 +30,10 @@ import java.util.List;
  * Created by Administrator on 2016/11/28.
  */
 public class WaitAppraiseFragment extends Fragment{
-<<<<<<< HEAD
-<<<<<<< HEAD
     ListView listView;
     List<Waitappraise> lists = new ArrayList<>();
     WaitappraiseAdapter waitappraiseAdapter;
-=======
-    private   ListView listView;
-    private  List<Waitappraise> lists = new ArrayList<>();
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
-=======
-    private   ListView listView;
-    private  List<Waitappraise> lists = new ArrayList<>();
->>>>>>> 35b1354cf7320dbbe06ac56e4a2c3f4d04b00733
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dingdan_daifukuan,null);
@@ -52,7 +43,7 @@ public class WaitAppraiseFragment extends Fragment{
         return view;
     }
     public void getData(){
-        String string = "http://192.168.7.9/index.php/home/waitappraise/getorder";
+        String string = "http://139.199.196.199/index.php/home/waitappraise/getorder";
         try {
             URL url = new URL(string);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();

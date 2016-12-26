@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.men_cloths.R;
+import com.men_cloths.Thread.HttpImgThread;
 import com.men_cloths.mainContent.ThreadInfo;
 import com.men_cloths.model.Trend;
 
@@ -20,14 +21,16 @@ import java.util.List;
  * Created by Administrator on 2016/10/24.
  */
 public class TrendAdapter extends BaseAdapter{
-    private  Context context;
-    private   List<Trend> trendList;
-    private  LayoutInflater layoutInflater;
-    private Boolean state=true;
+    Context context;
+    List<Trend> trendList;
+    LayoutInflater layoutInflater;
+    Boolean state=true;
+    HttpImgThread httpImgThread;
     public TrendAdapter(Context context,List<Trend> trendList){
         this.context=context;
         this.trendList=trendList;
         layoutInflater=LayoutInflater.from(context);
+        httpImgThread=new HttpImgThread();
     }
     @Override
     public int getCount() {
@@ -53,7 +56,8 @@ public class TrendAdapter extends BaseAdapter{
         TextView textView= (TextView) convertView.findViewById(R.id.trend_title);
         textView.setText(trend.getTitle());
         ImageView imageView= (ImageView) convertView.findViewById(R.id.img_trend_sport);
-        imageView.setImageResource(trend.getImg());
+        imageView.setTag(trend.getImg());
+        httpImgThread.showImageByAsyncTask(imageView,trend.getImg());
         final TextView collectionTV= (TextView) convertView.findViewById(R.id.trend_item_collection);
         collectionTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,5 +85,6 @@ public class TrendAdapter extends BaseAdapter{
         });
         return convertView;
     }
+
 
 }

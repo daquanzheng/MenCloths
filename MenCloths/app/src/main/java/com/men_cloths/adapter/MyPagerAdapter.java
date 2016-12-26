@@ -23,12 +23,15 @@ public class MyPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
+
        container.removeView(arrayList.get(position));
     }
 //用于显示每个item的视图
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+
         container.addView(arrayList.get(position));
+
         return arrayList.get(position);
     }
 

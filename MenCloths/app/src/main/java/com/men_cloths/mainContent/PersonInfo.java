@@ -130,6 +130,13 @@ public class PersonInfo extends Activity {
                     Message message=Message.obtain();
                     message.what=1;
                     handler.sendMessage(message);
+                    SharedPreferences preferences=getSharedPreferences("login_info",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putInt("coupon_expired_count",object.optInt("coupon_expired_count",0));
+                    editor.putInt("coupon_used_count",object.optInt("coupon_used_count",0));
+                    editor.putInt("coupon_notuesd_count",object.optInt("coupon_notuesd_count",0));
+                    editor.commit();
+
                 }else {
                     Message message=Message.obtain();
                     message.what=-2;
