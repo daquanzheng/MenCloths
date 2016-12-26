@@ -32,6 +32,7 @@ public class ActivityRegister extends Activity {
         setContentView(R.layout.activity_register);
         init();
         register();
+
     }
 
     public void init(){

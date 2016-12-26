@@ -92,11 +92,8 @@ public class MallInfo extends Activity {
                 while ((date = bufferedReader.readLine()) != null) {
                     stringBuilder.append(date);
                 }
-
                 JSONObject jsonObject = new JSONObject(stringBuilder.toString());
                 JSONArray jsonArray = jsonObject.getJSONArray("result");
-
-
 //得到该图片的id(name 是该图片的名字，"drawable" 是该图片存放的目录，appInfo.packageName是应用程序的包)
                 //int resID = getResources().getIdentifier(name, "mipmap", appInfo.packageName);
 //代码如下
@@ -125,7 +122,6 @@ public class MallInfo extends Activity {
                     }catch (IOException e){
                         e.printStackTrace();
                     }
-
 //                    int resID = getResources().getIdentifier(object.getString("product"), "mipmap", this.getPackageName());
 //                    Log.i("packagename=======",""+this.getPackageName());
 //                    Bitmap bitmap=BitmapFactory.decodeResource(getResources(), resID);
