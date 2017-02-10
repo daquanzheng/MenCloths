@@ -37,7 +37,7 @@ public class Login{
 
 
     private void run(){
-        String url="http://139.199.196.199/index.php/home/index/login?tel="+user+"&passwd="+passwd;
+        String url="http://804904.ichengyun.net/index.php/home/index/login?tel="+user+"&passwd="+passwd;
         if(user==null || passwd==null){
             Message message=Message.obtain();
             message.what=-99;

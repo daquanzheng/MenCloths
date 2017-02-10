@@ -166,7 +166,7 @@ public class Coupon extends Activity{
 
 
 	private void getInfo(){
-		String url="http://139.199.196.199/index.php/home/index/userinfo?token="+preferences.getString("token","")+"&tel="+preferences.getString("tel","");
+		String url="http://804904.ichengyun.net/index.php/home/index/userinfo?token="+preferences.getString("token","")+"&tel="+preferences.getString("tel","");
 		HttpURLConnection connection=null;
 		BufferedReader reader=null;
 

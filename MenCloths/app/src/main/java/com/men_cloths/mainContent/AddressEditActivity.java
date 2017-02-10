@@ -64,7 +64,7 @@ public class AddressEditActivity extends Activity{
 
     }
     public void saveAddress(){
-        String string = "http://139.199.196.199/index.php/Home/Address/saveAddress";
+        String string = "http://804904.ichengyun.net/index.php/Home/Address/saveAddress";
         try {
             URL url = new URL(string+"?oldname="+bundle.getString("name")+"&name="+editName.getText()+"&phone="+editPhone.getText()+
                     "&address="+editAddressName.getText()+editStreet.getText());

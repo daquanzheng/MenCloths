@@ -35,7 +35,7 @@ import java.util.List;
  */
 public class ShowFragment extends Fragment{
     private ListView listView;
-    String url="http://139.199.196.199/index.php/home/index/show";
+    String url="http://804904.ichengyun.net/index.php/home/index/show";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.listview_have_divider,null);

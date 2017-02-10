@@ -79,7 +79,7 @@ public class MallFragment extends Fragment {
         }
     };
     public void getData(){
-        String httpURL="http://139.199.196.199//index.php/Home/Index/productclassify";
+        String httpURL="http://804904.ichengyun.net//index.php/Home/Index/productclassify";
         try {
             StringBuilder stringBuilder=new StringBuilder();
             HttpURLConnection httpURLConnection=(HttpURLConnection) new URL(httpURL).openConnection();

@@ -43,7 +43,7 @@ public class WaitAppraiseFragment extends Fragment{
         return view;
     }
     public void getData(){
-        String string = "http://139.199.196.199/index.php/home/waitappraise/getorder";
+        String string = "http://804904.ichengyun.net/index.php/home/waitappraise/getorder";
         try {
             URL url = new URL(string);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();

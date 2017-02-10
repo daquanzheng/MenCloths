@@ -121,7 +121,7 @@ public class TrendFragment extends Fragment{
     }
     public void startAsyncTask(){
         MyAsyncTask myAsyncTask=new MyAsyncTask();
-        String httpUrl="http://139.199.196.199/index.php/home/index/trend";
+        String httpUrl="http://804904.ichengyun.net/index.php/home/index/trend";
         myAsyncTask.execute(httpUrl);
     }
 }

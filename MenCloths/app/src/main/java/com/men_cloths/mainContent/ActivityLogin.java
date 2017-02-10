@@ -225,7 +225,7 @@ public class ActivityLogin extends Activity {
         }
     }
     public void regForOhther(String token){
-        String url="http://139.199.196.199/index.php/home/index/three?token="+token;
+        String url="http://804904.ichengyun.net/index.php/home/index/three?token="+token;
         HttpURLConnection connection=null;
         BufferedReader reader=null;
         try {

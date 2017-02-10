@@ -68,6 +68,7 @@ public class MessageVerification{
         SMSSDK.getVerificationCode(COUNTRY, tel, new OnSendMessageHandler() {
             @Override
             public boolean onSendMessage(String country, String phone) {
+
                 return false;
             }
         });

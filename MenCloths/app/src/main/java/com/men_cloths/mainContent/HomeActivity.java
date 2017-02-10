@@ -53,6 +53,7 @@ public class HomeActivity extends FragmentActivity{
         initial();
         ActivityManager.getActivityManager().add(this);
     }
+
     public void initial(){
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         if (myButtonClick[0]) {

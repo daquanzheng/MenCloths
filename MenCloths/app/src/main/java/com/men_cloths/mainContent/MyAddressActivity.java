@@ -64,7 +64,7 @@ public class MyAddressActivity extends Activity{
                     @Override
                     public void run() {
                         super.run();
-                        String string = "http://139.199.196.199/index.php/Home/Address/deleteaddress";
+                        String string = "http://804904.ichengyun.net/index.php/Home/Address/deleteaddress";
                         try {
                             URL url = new URL(string+"?name="+str);
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -105,7 +105,7 @@ public class MyAddressActivity extends Activity{
     };
 
     public void getAddress(){
-        String string = "http://139.199.196.199/index.php/Home/Address/getnewaddress";
+        String string = "http://804904.ichengyun.net/index.php/Home/Address/getnewaddress";
         try {
             URL url = new URL(string);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

@@ -64,7 +64,6 @@ public class ActivityRegister extends Activity {
                 }else{
                     Toast.makeText(ActivityRegister.this,"验证码输入错误",Toast.LENGTH_SHORT).show();
                     isverification=false;
-
                 }
             }
         });

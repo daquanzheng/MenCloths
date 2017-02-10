@@ -23,7 +23,7 @@ public class OFF {
         sharedPreferences= OFF.context.getSharedPreferences("login_info",Context.MODE_PRIVATE);
         new Thread(){
             public void run(){
-                String path="http://139.199.196.199/index.php/home/index/signout?tel="+sharedPreferences.getString("tel","")+
+                String path="http://804904.ichengyun.net/index.php/home/index/signout?tel="+sharedPreferences.getString("tel","")+
                         "&token="+sharedPreferences.getString("token","");
                 HttpURLConnection connection=null;
                 try {
