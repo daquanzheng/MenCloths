@@ -41,7 +41,7 @@ public class HasLogin {
         }
         public void run(){
             SharedPreferences sharedPreferences=context.getSharedPreferences("login_info", Context.MODE_PRIVATE);
-            String path="http://139.199.196.199/index.php/home/index/islogin?tel="+sharedPreferences.getString("tel","")+
+            String path="http://804904.ichengyun.net/index.php/home/index/islogin?tel="+sharedPreferences.getString("tel","")+
                     "&token="+sharedPreferences.getString("token","");
             HttpURLConnection connection=null;
             BufferedReader bufferedReader=null;

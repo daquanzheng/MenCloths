@@ -128,7 +128,7 @@ public class Collection extends Activity{
 	}
 
 	public void getHttpURL(){
-		String utl="http://139.199.196.199/index.php/home/index/collection?tel="+tel;
+		String utl="http://804904.ichengyun.net/index.php/home/index/collection?tel="+tel;
 		HttpURLConnection connection=null;
 		BufferedReader bufferedReader=null;
 
@@ -198,7 +198,7 @@ public class Collection extends Activity{
 
 
 	public boolean remove(String id,String tel){
-		String url="http://139.199.196.199/index.php/home/index/remove?tel="+tel+"&id="+id;
+		String url="http://804904.ichengyun.net/index.php/home/index/remove?tel="+tel+"&id="+id;
 
 		HttpURLConnection connection=null;
 		BufferedReader bufferedReader=null;

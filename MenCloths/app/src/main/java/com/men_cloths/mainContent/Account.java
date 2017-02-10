@@ -133,7 +133,7 @@ public class Account extends Activity{
     public  void getinfo(){
          new Thread(){
              public void run(){
-                 String url="http://139.199.196.199/index.php/home/index/userinfo?token="+token+"&tel="+tel;
+                 String url="http://804904.ichengyun.net/index.php/home/index/userinfo?token="+token+"&tel="+tel;
                  HttpURLConnection connection=null;
                  BufferedReader reader=null;
 

@@ -106,7 +106,7 @@ public class PersonInfo extends Activity {
     }
 
     private void getInfo(){
-        String url="http://139.199.196.199/index.php/home/index/userinfo?token="+token+"&tel="+tel;
+        String url="http://804904.ichengyun.net/index.php/home/index/userinfo?token="+token+"&tel="+tel;
         HttpURLConnection connection=null;
         BufferedReader reader=null;
 
@@ -170,7 +170,7 @@ public class PersonInfo extends Activity {
     private void setInfo(String s){
         String url= null;
         try {
-            url = "http://139.199.196.199/index.php/home/index/changeinformation?token="+token+"&tel="+tel+"&username="+ URLEncoder.encode(s,"utf-8");
+            url = "http://804904.ichengyun.net/index.php/home/index/changeinformation?token="+token+"&tel="+tel+"&username="+ URLEncoder.encode(s,"utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

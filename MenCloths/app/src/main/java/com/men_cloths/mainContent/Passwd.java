@@ -72,7 +72,7 @@ public class Passwd extends Activity{
     public void setInfo(){
         new Thread(){
             public void run(){
-                String url="http://139.199.196.199/index.php/home/index/changeinformation?token="+token+"&tel="+tel+"&sofa_passwd="+passwd;
+                String url="http://804904.ichengyun.net/index.php/home/index/changeinformation?token="+token+"&tel="+tel+"&sofa_passwd="+passwd;
                 HttpURLConnection connection=null;
                 BufferedReader reader=null;
 

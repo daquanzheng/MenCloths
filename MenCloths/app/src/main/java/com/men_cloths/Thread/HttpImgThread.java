@@ -33,12 +33,9 @@ public class HttpImgThread {
                 mCaches.put(url,bitmap);
             }
     }
-
     public Bitmap getBitmapFromCache(String url){
-
         return mCaches.get(url);
     }
-
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -126,7 +123,6 @@ public class HttpImgThread {
                 mImageView.setImageBitmap(bitmap);
             }
         }
-
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
